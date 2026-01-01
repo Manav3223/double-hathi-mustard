@@ -30,8 +30,8 @@ const ContactSection = () => {
                   <h4 className="font-semibold text-foreground">Our Address</h4>
                   <p className="text-muted-foreground mt-1">
                     Double Hathi Oil Mills<br />
-                    Industrial Area, Phase 2<br />
-                    Uttar Pradesh, India
+                    51 Old, Industrial Area, Bharatpur<br />
+                    Jagheena Rural, Rajasthan 321001
                   </p>
                 </div>
               </div>
@@ -42,7 +42,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">Phone</h4>
-                  <p className="text-muted-foreground mt-1">+91 98765 43210</p>
+                  <p className="text-muted-foreground mt-1">+91 79767 08372</p>
                 </div>
               </div>
 
