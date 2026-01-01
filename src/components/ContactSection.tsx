@@ -1,9 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
-
 const ContactSection = () => {
-  return (
-    <section id="contact" className="py-20 md:py-32 bg-card">
+  return <section id="contact" className="py-20 md:py-32 bg-card">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Info */}
@@ -28,8 +26,9 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">Our Address</h4>
-                  <p className="text-muted-foreground mt-1">
-                    Double Hathi Oil Mills<br />
+                  <p className="text-muted-foreground mt-1">ADITYA OIL INDUSTRIES
+51, Old Industrial Area, Bharatpur,
+ Rajasthan 321001<br />
                     51 Old, Industrial Area, Bharatpur<br />
                     Jagheena Rural, Rajasthan 321001
                   </p>
@@ -62,8 +61,8 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">Business Hours</h4>
-                  <p className="text-muted-foreground mt-1">
-                    Monday - Saturday: 9:00 AM - 6:00 PM<br />
+                  <p className="text-muted-foreground mt-1">Monday - Saturday: 9:00 AM - 6:00 PM
+Sunday: 10:00 AM - 4:00 PM<br />
                     Sunday: Closed
                   </p>
                 </div>
@@ -72,7 +71,9 @@ const ContactSection = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-background rounded-2xl p-8 shadow-card border border-border animate-fade-up" style={{ animationDelay: "0.2s" }}>
+          <div className="bg-background rounded-2xl p-8 shadow-card border border-border animate-fade-up" style={{
+          animationDelay: "0.2s"
+        }}>
             <h3 className="font-display text-2xl font-bold text-foreground mb-6">
               Send us a Message
             </h3>
@@ -82,21 +83,13 @@ const ContactSection = () => {
                   <label className="text-sm font-medium text-foreground mb-2 block">
                     Your Name
                   </label>
-                  <input
-                    type="text"
-                    placeholder="Enter your name"
-                    className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
-                  />
+                  <input type="text" placeholder="Enter your name" className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" />
                 </div>
                 <div>
                   <label className="text-sm font-medium text-foreground mb-2 block">
                     Phone Number
                   </label>
-                  <input
-                    type="tel"
-                    placeholder="+91 XXXXX XXXXX"
-                    className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
-                  />
+                  <input type="tel" placeholder="+91 XXXXX XXXXX" className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" />
                 </div>
               </div>
 
@@ -104,22 +97,14 @@ const ContactSection = () => {
                 <label className="text-sm font-medium text-foreground mb-2 block">
                   Email Address
                 </label>
-                <input
-                  type="email"
-                  placeholder="your@email.com"
-                  className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
-                />
+                <input type="email" placeholder="your@email.com" className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" />
               </div>
 
               <div>
                 <label className="text-sm font-medium text-foreground mb-2 block">
                   Your Message
                 </label>
-                <textarea
-                  rows={4}
-                  placeholder="How can we help you?"
-                  className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all resize-none"
-                />
+                <textarea rows={4} placeholder="How can we help you?" className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all resize-none" />
               </div>
 
               <Button type="submit" variant="default" size="lg" className="w-full">
@@ -129,8 +114,6 @@ const ContactSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ContactSection;
