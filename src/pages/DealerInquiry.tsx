@@ -375,7 +375,7 @@ const DealerInquiry = () => {
             {/* Contact Info */}
             <div className="mt-8 text-center text-muted-foreground">
               <p className="mb-2">For immediate assistance, contact us:</p>
-              <p className="text-mustard font-medium">+91 79767 08272 | +91 94143 76910</p>
+              <p className="text-mustard font-medium">+91 79767 08372</p>
             </div>
           </div>
         </div>

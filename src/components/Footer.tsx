@@ -54,9 +54,10 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-lg mb-4">Contact Us</h4>
             <ul className="space-y-3 text-sm text-background/70">
-              <li>Industrial Area, Phase 2</li>
-              <li>Uttar Pradesh, India</li>
-              <li className="text-mustard-light">+91 98765 43210</li>
+              <li>51 Old, Industrial Area</li>
+              <li>Bharatpur, Jagheena Rural</li>
+              <li>Rajasthan 321001</li>
+              <li className="text-mustard-light">+91 79767 08372</li>
               <li className="text-mustard-light">info@doublehathi.com</li>
             </ul>
             
