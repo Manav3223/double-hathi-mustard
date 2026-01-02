@@ -79,8 +79,15 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* FSSAI License */}
+        <div className="border-t border-background/10 pt-8 mb-6 text-center">
+          <p className="text-sm text-background/70">
+            <span className="font-semibold text-mustard-light">FSSAI License No:</span> 12345678901234
+          </p>
+        </div>
+
         {/* Bottom */}
-        <div className="border-t border-background/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-background/60">
+        <div className="border-t border-background/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-background/60">
           <p>&copy; {currentYear} Double Hathi. All rights reserved.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-mustard-light transition-colors">Privacy Policy</a>
