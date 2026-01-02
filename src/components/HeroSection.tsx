@@ -1,18 +1,12 @@
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
 import { ArrowDown } from "lucide-react";
-
 const HeroSection = () => {
-  return (
-    <section
-      id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-    >
+  return <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      >
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
+      backgroundImage: `url(${heroBg})`
+    }}>
         <div className="absolute inset-0 bg-gradient-to-b from-foreground/70 via-foreground/50 to-foreground/80" />
       </div>
 
@@ -26,22 +20,26 @@ const HeroSection = () => {
           </div>
 
           {/* Main Heading */}
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-cream mb-6 animate-fade-up" style={{ animationDelay: "0.1s" }}>
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-cream mb-6 animate-fade-up" style={{
+          animationDelay: "0.1s"
+        }}>
             Double Hathi
             <span className="block text-mustard-light mt-2">Pure Kachi Ghani</span>
-            <span className="block text-2xl sm:text-3xl md:text-4xl mt-4 font-normal text-cream/80">
-              Sarson Ka Tel
-            </span>
+            <span className="block text-2xl sm:text-3xl md:text-4xl mt-4 font-normal text-cream/80">Mustard Oil</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl text-cream/80 max-w-2xl mx-auto mb-10 animate-fade-up font-light" style={{ animationDelay: "0.2s" }}>
+          <p className="text-lg md:text-xl text-cream/80 max-w-2xl mx-auto mb-10 animate-fade-up font-light" style={{
+          animationDelay: "0.2s"
+        }}>
             Experience the authentic taste and purity of cold-pressed mustard oil, 
             crafted with traditional methods passed down through generations.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up" style={{ animationDelay: "0.3s" }}>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up" style={{
+          animationDelay: "0.3s"
+        }}>
             <Button variant="hero" size="xl">
               Shop Now
             </Button>
@@ -51,7 +49,9 @@ const HeroSection = () => {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-4 md:gap-8 mt-16 max-w-2xl mx-auto animate-fade-up" style={{ animationDelay: "0.4s" }}>
+          <div className="grid grid-cols-3 gap-4 md:gap-8 mt-16 max-w-2xl mx-auto animate-fade-up" style={{
+          animationDelay: "0.4s"
+        }}>
             <div className="text-center">
               <p className="text-3xl md:text-4xl font-display font-bold text-mustard-light">35+</p>
               <p className="text-cream/70 text-sm md:text-base mt-1">Years Legacy</p>
@@ -74,8 +74,6 @@ const HeroSection = () => {
           </a>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;

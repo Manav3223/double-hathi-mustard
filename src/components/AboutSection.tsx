@@ -59,9 +59,9 @@ const AboutSection = () => {
             }, {
               title: "Family Owned",
               desc: "Three generations of expertise"
-            }].map((feature, index) => <div key={index} className="rounded-xl p-4 border border-border text-primary-foreground bg-ring">
-                  <h4 className="text-center font-extrabold text-2xl text-sidebar-primary">{feature.title}</h4>
-                  <p className="mt-1 text-card-foreground text-base">{feature.desc}</p>
+            }].map((feature, index) => <div key={index} className="rounded-xl p-4 border border-border text-primary-foreground bg-secondary">
+                  <h4 className="text-center font-extrabold text-2xl text-primary-foreground">{feature.title}</h4>
+                  <p className="mt-1 text-base text-destructive-foreground">{feature.desc}</p>
                 </div>)}
             </div>
           </div>
