@@ -67,7 +67,7 @@ const AboutSection = () => {
               desc: "Quality assured & safe"
             }].map((feature, index) => <div key={index} className="rounded-xl p-4 border border-border text-primary-foreground bg-secondary">
                   <h4 className="text-center font-extrabold text-2xl text-primary-foreground">{feature.title}</h4>
-                  <p className="mt-1 text-base text-destructive-foreground">{feature.desc}</p>
+                  <p className="mt-1 text-base text-destructive-foreground text-center">{feature.desc}</p>
                 </div>)}
             </div>
           </div>
