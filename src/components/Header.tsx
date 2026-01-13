@@ -5,7 +5,7 @@ import logo from "@/assets/logo.png";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navLinks = [{
-    href: "#home",
+    href: "/",
     label: "Home"
   }, {
     href: "#about",
