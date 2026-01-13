@@ -40,9 +40,11 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up" style={{
           animationDelay: "0.3s"
         }}>
-            <Button variant="hero" size="xl">
-              Shop Now
-            </Button>
+            <a href="#products">
+              <Button variant="hero" size="xl">
+                Shop Now
+              </Button>
+            </a>
             <Button variant="hero-outline" size="xl">
               Learn More
             </Button>
