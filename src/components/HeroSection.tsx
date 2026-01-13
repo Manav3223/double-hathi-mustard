@@ -20,18 +20,18 @@ const HeroSection = () => {
           </div>
 
           {/* Main Heading */}
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-cream mb-6 animate-fade-up" style={{
+          <h1 style={{
           animationDelay: "0.1s"
-        }}>
+        }} className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-up text-mustard-light">
             Double Hathi
             <span className="block text-mustard-light mt-2">Pure Kachi Ghani</span>
-            <span className="block text-2xl sm:text-3xl md:text-4xl mt-4 font-normal text-cream/80">Mustard Oil</span>
+            <span className="block text-2xl sm:text-3xl mt-4 font-normal text-cream/80 md:text-6xl">Mustard Oil</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl text-cream/80 max-w-2xl mx-auto mb-10 animate-fade-up font-light" style={{
+          <p style={{
           animationDelay: "0.2s"
-        }}>
+        }} className="text-lg text-cream/80 max-w-2xl mx-auto mb-10 animate-fade-up font-light md:text-2xl">
             Experience the authentic taste and purity of cold-pressed mustard oil, 
             crafted with traditional methods passed down through generations.
           </p>
@@ -61,7 +61,7 @@ const HeroSection = () => {
               <p className="text-cream/70 text-sm md:text-base mt-1">Pure & Natural</p>
             </div>
             <div className="text-center">
-              <p className="text-3xl md:text-4xl font-display font-bold text-mustard-light">1M+</p>
+              <p className="text-3xl md:text-4xl font-display font-bold text-mustard-light">10M+</p>
               <p className="text-cream/70 text-sm md:text-base mt-1">Happy Families</p>
             </div>
           </div>
