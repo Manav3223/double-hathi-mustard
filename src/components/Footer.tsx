@@ -1,5 +1,6 @@
 import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
+import logo from "@/assets/logo.png";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return <footer className="bg-foreground text-background py-16">
@@ -8,8 +9,8 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-full bg-gold-gradient flex items-center justify-center">
-                <span className="text-primary-foreground font-display font-bold text-xl">DH</span>
+              <div className="w-12 h-12 rounded-full bg-gold-gradient flex items-center justify-center overflow-hidden">
+                <img src={logo} alt="Double Hathi Logo" className="w-10 h-10 object-contain" />
               </div>
               <div>
                 <p className="font-display font-bold text-lg">Double Hathi</p>
