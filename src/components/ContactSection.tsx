@@ -27,7 +27,7 @@ const ContactSection = () => {
                 <div>
                   <h4 className="font-semibold text-foreground">Our Address</h4>
                   <p className="text-muted-foreground mt-1">ADITYA OIL INDUSTRIES
- 51 Old, Industrial Area,
+ 51, Old Industrial Area,
  Bharatpur, Rajasthan (321001)<br />
                     51 Old, Industrial Area, Bharatpur<br />
                     Jagheena Rural, Rajasthan 321001
