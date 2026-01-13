@@ -45,9 +45,11 @@ const HeroSection = () => {
                 Shop Now
               </Button>
             </a>
-            <Button variant="hero-outline" size="xl">
-              Learn More
-            </Button>
+            <a href="#benefits">
+              <Button variant="hero-outline" size="xl">
+                Learn More
+              </Button>
+            </a>
           </div>
 
           {/* Stats */}
