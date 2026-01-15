@@ -42,7 +42,12 @@ const WhyChooseSection = () => {
 
         {/* Reasons Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {reasons.map((reason, index) => <div key={index} className="bg-background rounded-2xl p-8 shadow-card hover:shadow-glow transition-all duration-300 group">
+          {reasons.map((reason, index) => (
+            <div 
+              key={index} 
+              className="bg-background rounded-2xl p-8 shadow-card hover:shadow-glow transition-all duration-300 group opacity-0 animate-fade-in"
+              style={{ animationDelay: `${index * 150}ms`, animationFillMode: 'forwards' }}
+            >
               <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                 <reason.icon className="w-7 h-7 text-primary" />
               </div>
@@ -52,7 +57,8 @@ const WhyChooseSection = () => {
               <p className="text-muted-foreground leading-relaxed">
                 {reason.description}
               </p>
-            </div>)}
+            </div>
+          ))}
         </div>
       </div>
     </section>;
