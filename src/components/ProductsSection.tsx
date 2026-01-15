@@ -1,10 +1,11 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import mustardOilBottle from "@/assets/mustard-oil-bottle.jpg";
 import mustardOilPouch from "@/assets/mustard-oil-pouch.png";
 import mustardOil200ml from "@/assets/mustard-oil-200ml.png";
 import mustardOil500ml from "@/assets/mustard-oil-500ml.png";
 import mustardOil15lTin from "@/assets/mustard-oil-15l-tin.png";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, Minus, Plus } from "lucide-react";
 
 const WHATSAPP_SALES_NUMBER = "917976708272";
 
@@ -52,9 +53,21 @@ const products = [
 ];
 
 const ProductsSection = () => {
-  const handleBuyNow = (productName: string, size: string, price: string) => {
+  const [quantities, setQuantities] = useState<Record<number, number>>(
+    () => products.reduce((acc, p) => ({ ...acc, [p.id]: 1 }), {})
+  );
+
+  const updateQuantity = (productId: number, delta: number) => {
+    setQuantities((prev) => ({
+      ...prev,
+      [productId]: Math.max(1, (prev[productId] || 1) + delta),
+    }));
+  };
+
+  const handleBuyNow = (productId: number, productName: string, size: string, price: string) => {
+    const qty = quantities[productId] || 1;
     const message = encodeURIComponent(
-      `Hello! I would like to order:\n\n🛒 *${productName}*\n📦 Size: ${size}\n💰 Price: ${price}\n\nPlease confirm availability and delivery details.`
+      `Hello! I would like to order:\n\n🛒 *${productName}*\n📦 Size: ${size}\n🔢 Quantity: ${qty}\n💰 Price: ${price} x ${qty}\n\nPlease confirm availability and delivery details.`
     );
     window.open(`https://wa.me/${WHATSAPP_SALES_NUMBER}?text=${message}`, "_blank");
   };
@@ -110,15 +123,36 @@ const ProductsSection = () => {
                   <p className="text-2xl font-display font-bold text-primary">
                     {product.price}
                   </p>
-                  <Button 
-                    size="sm" 
-                    className="gap-2 bg-[#25D366] hover:bg-[#25D366]/90 text-white"
-                    onClick={() => handleBuyNow(product.name, product.size, product.price)}
-                  >
-                    <MessageCircle size={16} />
-                    Buy Now
-                  </Button>
+                  <div className="flex items-center gap-2">
+                    <div className="flex items-center border border-border rounded-lg">
+                      <button
+                        onClick={() => updateQuantity(product.id, -1)}
+                        className="p-1.5 hover:bg-muted transition-colors rounded-l-lg"
+                        aria-label="Decrease quantity"
+                      >
+                        <Minus size={14} />
+                      </button>
+                      <span className="px-3 text-sm font-medium min-w-[2rem] text-center">
+                        {quantities[product.id]}
+                      </span>
+                      <button
+                        onClick={() => updateQuantity(product.id, 1)}
+                        className="p-1.5 hover:bg-muted transition-colors rounded-r-lg"
+                        aria-label="Increase quantity"
+                      >
+                        <Plus size={14} />
+                      </button>
+                    </div>
+                  </div>
                 </div>
+                <Button 
+                  size="sm" 
+                  className="w-full mt-3 gap-2 bg-[#25D366] hover:bg-[#25D366]/90 text-white"
+                  onClick={() => handleBuyNow(product.id, product.name, product.size, product.price)}
+                >
+                  <MessageCircle size={16} />
+                  Buy Now
+                </Button>
               </div>
             </div>
           ))}
