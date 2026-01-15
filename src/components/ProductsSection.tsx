@@ -4,7 +4,9 @@ import mustardOilPouch from "@/assets/mustard-oil-pouch.png";
 import mustardOil200ml from "@/assets/mustard-oil-200ml.png";
 import mustardOil500ml from "@/assets/mustard-oil-500ml.png";
 import mustardOil15lTin from "@/assets/mustard-oil-15l-tin.png";
-import { ShoppingCart } from "lucide-react";
+import { MessageCircle } from "lucide-react";
+
+const WHATSAPP_SALES_NUMBER = "917976708272";
 
 const products = [
   {
@@ -50,6 +52,13 @@ const products = [
 ];
 
 const ProductsSection = () => {
+  const handleBuyNow = (productName: string, size: string, price: string) => {
+    const message = encodeURIComponent(
+      `Hello! I would like to order:\n\n🛒 *${productName}*\n📦 Size: ${size}\n💰 Price: ${price}\n\nPlease confirm availability and delivery details.`
+    );
+    window.open(`https://wa.me/${WHATSAPP_SALES_NUMBER}?text=${message}`, "_blank");
+  };
+
   return (
     <section id="products" className="py-20 md:py-32 bg-card">
       <div className="container mx-auto px-4">
@@ -101,9 +110,13 @@ const ProductsSection = () => {
                   <p className="text-2xl font-display font-bold text-primary">
                     {product.price}
                   </p>
-                  <Button size="sm" variant="outline" className="gap-2">
-                    <ShoppingCart size={16} />
-                    Add
+                  <Button 
+                    size="sm" 
+                    className="gap-2 bg-[#25D366] hover:bg-[#25D366]/90 text-white"
+                    onClick={() => handleBuyNow(product.name, product.size, product.price)}
+                  >
+                    <MessageCircle size={16} />
+                    Buy Now
                   </Button>
                 </div>
               </div>
