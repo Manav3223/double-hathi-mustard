@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import mustardOilBottle from "@/assets/mustard-oil-bottle.jpg";
 import mustardOilPouch from "@/assets/mustard-oil-pouch.png";
 import mustardOil200ml from "@/assets/mustard-oil-200ml.png";
+import mustardOil15lTin from "@/assets/mustard-oil-15l-tin.png";
 import { ShoppingCart } from "lucide-react";
 
 const products = [
@@ -35,23 +36,15 @@ const products = [
     size: "5 Litre (Tin)",
     price: "₹980",
     image: mustardOilBottle,
-    badge: "Family Pack",
+    badge: null,
   },
   {
     id: 5,
     name: "Double Hathi Pure Mustard Oil",
     size: "15 Litre (Tin)",
-    price: "₹2,800",
-    image: mustardOilBottle,
-    badge: "Bulk Pack",
-  },
-  {
-    id: 4,
-    name: "Double Hathi Pure Mustard Oil",
-    size: "15 Litre (Tin)",
-    price: "₹2,800",
-    image: mustardOilBottle,
-    badge: "Bulk Pack",
+    price: "₹2,550",
+    image: mustardOil15lTin,
+    badge: "Family Pack",
   },
 ];
 
