@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import mustardOilBottle from "@/assets/mustard-oil-bottle.jpg";
 import mustardOilPouch from "@/assets/mustard-oil-pouch.png";
 import mustardOil200ml from "@/assets/mustard-oil-200ml.png";
+import mustardOil500ml from "@/assets/mustard-oil-500ml.png";
 import mustardOil15lTin from "@/assets/mustard-oil-15l-tin.png";
 import { ShoppingCart } from "lucide-react";
 
@@ -26,8 +27,8 @@ const products = [
     id: 3,
     name: "Double Hathi Pure Mustard Oil",
     size: "500ml",
-    price: "₹115",
-    image: mustardOilBottle,
+    price: "₹120",
+    image: mustardOil500ml,
     badge: null,
   },
   {
