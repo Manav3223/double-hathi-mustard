@@ -26,9 +26,9 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">Our Address</h4>
-                  <p className="text-muted-foreground mt-1">ADITYA OIL INDUSTRIES
- 51, Old Industrial Area,
- Bharatpur, Rajasthan (321001)<br />
+                  <p className="text-muted-foreground mt-1">ADITYA OIL INDUSTRIES 
+51, Old, Industrial Area,
+ Bharatpur, Rajasthan 321001<br />
                     51 Old, Industrial Area, Bharatpur<br />
                     Jagheena Rural, Rajasthan 321001
                   </p>
@@ -62,9 +62,8 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">Business Hours</h4>
-                  <p className="text-muted-foreground mt-1">Monday - Saturday: 9:00 AM - 6:00 PM 
+                  <p className="text-muted-foreground mt-1">Monday - Saturday: 9:00 AM - 6:00 PM
 Sunday: 10:00 AM - 4:00 PM
-
                   <br />
                     Sunday: Closed
                   </p>
