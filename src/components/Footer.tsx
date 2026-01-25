@@ -1,9 +1,12 @@
 import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  return <footer className="bg-foreground text-background py-16">
+  
+  return (
+    <footer className="bg-foreground text-background py-16">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
@@ -52,9 +55,10 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-lg mb-4">Contact Us</h4>
             <ul className="space-y-3 text-sm text-background/70">
+              <li className="font-semibold text-background">ADITYA OIL INDUSTRIES</li>
               <li>51, Old Industrial Area</li>
               <li>Bharatpur - 321001</li>
-              <li>Rajasthan, India </li>
+              <li>Rajasthan, India</li>
               <li className="text-mustard-light">
                 <div>+91 79767 08372</div>
                 <div>+91 94143 76910</div>
@@ -82,7 +86,8 @@ const Footer = () => {
 
         {/* FSSAI License */}
         <div className="border-t border-background/10 pt-8 mb-6 text-center">
-          <p className="text-background/70 text-3xl">FSSAI License No:  10012013000260<span className="font-semibold text-mustard-light">FSSAI License No:</span> 12345678901234
+          <p className="text-background/70 text-sm">
+            <span className="font-semibold text-mustard-light">FSSAI License No:</span> 10012013000260
           </p>
         </div>
 
@@ -95,6 +100,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
+
 export default Footer;
