@@ -53,11 +53,11 @@ const Footer = () => {
             <h4 className="font-semibold text-lg mb-4">Contact Us</h4>
             <ul className="space-y-3 text-sm text-background/70">
               <li>51, Old Industrial Area</li>
-              <li>Bharatpur, Jagheena Rural</li>
-              <li>Rajasthan 321001</li>
-              <li className="text-mustard-light">+91 79767 08372
-+91 9414376</li>
-              <li className="text-mustard-light">info@doublehathi.com</li>
+              <li>Bharatpur - 321001</li>
+              <li>Rajasthan, India </li>
+              <li className="text-mustard-light">+91 79767 08372 
++91 9414376910</li>
+              <li className="text-mustard-light">info@doublehathioil.com</li>
             </ul>
             
             {/* Social Links */}
@@ -80,7 +80,7 @@ const Footer = () => {
 
         {/* FSSAI License */}
         <div className="border-t border-background/10 pt-8 mb-6 text-center">
-          <p className="text-background/70 text-xl">FSSAI License No: 10012013000260<span className="font-semibold text-mustard-light">FSSAI License No:</span> 12345678901234
+          <p className="text-background/70 text-2xl">FSSAI License No: 10012013000260<span className="font-semibold text-mustard-light">FSSAI License No:</span> 12345678901234
           </p>
         </div>
 

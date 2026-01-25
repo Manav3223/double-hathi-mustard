@@ -26,9 +26,10 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">Our Address</h4>
-                  <p className="text-muted-foreground mt-1">ADITYA OIL INDUSTRIES 
-51, Old, Industrial Area,
- Bharatpur, Rajasthan 321001<br />
+                  <p className="text-muted-foreground mt-1">ADITYA OIL INDUSTRIES
+51 Old, Industrial Area,
+Bharatpur - 321001
+Rajasthan, India<br />
                     51 Old, Industrial Area, Bharatpur<br />
                     Jagheena Rural, Rajasthan 321001
                   </p>
@@ -41,7 +42,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">Phone</h4>
-                  <p className="text-muted-foreground mt-1">+91 79767 08372
+                  <p className="text-muted-foreground mt-1">+91 79767 08372 
 +91 9414376910</p>
                 </div>
               </div>
@@ -52,7 +53,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">Email</h4>
-                  <p className="text-muted-foreground mt-1">info@doublehathi.com</p>
+                  <p className="text-muted-foreground mt-1">info@doublehathioil.com</p>
                 </div>
               </div>
 
