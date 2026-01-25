@@ -55,8 +55,10 @@ const Footer = () => {
               <li>51, Old Industrial Area</li>
               <li>Bharatpur - 321001</li>
               <li>Rajasthan, India </li>
-              <li className="text-mustard-light">+91 79767 08372    
-+91 94143 76910</li>
+              <li className="text-mustard-light">
+                <div>+91 79767 08372</div>
+                <div>+91 94143 76910</div>
+              </li>
               <li className="text-mustard-light">info@doublehathioil.com</li>
             </ul>
             
