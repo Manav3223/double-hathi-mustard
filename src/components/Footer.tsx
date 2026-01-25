@@ -5,7 +5,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   return <footer className="bg-foreground text-background py-16">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
+        <div className="grid md:grid-cols-5 gap-8 mb-12">
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-3 mb-4">
@@ -45,6 +45,21 @@ const Footer = () => {
               <li><a href="#products" className="hover:text-mustard-light transition-colors">5 Litre Tin</a></li>
               <li><a href="#products" className="hover:text-mustard-light transition-colors">15 Litre Tin</a></li>
               <li><a href="#products" className="hover:text-mustard-light transition-colors">Bulk Orders</a></li>
+            </ul>
+          </div>
+
+          {/* Sustainability */}
+          <div>
+            <h4 className="font-semibold text-lg mb-4">Sustainability</h4>
+            <ul className="space-y-3 text-sm text-background/70">
+              <li className="flex items-start gap-2">
+                <span className="text-mustard-light">♻️</span>
+                <span>Recyclable Pouches – Our packaging is eco-friendly and recyclable</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-mustard-light">☀️</span>
+                <span>Solar Powered – Our factory runs on clean solar energy</span>
+              </li>
             </ul>
           </div>
 
