@@ -26,7 +26,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">Our Address</h4>
-                  <p className="text-muted-foreground mt-1">ADITYA OIL INDUSTRIES
+                  <p className="text-muted-foreground mt-1">ADITYA OIL INDUSTRIES 
 51, Old Industrial Area,
 Bharatpur - 321001
 Rajasthan, India<br />
