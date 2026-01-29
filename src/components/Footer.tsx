@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-5 gap-8 mb-12">
           {/* Brand */}
           <div className="md:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-3 mb-2">
               <div className="w-28 h-28 flex items-center justify-center">
                 <img src={logo} alt="Double Hathi Logo" className="w-full h-full object-contain" />
               </div>
@@ -17,6 +17,7 @@ const Footer = () => {
                 <p className="text-xs text-background/60">Since 1989</p>
               </div>
             </div>
+            <p className="text-mustard-light font-bold text-sm mb-4">Sehat ka Mazboot Saathi - Shuddh Kachi Ghani</p>
             <p className="text-background/70 text-sm leading-relaxed">
               Bringing the authentic taste and purity of Kachi Ghani mustard oil 
               to Indian households for over three decades.
