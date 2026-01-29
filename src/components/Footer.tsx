@@ -8,16 +8,15 @@ const Footer = () => {
         <div className="grid md:grid-cols-5 gap-8 mb-12">
           {/* Brand */}
           <div className="md:col-span-1">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="w-36 h-36 flex items-center justify-center">
-                <img src={logo} alt="Double Hathi Logo" className="w-full h-full object-contain" />
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-16 h-16 rounded-full overflow-hidden flex items-center justify-center">
+                <img alt="Double Hathi Logo" className="w-full h-full object-cover" src="/lovable-uploads/f3e306a9-f1d2-4051-898c-a8315880477c.png" />
               </div>
               <div>
                 <p className="font-display font-bold text-lg">Double Hathi</p>
                 <p className="text-xs text-background/60">Since 1989</p>
               </div>
             </div>
-            <p className="text-mustard-light font-bold text-sm mb-4">Sehat ka Mazboot Saathi - Shuddh Kachi Ghani</p>
             <p className="text-background/70 text-sm leading-relaxed">
               Bringing the authentic taste and purity of Kachi Ghani mustard oil 
               to Indian households for over three decades.
@@ -99,7 +98,7 @@ const Footer = () => {
 
         {/* FSSAI License */}
         <div className="border-t border-background/10 pt-8 mb-6 text-center">
-          <p className="text-background/70 text-3xl">
+          <p className="text-background/70 text-2xl">
             <span className="font-semibold text-mustard-light">FSSAI License No:</span> 10012013000260
           </p>
         </div>
