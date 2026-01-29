@@ -25,7 +25,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-2">
-            <img src={logo} alt="Double Hathi Logo" className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover shadow-soft" />
+            <img src={logo} alt="Double Hathi Logo" className="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover shadow-soft" />
             <div className="hidden sm:block">
               <p className="font-display text-foreground leading-tight text-lg font-extrabold">Double Hathi</p>
               <p className="text-xs text-muted-foreground">Since 1989</p>
