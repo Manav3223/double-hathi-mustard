@@ -24,9 +24,9 @@ const HeroSection = () => {
           animationDelay: "0.1s"
         }} className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-up text-mustard-light">
             Double Hathi
-            <span className="block text-mustard-light mt-2">Pure Kachi Ghani</span>
+            <span className="block mt-2 text-mustard-light">Pure Kachi Ghani</span>
             <span className="block text-2xl sm:text-3xl mt-4 font-normal text-cream/80 md:text-6xl">Mustard Oil</span>
-            <span className="block text-lg sm:text-xl mt-4 font-bold text-mustard-light md:text-3xl">
+            <span className="block text-lg sm:text-xl md:text-2xl mt-4 font-bold text-mustard">
               "Sehat ka Mazboot Saathi - Shuddh Kachi Ghani"
             </span>
           </h1>

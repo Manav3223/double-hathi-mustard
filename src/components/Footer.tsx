@@ -98,7 +98,7 @@ const Footer = () => {
 
         {/* FSSAI License */}
         <div className="border-t border-background/10 pt-8 mb-6 text-center">
-          <p className="text-background/70 text-2xl">
+          <p className="text-background/70 text-3xl">
             <span className="font-semibold text-mustard-light">FSSAI License No:</span> 10012013000260
           </p>
         </div>
