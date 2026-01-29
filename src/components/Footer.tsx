@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-28 h-28 flex items-center justify-center">
+              <div className="w-36 h-36 flex items-center justify-center">
                 <img src={logo} alt="Double Hathi Logo" className="w-full h-full object-contain" />
               </div>
               <div>
