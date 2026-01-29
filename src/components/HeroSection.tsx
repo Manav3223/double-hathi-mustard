@@ -26,7 +26,7 @@ const HeroSection = () => {
             Double Hathi
             <span className="block text-mustard-light mt-2">Pure Kachi Ghani</span>
             <span className="block text-2xl sm:text-3xl mt-4 font-normal text-cream/80 md:text-6xl">Mustard Oil</span>
-            <span className="block text-lg sm:text-xl md:text-2xl mt-4 font-bold text-mustard">
+            <span className="block text-lg sm:text-xl mt-4 font-bold text-mustard-light md:text-3xl">
               "Sehat ka Mazboot Saathi - Shuddh Kachi Ghani"
             </span>
           </h1>
