@@ -67,9 +67,9 @@ const AboutSection = () => {
             <span className="text-primary font-semibold text-sm uppercase tracking-[0.2em]">
               Our Heritage
             </span>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-8 leading-tight text-center">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-8 leading-tight text-left">
               A Legacy of
-              <span className="text-primary block mt-1 text-center">Purity & Trust</span>
+              <span className="text-primary block mt-1 text-justify">Purity & Trust</span>
             </h2>
 
             <div className="space-y-5 text-muted-foreground leading-relaxed text-lg">
