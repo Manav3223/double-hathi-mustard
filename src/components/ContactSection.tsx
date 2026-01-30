@@ -39,8 +39,8 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">Phone</h4>
-                  <p className="text-muted-foreground mt-1">+91 79767 08372  
-+91 9414376910</p>
+                  <p className="text-muted-foreground mt-1">+91 79767 08372   
++91 94143 76910</p>
                 </div>
               </div>
 
@@ -60,7 +60,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">Business Hours</h4>
-                  <p className="text-muted-foreground mt-1">Monday - Saturday: 9:00 AM - 6:00 PM  
+                  <p className="text-muted-foreground mt-1">Monday - Saturday: 9:00 AM - 6:00 PM   
 Sunday: 10:00 AM - 4:00 PM
                   <br />
                     Sunday: Closed
