@@ -20,7 +20,7 @@ const Footer = () => {
           {/* Brand */}
           <StaggerItem className="md:col-span-1">
             <div className="flex items-center gap-4 mb-5">
-              <div className="w-28 h-28 flex items-center justify-center">
+              <div className="w-40 h-40 flex items-center justify-center">
                 <img
                   alt="Double Hathi Logo"
                   className="w-full h-full object-contain drop-shadow-md"
