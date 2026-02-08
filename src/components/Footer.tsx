@@ -2,30 +2,33 @@ import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FadeIn, StaggerContainer, StaggerItem, HoverScale } from "@/components/ui/motion-wrapper";
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Youtube, href: "#", label: "Youtube" },
-  ];
-
-  return (
-    <footer className="bg-foreground text-background py-20">
+  const socialLinks = [{
+    icon: Facebook,
+    href: "#",
+    label: "Facebook"
+  }, {
+    icon: Instagram,
+    href: "#",
+    label: "Instagram"
+  }, {
+    icon: Twitter,
+    href: "#",
+    label: "Twitter"
+  }, {
+    icon: Youtube,
+    href: "#",
+    label: "Youtube"
+  }];
+  return <footer className="bg-foreground text-background py-20">
       <div className="container mx-auto px-4">
         <StaggerContainer staggerDelay={0.1} className="grid md:grid-cols-5 gap-10 mb-16">
           {/* Brand */}
           <StaggerItem className="md:col-span-1">
             <div className="flex items-center gap-4 mb-5">
-              <div className="w-40 h-40 flex items-center justify-center">
-                <img
-                  alt="Double Hathi Logo"
-                  className="w-full h-full object-contain drop-shadow-md"
-                  src="/lovable-uploads/f3e306a9-f1d2-4051-898c-a8315880477c.png"
-                />
+              <div className="w-40 h-40 items-center justify-center flex flex-row mx-0 my-0">
+                <img alt="Double Hathi Logo" className="w-full h-full object-contain drop-shadow-md border-double" src="/lovable-uploads/f3e306a9-f1d2-4051-898c-a8315880477c.png" />
               </div>
               <div>
                 <p className="font-display font-bold text-xl">Double Hathi</p>
@@ -45,27 +48,28 @@ const Footer = () => {
           <StaggerItem>
             <h4 className="font-bold text-lg mb-5">Quick Links</h4>
             <ul className="space-y-3 text-sm text-background/70">
-              {[
-                { href: "#home", label: "Home" },
-                { href: "#about", label: "About Us" },
-                { href: "#products", label: "Products" },
-                { href: "#benefits", label: "Health Benefits" },
-                { href: "#contact", label: "Contact" },
-              ].map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="hover:text-mustard-light transition-colors inline-block"
-                  >
+              {[{
+              href: "#home",
+              label: "Home"
+            }, {
+              href: "#about",
+              label: "About Us"
+            }, {
+              href: "#products",
+              label: "Products"
+            }, {
+              href: "#benefits",
+              label: "Health Benefits"
+            }, {
+              href: "#contact",
+              label: "Contact"
+            }].map(link => <li key={link.href}>
+                  <a href={link.href} className="hover:text-mustard-light transition-colors inline-block">
                     {link.label}
                   </a>
-                </li>
-              ))}
+                </li>)}
               <li>
-                <Link
-                  to="/dealer-inquiry"
-                  className="hover:text-mustard-light transition-colors inline-block"
-                >
+                <Link to="/dealer-inquiry" className="hover:text-mustard-light transition-colors inline-block">
                   Become a Dealer
                 </Link>
               </li>
@@ -76,18 +80,11 @@ const Footer = () => {
           <StaggerItem>
             <h4 className="font-bold text-lg mb-5">Our Products</h4>
             <ul className="space-y-3 text-sm text-background/70">
-              {["1 Litre Pack", "500ml Pack", "5 Litre Tin", "15 Litre Tin", "Bulk Orders"].map(
-                (product) => (
-                  <li key={product}>
-                    <a
-                      href="#products"
-                      className="hover:text-mustard-light transition-colors inline-block"
-                    >
+              {["1 Litre Pack", "500ml Pack", "5 Litre Tin", "15 Litre Tin", "Bulk Orders"].map(product => <li key={product}>
+                    <a href="#products" className="hover:text-mustard-light transition-colors inline-block">
                       {product}
                     </a>
-                  </li>
-                )
-              )}
+                  </li>)}
             </ul>
           </StaggerItem>
 
@@ -123,10 +120,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a
-                  href="mailto:info@doublehathioil.com"
-                  className="text-mustard-light hover:underline"
-                >
+                <a href="mailto:info@doublehathioil.com" className="text-mustard-light hover:underline">
                   info@doublehathioil.com
                 </a>
               </li>
@@ -134,17 +128,11 @@ const Footer = () => {
 
             {/* Social Links */}
             <div className="flex gap-3 mt-6">
-              {socialLinks.map((social) => (
-                <HoverScale key={social.label} scale={1.1}>
-                  <a
-                    href={social.href}
-                    aria-label={social.label}
-                    className="w-11 h-11 rounded-full bg-background/10 flex items-center justify-center hover:bg-mustard/30 transition-colors"
-                  >
+              {socialLinks.map(social => <HoverScale key={social.label} scale={1.1}>
+                  <a href={social.href} aria-label={social.label} className="w-11 h-11 rounded-full bg-background/10 flex items-center justify-center hover:bg-mustard/30 transition-colors">
                     <social.icon className="w-5 h-5" />
                   </a>
-                </HoverScale>
-              ))}
+                </HoverScale>)}
             </div>
           </StaggerItem>
         </StaggerContainer>
@@ -172,8 +160,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
