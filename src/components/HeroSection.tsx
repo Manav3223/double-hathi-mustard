@@ -1,49 +1,83 @@
- import { Button } from "@/components/ui/button";
- import heroBg from "@/assets/hero-bg.jpg";
- import heroVideo from "@/assets/hero-video.mp4";
- import { ArrowDown } from "lucide-react";
- import { motion } from "framer-motion";
- import { useState, useRef } from "react";
+import { Button } from "@/components/ui/button";
+import heroBg from "@/assets/hero-bg.jpg";
+import heroVideo from "@/assets/hero-video.mp4";
+import { ArrowDown } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const HeroSection = () => {
-   const [videoLoaded, setVideoLoaded] = useState(false);
-   const videoRef = useRef<HTMLVideoElement>(null);
- 
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const isMobile = useIsMobile();
+
+  // On mobile, delay video load to prioritize content rendering
+  useEffect(() => {
+    if (isMobile) {
+      const timer = setTimeout(() => setShowVideo(true), 2000);
+      return () => clearTimeout(timer);
+    } else {
+      setShowVideo(true);
+    }
+  }, [isMobile]);
+
   return (
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-       {/* Video Background with Fallback Image */}
-       <div className="absolute inset-0">
-         {/* Fallback Image (shows while video loads) */}
-         <motion.div
-           initial={{ scale: 1.1, opacity: 1 }}
-           animate={{ scale: 1, opacity: videoLoaded ? 0 : 1 }}
-           transition={{ duration: 1.5, ease: "easeOut" }}
-           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-           style={{ backgroundImage: `url(${heroBg})` }}
-         />
-         
-         {/* Video Background */}
-         <motion.video
-           ref={videoRef}
-           initial={{ opacity: 0 }}
-           animate={{ opacity: videoLoaded ? 1 : 0 }}
-           transition={{ duration: 1.5 }}
-           className="absolute inset-0 w-full h-full object-cover"
-           autoPlay
-           muted
-           loop
-           playsInline
-           onLoadedData={() => setVideoLoaded(true)}
-         >
-           <source src={heroVideo} type="video/mp4" />
-         </motion.video>
- 
-         {/* Gradient Overlay */}
-         <div className="absolute inset-0 bg-gradient-to-b from-foreground/70 via-foreground/50 to-foreground/80" />
-       </div>
+      {/* Video Background with Fallback Image */}
+      <div className="absolute inset-0">
+        {/* Fallback Image (shows while video loads or on error) */}
+        <motion.div
+          initial={{ scale: 1.1, opacity: 1 }}
+          animate={{ scale: 1, opacity: videoLoaded && !videoError ? 0 : 1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${heroBg})` }}
+        />
+
+        {/* Loading Indicator */}
+        <AnimatePresence>
+          {!videoLoaded && !videoError && showVideo && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute bottom-6 right-6 z-20 flex items-center gap-2 bg-foreground/60 backdrop-blur-sm rounded-full px-4 py-2"
+            >
+              <div className="w-3 h-3 border-2 border-mustard border-t-transparent rounded-full animate-spin" />
+              <span className="text-cream/80 text-xs font-medium">Loading video…</span>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Video Background - conditionally rendered */}
+        {showVideo && !videoError && (
+          <motion.video
+            ref={videoRef}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: videoLoaded ? 1 : 0 }}
+            transition={{ duration: 1.5 }}
+            className="absolute inset-0 w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload={isMobile ? "metadata" : "auto"}
+            onLoadedData={() => setVideoLoaded(true)}
+            onError={() => setVideoError(true)}
+          >
+            <source src={heroVideo} type="video/mp4" />
+          </motion.video>
+        )}
+
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-foreground/70 via-foreground/50 to-foreground/80" />
+      </div>
 
       {/* Floating Particles Effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
