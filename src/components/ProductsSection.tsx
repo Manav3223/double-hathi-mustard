@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import mustardOilBottle from "@/assets/mustard-oil-bottle.jpg";
 import mustardOilPouch from "@/assets/mustard-oil-1l-pouch.png";
 import mustardOil200ml from "@/assets/mustard-oil-200ml.png";
-import mustardOil500ml from "@/assets/mustard-oil-500ml.png";
+import mustardOil500ml from "@/assets/mustard-oil-500ml-pouch.png";
 import mustardOil15lTin from "@/assets/mustard-oil-15l-tin.png";
 import { MessageCircle, Minus, Plus } from "lucide-react";
 import { motion } from "framer-motion";
