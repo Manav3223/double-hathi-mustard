@@ -59,7 +59,7 @@ const Header = () => {
           </motion.a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-10">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-10">
             {navLinks.map((link, index) => (
               <motion.a
                 key={link.href}
@@ -77,7 +77,7 @@ const Header = () => {
 
           {/* CTA Button */}
           <motion.div
-            className="hidden md:block"
+            className="hidden lg:block"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5 }}
@@ -91,7 +91,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="md:hidden p-2.5 text-foreground rounded-xl hover:bg-muted transition-colors"
+            className="lg:hidden p-2.5 text-foreground rounded-xl hover:bg-muted transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             whileTap={{ scale: 0.95 }}
           >
@@ -108,7 +108,7 @@ const Header = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden bg-background border-t border-border overflow-hidden"
+            className="lg:hidden bg-background border-t border-border overflow-hidden"
           >
             <nav className="container mx-auto px-4 py-6 flex flex-col gap-2">
               {navLinks.map((link, index) => (
