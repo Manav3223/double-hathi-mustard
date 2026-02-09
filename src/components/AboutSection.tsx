@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { FadeIn, StaggerContainer, StaggerItem, HoverScale } from "@/components/ui/motion-wrapper";
 const AboutSection = () => {
   const features = [{
-    title: "Cold Pressed",
+    title: "Cold Pressed / Wood Pressed",
     desc: "Traditional Kachi Ghani method"
   }, {
     title: "No Chemicals",
