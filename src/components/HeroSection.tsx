@@ -64,6 +64,8 @@ const HeroSection = () => {
             <source src={heroVideo} type="video/mp4" />
           </motion.video>}
 
+        {/* Yellow Tint Overlay for Mustard Oil Color */}
+        <div className="absolute inset-0 bg-amber-500/20 mix-blend-multiply" />
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-foreground/70 via-foreground/50 to-foreground/80" />
       </div>
