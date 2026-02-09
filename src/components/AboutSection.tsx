@@ -19,7 +19,7 @@ const AboutSection = () => {
     desc: "Unadulterated natural goodness"
   }, {
     title: "FSSAI Certified",
-    desc: "Quality assured & safe\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0"
+    desc: "Quality assured. Safe for everyday cooking"
   }];
   return <section id="about" className="py-24 md:py-36 bg-background overflow-hidden">
       <div className="container mx-auto px-4">
