@@ -164,7 +164,7 @@ const HeroSection = () => {
           duration: 0.6,
           delay: 1
         }} className="text-lg md:text-xl lg:text-2xl text-cream/80 max-w-2xl mx-auto mb-12 font-light leading-relaxed">
-            Experience the authentic taste and purity of cold-pressed mustard oil,
+            Experience the authentic taste and purity of cold-pressed / wood-pressed mustard oil,
             crafted with traditional methods passed down through generations.
           </motion.p>
 
