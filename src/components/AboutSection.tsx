@@ -1,4 +1,4 @@
-import kachiGhaniProcess from "@/assets/kachi-ghani-process.jpg";
+import kachiGhaniProcess from "@/assets/kachi-ghani-process-2.png";
 import { motion } from "framer-motion";
 import { FadeIn, StaggerContainer, StaggerItem, HoverScale } from "@/components/ui/motion-wrapper";
 const AboutSection = () => {
