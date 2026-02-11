@@ -4,7 +4,7 @@ import { FadeIn, StaggerContainer, StaggerItem, HoverScale } from "@/components/
 const AboutSection = () => {
   const features = [{
     title: "Cold Pressed / Wood Pressed",
-    desc: "Traditional Kachi Ghani method"
+    desc: "Wood pressed. Traditional Kachi Ghani extraction"
   }, {
     title: "No Chemicals",
     desc: "No additives. No preservatives"
