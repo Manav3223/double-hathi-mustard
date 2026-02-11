@@ -10,7 +10,7 @@ const AboutSection = () => {
     desc: "Zero additives or preservatives"
   }, {
     title: "Rich Aroma",
-    desc: "Authentic pungent mustard taste"
+    desc: "Rich aroma. Authentic, pungent mustard taste"
   }, {
     title: "Family Owned",
     desc: "Family owned. Crafting pure mustard oil since 1989"
