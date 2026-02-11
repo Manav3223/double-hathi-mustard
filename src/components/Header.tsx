@@ -37,16 +37,16 @@ const Header = () => {
     ease: "easeOut"
   }} className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-background/95 backdrop-blur-lg shadow-lg border-b border-border" : "bg-background/80 backdrop-blur-md border-b border-border/50"}`}>
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20 md:h-24">
+        <div className="flex items-center justify-between h-20 lg:h-24">
           {/* Logo */}
           <motion.a href="#home" className="flex items-center gap-3" whileHover={{
           scale: 1.02
         }} whileTap={{
           scale: 0.98
         }}>
-            <img alt="Double Hathi Logo" className="w-20 h-20 md:w-24 md:h-24 object-contain drop-shadow-md" src="/lovable-uploads/28b73be5-c0c9-4635-a301-cfa2d2c218e9.png" />
+            <img alt="Double Hathi Logo" className="w-20 h-20 lg:w-24 lg:h-24 object-contain drop-shadow-md" src="/lovable-uploads/28b73be5-c0c9-4635-a301-cfa2d2c218e9.png" />
             <div className="hidden sm:block">
-              <p className="font-display text-foreground leading-tight text-lg font-extrabold md:text-2xl">
+              <p className="font-display text-foreground leading-tight text-lg font-extrabold lg:text-2xl">
                 Double Hathi
               </p>
               <p className="text-muted-foreground font-medium text-sm">
@@ -56,7 +56,7 @@ const Header = () => {
           </motion.a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-10">
+          <nav className="hidden lg:flex items-center gap-10">
             {navLinks.map((link, index) => <motion.a key={link.href} href={link.href} className="text-muted-foreground hover:text-primary transition-colors font-medium relative group" initial={{
             opacity: 0,
             y: -10
@@ -72,7 +72,7 @@ const Header = () => {
           </nav>
 
           {/* CTA Button */}
-          <motion.div className="hidden md:block" initial={{
+          <motion.div className="hidden lg:block" initial={{
           opacity: 0,
           x: 20
         }} animate={{
@@ -93,7 +93,7 @@ const Header = () => {
           </motion.div>
 
           {/* Mobile Menu Button */}
-          <motion.button className="md:hidden p-2.5 text-foreground rounded-xl hover:bg-muted transition-colors" onClick={() => setIsMenuOpen(!isMenuOpen)} whileTap={{
+          <motion.button className="lg:hidden p-2.5 text-foreground rounded-xl hover:bg-muted transition-colors" onClick={() => setIsMenuOpen(!isMenuOpen)} whileTap={{
           scale: 0.95
         }}>
             {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
@@ -115,7 +115,7 @@ const Header = () => {
       }} transition={{
         duration: 0.3,
         ease: "easeInOut"
-      }} className="md:hidden bg-background border-t border-border overflow-hidden">
+      }} className="lg:hidden bg-background border-t border-border overflow-hidden">
             <nav className="container mx-auto px-4 py-6 flex flex-col gap-2">
               {navLinks.map((link, index) => <motion.a key={link.href} href={link.href} className="text-foreground hover:text-primary hover:bg-muted transition-all font-medium py-3 px-4 rounded-xl" onClick={() => setIsMenuOpen(false)} initial={{
             opacity: 0,
