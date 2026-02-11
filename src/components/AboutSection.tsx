@@ -16,7 +16,7 @@ const AboutSection = () => {
     desc: "Three generations of expertise"
   }, {
     title: "100% Pure",
-    desc: "Unadulterated natural goodness"
+    desc: "100% pure mustard oil. Nothing added. Nothing removed"
   }, {
     title: "FSSAI Certified",
     desc: "Quality assured. Safe for everyday cooking"
