@@ -13,7 +13,7 @@ const AboutSection = () => {
     desc: "Authentic pungent mustard taste"
   }, {
     title: "Family Owned",
-    desc: "Three generations of expertise"
+    desc: "Family owned. Crafting pure mustard oil since 1989"
   }, {
     title: "100% Pure",
     desc: "100% pure mustard oil. Nothing added. Nothing removed"
