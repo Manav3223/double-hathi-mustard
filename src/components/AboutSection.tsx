@@ -86,11 +86,7 @@ const AboutSection = () => {
                 </strong>{" "}
                 – values that have guided us for over three decades.
               </p>
-              <p>
-                Our Kachi Ghani method uses traditional wooden presses that extract
-                oil at low temperatures, preserving all natural nutrients, aroma, and
-                the distinctive pungent flavor.
-              </p>
+              <p>Our Kachi Ghani method uses traditional wooden presses that extract oil at low temperatures, preserving all natural nutrients, aroma, and the distinctive pungent flavor.</p>
             </div>
 
             {/* Features Grid */}
