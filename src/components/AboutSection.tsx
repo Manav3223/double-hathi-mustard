@@ -7,7 +7,7 @@ const AboutSection = () => {
     desc: "Traditional Kachi Ghani method"
   }, {
     title: "No Chemicals",
-    desc: "Zero additives or preservatives"
+    desc: "No additives. No preservatives"
   }, {
     title: "Rich Aroma",
     desc: "Rich aroma. Authentic, pungent mustard taste"
