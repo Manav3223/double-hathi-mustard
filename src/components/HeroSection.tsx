@@ -217,7 +217,7 @@ const HeroSection = () => {
             value: "100%",
             label: "Pure & Natural"
           }, {
-            value: "10M+",
+            value: "2.5M+",
             label: "Happy Families"
           }].map((stat, index) => <motion.div key={index} initial={{
             opacity: 0,
