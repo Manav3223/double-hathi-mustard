@@ -90,7 +90,7 @@ const AboutSection = () => {
             </div>
 
             {/* Features Grid */}
-            <StaggerContainer staggerDelay={0.08} className="grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-4 mt-10">
+            <StaggerContainer staggerDelay={0.08} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
               {features.map((feature, index) => <StaggerItem key={index}>
                   <HoverScale scale={1.02}>
                     <div className="rounded-xl p-4 md:p-5 border border-border bg-secondary hover:border-primary/50 transition-colors duration-300">
