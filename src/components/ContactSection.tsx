@@ -44,7 +44,7 @@ const contactInfo = [
       <>
         Monday - Saturday: 9:00 AM - 6:00 PM
         <br />
-        Sunday: Closed
+        Sunday: 10:00 AM - 4:00 PM
       </>
     ),
   },
