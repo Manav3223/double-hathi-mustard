@@ -140,10 +140,7 @@ const ProductsSection = () => {
                       {product.size}
                     </p>
 
-                    <div className="flex items-center justify-between mt-4">
-                      <p className="text-2xl font-display font-bold text-primary">
-                        {product.price}
-                      </p>
+                    <div className="flex items-center justify-end mt-4">
                       <div className="flex items-center gap-1">
                         <div className="flex items-center border border-border rounded-lg bg-muted/30">
                           <button
