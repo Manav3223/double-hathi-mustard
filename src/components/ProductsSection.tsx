@@ -190,7 +190,17 @@ const ProductsSection = () => {
         {/* CTA */}
         <FadeIn delay={0.5} className="text-center mt-14">
           <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-            <Button variant="default" size="lg" className="shadow-lg">
+            <Button
+              variant="default"
+              size="lg"
+              className="shadow-lg"
+              onClick={() => {
+                const message = encodeURIComponent(
+                  "Hello! I'd like to know about all your available products and pricing. Please share your complete catalog."
+                );
+                window.open(`https://wa.me/${WHATSAPP_SALES_NUMBER}?text=${message}`, "_blank");
+              }}
+            >
               View All Products
             </Button>
           </motion.div>
