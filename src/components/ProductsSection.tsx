@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import mustardOilBottle from "@/assets/mustard-oil-bottle.jpg";
+import mustardOil5lJar from "@/assets/mustard-oil-5l-jar.jpg";
 import mustardOilPouch from "@/assets/mustard-oil-1l-pouch.png";
 import mustardOil200ml from "@/assets/mustard-oil-200ml.png";
 import mustardOil500ml from "@/assets/mustard-oil-500ml-pouch.png";
@@ -41,7 +41,7 @@ const products = [
     name: "Double Hathi Pure Mustard Oil",
     size: "5 Litre (Tin)",
     price: "₹980",
-    image: mustardOilBottle,
+    image: mustardOil5lJar,
     badge: null,
   },
   {
