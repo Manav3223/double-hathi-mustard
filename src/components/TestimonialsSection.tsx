@@ -209,6 +209,7 @@ const TestimonialsSection = () => {
               </motion.div>
             ))}
           </div>
+        </div>
         {/* Dot indicators */}
         <div className="flex justify-center gap-2 mt-8">
           {testimonials.map((_, idx) => (
