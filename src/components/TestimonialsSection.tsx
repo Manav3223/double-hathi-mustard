@@ -1,33 +1,101 @@
-import { Star, Quote } from "lucide-react";
+import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { FadeIn, StaggerContainer, StaggerItem, HoverScale } from "@/components/ui/motion-wrapper";
+import { FadeIn } from "@/components/ui/motion-wrapper";
+import { useRef, useState, useEffect } from "react";
 
 const testimonials = [
   {
     name: "Sunita Sharma",
-    location: "Delhi",
+    location: "Patna, Bihar",
     text: "We have been using Double Hathi oil for over 15 years. The taste and purity are unmatched. It reminds me of the oil my grandmother used to use.",
     rating: 5,
   },
   {
     name: "Rajesh Gupta",
-    location: "Lucknow",
+    location: "Kolkata, West Bengal",
     text: "The authentic aroma of Kachi Ghani oil is what makes our parathas special. My whole family loves the rich flavor Double Hathi brings to our food.",
     rating: 5,
   },
   {
     name: "Meera Patel",
-    location: "Ahmedabad",
+    location: "Raipur, Chhattisgarh",
     text: "I tried many brands but always came back to Double Hathi. It's pure, healthy, and the quality has remained consistent for decades.",
+    rating: 5,
+  },
+  {
+    name: "Amit Kumar Singh",
+    location: "Ranchi, Jharkhand",
+    text: "Double Hathi mustard oil has a rich golden color and perfect pungency. Our family has trusted this brand for three generations now.",
+    rating: 5,
+  },
+  {
+    name: "Priya Das",
+    location: "Bhubaneswar, Odisha",
+    text: "The achar I make with Double Hathi oil lasts the entire year without losing its taste. No other oil comes close to this quality.",
+    rating: 5,
+  },
+  {
+    name: "Ravi Shankar Mishra",
+    location: "Muzaffarpur, Bihar",
+    text: "In our village, every household uses Double Hathi. The oil is so pure that you can smell the mustard seeds in it. Truly Kachi Ghani!",
+    rating: 5,
+  },
+  {
+    name: "Ananya Chatterjee",
+    location: "Howrah, West Bengal",
+    text: "Bengali cooking without good mustard oil is incomplete. Double Hathi gives our fish curry and shorshe ilish the perfect authentic flavor.",
+    rating: 5,
+  },
+  {
+    name: "Deepak Sahu",
+    location: "Bilaspur, Chhattisgarh",
+    text: "I switched to Double Hathi two years ago on a friend's recommendation. The purity and freshness of this oil is unbeatable.",
+    rating: 5,
+  },
+  {
+    name: "Mamta Oraon",
+    location: "Jamshedpur, Jharkhand",
+    text: "We use Double Hathi for everything — cooking, massaging babies, even home remedies. It's a part of our daily life and we trust it completely.",
+    rating: 5,
+  },
+  {
+    name: "Suresh Pradhan",
+    location: "Cuttack, Odisha",
+    text: "The quality of Double Hathi mustard oil is exceptional. My wife insists on using only this brand for our family's meals. Pure and natural!",
     rating: 5,
   },
 ];
 
 const TestimonialsSection = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const checkScroll = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 10);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10);
+  };
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    checkScroll();
+    el.addEventListener("scroll", checkScroll);
+    return () => el.removeEventListener("scroll", checkScroll);
+  }, []);
+
+  const scroll = (dir: "left" | "right") => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const amount = el.clientWidth * 0.7;
+    el.scrollBy({ left: dir === "left" ? -amount : amount, behavior: "smooth" });
+  };
+
   return (
     <section className="py-24 md:py-36 bg-background overflow-hidden">
       <div className="container mx-auto px-4">
-        {/* Header */}
         <FadeIn className="text-center max-w-2xl mx-auto mb-16 md:mb-20">
           <span className="text-primary font-semibold text-sm uppercase tracking-[0.2em]">
             Testimonials
@@ -37,48 +105,62 @@ const TestimonialsSection = () => {
             <span className="text-primary"> Families</span>
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            Generations of Indian households trust Double Hathi for their daily
-            cooking needs.
+            Generations of Indian households trust Double Hathi for their daily cooking needs.
           </p>
         </FadeIn>
 
-        {/* Testimonials Grid */}
-        <StaggerContainer
-          staggerDelay={0.15}
-          className="grid md:grid-cols-3 gap-6 lg:gap-8"
-        >
-          {testimonials.map((testimonial, index) => (
-            <StaggerItem key={index}>
-              <HoverScale scale={1.02}>
+        {/* Scrollable container */}
+        <div className="relative">
+          {/* Left arrow */}
+          {canScrollLeft && (
+            <button
+              onClick={() => scroll("left")}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+          )}
+          {/* Right arrow */}
+          {canScrollRight && (
+            <button
+              onClick={() => scroll("right")}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          )}
+
+          <div
+            ref={scrollRef}
+            className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory px-6"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.05 }}
+                viewport={{ once: true }}
+                className="min-w-[300px] md:min-w-[360px] snap-start flex-shrink-0"
+              >
                 <div className="h-full relative rounded-2xl p-8 border border-border shadow-lg hover:shadow-2xl transition-all duration-500 bg-background">
-                  {/* Quote Icon */}
                   <div className="absolute -top-4 left-8">
                     <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-lg">
                       <Quote className="w-5 h-5 text-primary-foreground" />
                     </div>
                   </div>
 
-                  {/* Stars */}
                   <div className="flex gap-1 mb-5 pt-2">
                     {Array.from({ length: testimonial.rating }).map((_, i) => (
-                      <motion.div
-                        key={i}
-                        initial={{ opacity: 0, scale: 0 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.1 * i }}
-                        viewport={{ once: true }}
-                      >
-                        <Star className="w-5 h-5 fill-primary text-primary" />
-                      </motion.div>
+                      <Star key={i} className="w-5 h-5 fill-primary text-primary" />
                     ))}
                   </div>
 
-                  {/* Quote */}
                   <p className="text-foreground/80 leading-relaxed mb-8 text-base italic">
                     "{testimonial.text}"
                   </p>
 
-                  {/* Author */}
                   <div className="flex items-center gap-4">
                     <div className="w-14 h-14 rounded-full bg-gold-gradient flex items-center justify-center shadow-md">
                       <span className="text-primary-foreground font-bold text-lg">
@@ -86,19 +168,15 @@ const TestimonialsSection = () => {
                       </span>
                     </div>
                     <div>
-                      <p className="font-bold text-foreground text-lg">
-                        {testimonial.name}
-                      </p>
-                      <p className="text-sm text-muted-foreground">
-                        {testimonial.location}
-                      </p>
+                      <p className="font-bold text-foreground text-lg">{testimonial.name}</p>
+                      <p className="text-sm text-muted-foreground">{testimonial.location}</p>
                     </div>
                   </div>
                 </div>
-              </HoverScale>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
