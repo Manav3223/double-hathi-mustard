@@ -1,15 +1,10 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { products, WHATSAPP_SALES_NUMBER } from "@/data/products";
 import { Button } from "@/components/ui/button";
-import mustardOil5lJar from "@/assets/mustard-oil-5l-jar.jpg";
-import mustardOilPouch from "@/assets/mustard-oil-1l-pouch.png";
-import mustardOil200ml from "@/assets/mustard-oil-200ml.png";
-import mustardOil500ml from "@/assets/mustard-oil-500ml-pouch.png";
-import mustardOil15lTin from "@/assets/mustard-oil-15l-tin.png";
 import { MessageCircle, Minus, Plus } from "lucide-react";
 import { motion } from "framer-motion";
 import { FadeIn, StaggerContainer, StaggerItem, HoverScale } from "@/components/ui/motion-wrapper";
-
-const WHATSAPP_SALES_NUMBER = "917976708272";
 
 const products = [
   {
