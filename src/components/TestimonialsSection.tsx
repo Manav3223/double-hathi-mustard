@@ -209,6 +209,20 @@ const TestimonialsSection = () => {
               </motion.div>
             ))}
           </div>
+        {/* Dot indicators */}
+        <div className="flex justify-center gap-2 mt-8">
+          {testimonials.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => scrollToIndex(idx)}
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                idx === activeIndex
+                  ? "bg-primary scale-125 shadow-glow"
+                  : "bg-border hover:bg-primary/50"
+              }`}
+              aria-label={`Go to testimonial ${idx + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>
