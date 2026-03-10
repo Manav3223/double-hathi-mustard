@@ -71,12 +71,17 @@ const TestimonialsSection = () => {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const checkScroll = () => {
     const el = scrollRef.current;
     if (!el) return;
     setCanScrollLeft(el.scrollLeft > 10);
     setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10);
+    // Calculate active index based on scroll position
+    const cardWidth = 360 + 24; // min-w + gap
+    const idx = Math.round(el.scrollLeft / cardWidth);
+    setActiveIndex(Math.min(idx, testimonials.length - 1));
   };
 
   useEffect(() => {
@@ -108,6 +113,13 @@ const TestimonialsSection = () => {
     if (!el) return;
     const amount = el.clientWidth * 0.7;
     el.scrollBy({ left: dir === "left" ? -amount : amount, behavior: "smooth" });
+  };
+
+  const scrollToIndex = (idx: number) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const cardWidth = 360 + 24;
+    el.scrollTo({ left: idx * cardWidth, behavior: "smooth" });
   };
 
   return (
@@ -197,6 +209,21 @@ const TestimonialsSection = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+        {/* Dot indicators */}
+        <div className="flex justify-center gap-2 mt-8">
+          {testimonials.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => scrollToIndex(idx)}
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                idx === activeIndex
+                  ? "bg-primary scale-125 shadow-glow"
+                  : "bg-border hover:bg-primary/50"
+              }`}
+              aria-label={`Go to testimonial ${idx + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>
