@@ -143,11 +143,13 @@ const ProductsSection = () => {
 
         {/* CTA */}
         <FadeIn delay={0.5} className="text-center mt-14">
-          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-            <Button variant="default" size="lg" className="shadow-lg">
-              View All Products
-            </Button>
-          </motion.div>
+          <Link to="/products">
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+              <Button variant="default" size="lg" className="shadow-lg">
+                View All Products
+              </Button>
+            </motion.div>
+          </Link>
         </FadeIn>
       </div>
     </section>
