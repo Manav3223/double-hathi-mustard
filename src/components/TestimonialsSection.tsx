@@ -115,6 +115,13 @@ const TestimonialsSection = () => {
     el.scrollBy({ left: dir === "left" ? -amount : amount, behavior: "smooth" });
   };
 
+  const scrollToIndex = (idx: number) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const cardWidth = 360 + 24;
+    el.scrollTo({ left: idx * cardWidth, behavior: "smooth" });
+  };
+
   return (
     <section className="py-24 md:py-36 bg-background overflow-hidden">
       <div className="container mx-auto px-4">
