@@ -6,48 +6,7 @@ import { MessageCircle, Minus, Plus } from "lucide-react";
 import { motion } from "framer-motion";
 import { FadeIn, StaggerContainer, StaggerItem, HoverScale } from "@/components/ui/motion-wrapper";
 
-const products = [
-  {
-    id: 1,
-    name: "Double Hathi Pure Mustard Oil",
-    size: "1 Litre Pouch",
-    price: "₹210",
-    image: mustardOilPouch,
-    badge: "Best Seller",
-  },
-  {
-    id: 2,
-    name: "Double Hathi Pure Mustard Oil",
-    size: "200ml",
-    price: "₹50",
-    image: mustardOil200ml,
-    badge: null,
-  },
-  {
-    id: 3,
-    name: "Double Hathi Pure Mustard Oil",
-    size: "500ml",
-    price: "₹120",
-    image: mustardOil500ml,
-    badge: null,
-  },
-  {
-    id: 4,
-    name: "Double Hathi Pure Mustard Oil",
-    size: "5 Litre (Tin)",
-    price: "₹980",
-    image: mustardOil5lJar,
-    badge: null,
-  },
-  {
-    id: 5,
-    name: "Double Hathi Pure Mustard Oil",
-    size: "15 Litre (Tin)",
-    price: "₹2,550",
-    image: mustardOil15lTin,
-    badge: "Family Pack",
-  },
-];
+
 
 const ProductsSection = () => {
   const [quantities, setQuantities] = useState<Record<number, number>>(() =>
