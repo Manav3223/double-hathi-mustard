@@ -70,6 +70,7 @@ const TestimonialsSection = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const [isPaused, setIsPaused] = useState(false);
 
   const checkScroll = () => {
     const el = scrollRef.current;
@@ -85,6 +86,22 @@ const TestimonialsSection = () => {
     el.addEventListener("scroll", checkScroll);
     return () => el.removeEventListener("scroll", checkScroll);
   }, []);
+
+  // Auto-scroll every 4 seconds
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      const el = scrollRef.current;
+      if (!el) return;
+      const atEnd = el.scrollLeft >= el.scrollWidth - el.clientWidth - 10;
+      if (atEnd) {
+        el.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        el.scrollBy({ left: 370, behavior: "smooth" });
+      }
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [isPaused]);
 
   const scroll = (dir: "left" | "right") => {
     const el = scrollRef.current;
@@ -132,6 +149,10 @@ const TestimonialsSection = () => {
 
           <div
             ref={scrollRef}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onTouchStart={() => setIsPaused(true)}
+            onTouchEnd={() => setIsPaused(false)}
             className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory px-6"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
