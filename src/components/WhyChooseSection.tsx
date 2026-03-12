@@ -6,27 +6,27 @@ const WhyChooseSection = () => {
   const reasons = [
     {
       icon: Shield,
-      title: "100% Pure & Natural",
+      title: "Consistent Taste & Aroma",
       description:
-        "No additives, preservatives, or chemicals. Just pure mustard oil extracted the traditional way.",
+        "Traditional Kachchi Ghani extraction preserves the natural flavor and aroma of mustard seeds.",
     },
     {
       icon: Leaf,
-      title: "Kachi Ghani Process",
+      title: "Traditional Kachchi Ghani Process",
       description:
         "Cold-pressed extraction preserves all natural nutrients, aroma, and authentic taste.",
     },
     {
       icon: Award,
-      title: "FSSAI Certified",
+      title: "FSSAI Certified Quality",
       description:
         "Government certified for quality and safety standards you can trust.",
     },
     {
       icon: Heart,
-      title: "Heart Healthy",
+      title: "Strict Purity Testing",
       description:
-        "Rich in Omega-3 fatty acids and low in saturated fats for cardiovascular wellness.",
+        "Each batch undergoes quality checks to ensure purity, authenticity, and consistent taste.",
     },
     {
       icon: Clock,
@@ -36,9 +36,9 @@ const WhyChooseSection = () => {
     },
     {
       icon: ThumbsUp,
-      title: "Customer Satisfaction",
+      title: "Trusted by Millions of Families",
       description:
-        "Thousands of happy customers across India trust Double Hathi for their daily cooking.",
+        "Millions of happy customers across India trust Double Hathi for their daily cooking.",
     },
   ];
 

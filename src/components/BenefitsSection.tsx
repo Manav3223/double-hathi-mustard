@@ -5,7 +5,7 @@ import { FadeIn, StaggerContainer, StaggerItem, HoverScale } from "@/components/
 const benefits = [
   {
     icon: Heart,
-    title: "Heart Healthy",
+    title: "Supports Heart Health",
     description:
       "Rich in monounsaturated fatty acids that promote cardiovascular health and reduce bad cholesterol.",
   },
@@ -17,15 +17,15 @@ const benefits = [
   },
   {
     icon: Shield,
-    title: "Antimicrobial",
+    title: "Naturally Antimicrobial",
     description:
       "Natural antibacterial properties help fight infections and boost your body's natural immunity.",
   },
   {
     icon: Leaf,
-    title: "100% Natural",
+    title: "Aids Healthy Digestion",
     description:
-      "Pure cold-pressed oil with no chemicals, preservatives, or artificial additives.",
+      "Natural compounds in mustard oil help stimulate digestive enzymes and improve metabolism.",
   },
   {
     icon: Flame,
@@ -35,7 +35,7 @@ const benefits = [
   },
   {
     icon: Droplet,
-    title: "Rich in Omega-3",
+    title: "Rich in Omega-3 & Good Fats",
     description:
       "Essential fatty acids that support brain function, reduce inflammation, and improve overall health.",
   },
