@@ -65,9 +65,9 @@ const WhyChooseSection = () => {
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
         >
           {reasons.map((reason, index) => (
-            <StaggerItem key={index}>
-              <HoverScale>
-                <div className="h-full bg-background rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 group border border-transparent hover:border-primary/30">
+            <StaggerItem key={index} className="h-full">
+              <HoverScale className="h-full">
+                <div className="h-full flex flex-col bg-background rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 group border border-transparent hover:border-primary/30">
                   <motion.div
                     className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300"
                     whileHover={{ rotate: 5 }}
@@ -77,7 +77,7 @@ const WhyChooseSection = () => {
                   <h3 className="font-display text-xl md:text-2xl font-bold text-foreground mb-4">
                     {reason.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed text-base">
+                  <p className="text-muted-foreground leading-relaxed text-base flex-grow">
                     {reason.description}
                   </p>
                 </div>
