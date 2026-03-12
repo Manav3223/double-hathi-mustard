@@ -35,7 +35,7 @@ const WhyChooseSection = () => {
         "Trusted by generations of Indian families since 1989 for authentic taste.",
     },
     {
-      icon: ThumbsUp,
+      icon: Users,
       title: "Trusted by Millions of Families",
       description:
         "Millions of happy customers across India trust Double Hathi for their daily cooking.",
