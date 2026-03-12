@@ -86,7 +86,7 @@ const ProductsSection = () => {
                   </div>
 
                   {/* Info */}
-                  <div>
+                  <div className="mt-auto">
                     <h3 className="font-display font-semibold text-foreground text-lg leading-tight">
                       {product.name}
                     </h3>
