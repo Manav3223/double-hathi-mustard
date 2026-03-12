@@ -5,7 +5,7 @@ import { FadeIn, StaggerContainer, StaggerItem, HoverScale } from "@/components/
 const WhyChooseSection = () => {
   const reasons = [
     {
-      icon: Shield,
+      icon: Utensils,
       title: "Consistent Taste & Aroma",
       description:
         "Traditional Kachchi Ghani extraction preserves the natural flavor and aroma of mustard seeds.",
