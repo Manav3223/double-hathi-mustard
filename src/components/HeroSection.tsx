@@ -58,8 +58,13 @@ const HeroSection = () => {
           transition={{ duration: 1.5 }}
           className="absolute inset-0 w-full h-full object-cover"
           autoPlay muted loop playsInline
-          preload={isMobile ? "metadata" : "auto"}
+          preload="auto"
           onLoadedData={() => setVideoLoaded(true)}
+          onEnded={(e) => {
+            const video = e.currentTarget;
+            video.currentTime = 0;
+            video.play();
+          }}
           onError={() => setVideoError(true)}>
 
             <source src={heroVideo} type="video/mp4" />
