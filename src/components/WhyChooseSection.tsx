@@ -1,11 +1,11 @@
-import { Shield, Leaf, Award, Heart, Clock, ThumbsUp } from "lucide-react";
+import { Utensils, Leaf, Award, FlaskConical, Clock, Users } from "lucide-react";
 import { motion } from "framer-motion";
 import { FadeIn, StaggerContainer, StaggerItem, HoverScale } from "@/components/ui/motion-wrapper";
 
 const WhyChooseSection = () => {
   const reasons = [
     {
-      icon: Shield,
+      icon: Utensils,
       title: "Consistent Taste & Aroma",
       description:
         "Traditional Kachchi Ghani extraction preserves the natural flavor and aroma of mustard seeds.",
@@ -23,7 +23,7 @@ const WhyChooseSection = () => {
         "Government certified for quality and safety standards you can trust.",
     },
     {
-      icon: Heart,
+      icon: FlaskConical,
       title: "Strict Purity Testing",
       description:
         "Each batch undergoes quality checks to ensure purity, authenticity, and consistent taste.",
@@ -35,7 +35,7 @@ const WhyChooseSection = () => {
         "Trusted by generations of Indian families since 1989 for authentic taste.",
     },
     {
-      icon: ThumbsUp,
+      icon: Users,
       title: "Trusted by Millions of Families",
       description:
         "Millions of happy customers across India trust Double Hathi for their daily cooking.",
