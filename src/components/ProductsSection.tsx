@@ -60,9 +60,9 @@ const ProductsSection = () => {
           className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6"
         >
           {products.map((product) => (
-            <StaggerItem key={product.id}>
-              <HoverScale scale={1.02}>
-                <div className="group h-full bg-background rounded-2xl p-5 md:p-6 shadow-lg hover:shadow-2xl transition-all duration-500 border border-border hover:border-primary/50">
+            <StaggerItem key={product.id} className="h-full">
+              <HoverScale scale={1.02} className="h-full">
+                <div className="group h-full flex flex-col bg-background rounded-2xl p-5 md:p-6 shadow-lg hover:shadow-2xl transition-all duration-500 border border-border hover:border-primary/50">
                   {/* Badge */}
                   {product.badge && (
                     <motion.span
@@ -86,7 +86,7 @@ const ProductsSection = () => {
                   </div>
 
                   {/* Info */}
-                  <div>
+                  <div className="mt-auto">
                     <h3 className="font-display font-semibold text-foreground text-lg leading-tight">
                       {product.name}
                     </h3>
