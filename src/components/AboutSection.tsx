@@ -12,14 +12,14 @@ const AboutSection = () => {
     title: "Trusted by Millions of Families",
     desc: "Used daily in kitchens across generations."
   }, {
-    title: "Family Owned",
-    desc: "Family owned. Crafting pure mustard oil since 1989"
+    title: "FSSAI Certified",
+    desc: "Quality assured. Safe for everyday cooking"
   }, {
     title: "Commitment to Purity",
     desc: "Strict quality checks ensure every batch meets high standards."
   }, {
-    title: "FSSAI Certified",
-    desc: "Quality assured. Safe for everyday cooking"
+    title: "Family Owned",
+    desc: "Family owned. Crafting pure mustard oil since 1989"
   }];
   return <section id="about" className="py-24 md:py-36 bg-background overflow-hidden">
       <div className="container mx-auto px-4">
