@@ -1,4 +1,4 @@
-import { Shield, Leaf, Award, Heart, Clock, ThumbsUp } from "lucide-react";
+import { Utensils, Leaf, Award, FlaskConical, Clock, Users } from "lucide-react";
 import { motion } from "framer-motion";
 import { FadeIn, StaggerContainer, StaggerItem, HoverScale } from "@/components/ui/motion-wrapper";
 
