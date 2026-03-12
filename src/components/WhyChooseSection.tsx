@@ -23,7 +23,7 @@ const WhyChooseSection = () => {
         "Government certified for quality and safety standards you can trust.",
     },
     {
-      icon: Heart,
+      icon: FlaskConical,
       title: "Strict Purity Testing",
       description:
         "Each batch undergoes quality checks to ensure purity, authenticity, and consistent taste.",
