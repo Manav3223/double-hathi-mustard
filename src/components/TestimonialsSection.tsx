@@ -123,7 +123,7 @@ const TestimonialsSection = () => {
   const scrollToIndex = (idx: number) => {
     const el = scrollRef.current;
     if (!el) return;
-    const cardWidth = 360 + 24;
+    const cardWidth = getCardWidth();
     el.scrollTo({ left: idx * cardWidth, behavior: "smooth" });
   };
 
