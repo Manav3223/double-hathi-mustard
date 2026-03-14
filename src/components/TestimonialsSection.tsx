@@ -182,7 +182,7 @@ const TestimonialsSection = () => {
                 viewport={{ once: true }}
                 className="min-w-[calc(100vw-4rem)] sm:min-w-[300px] md:min-w-[360px] snap-start flex-shrink-0"
               >
-                <div className="h-full relative rounded-2xl p-8 border border-border shadow-lg hover:shadow-2xl transition-all duration-500 bg-background">
+                <div className="relative rounded-2xl p-8 border border-border shadow-lg hover:shadow-2xl transition-all duration-500 bg-background">
                   <div className="absolute -top-4 left-8">
                     <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-lg">
                       <Quote className="w-5 h-5 text-primary-foreground" />
