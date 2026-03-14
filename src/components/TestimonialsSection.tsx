@@ -170,7 +170,7 @@ const TestimonialsSection = () => {
             onMouseLeave={() => setIsPaused(false)}
             onTouchStart={() => setIsPaused(true)}
             onTouchEnd={() => setIsPaused(false)}
-            className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory px-6"
+            className="flex items-start gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory px-6"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {testimonials.map((testimonial, index) => (
