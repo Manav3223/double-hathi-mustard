@@ -73,13 +73,18 @@ const TestimonialsSection = () => {
   const [isPaused, setIsPaused] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
 
+  const getCardWidth = () => {
+    const el = scrollRef.current;
+    if (!el || !el.children[0]) return 384;
+    return (el.children[0] as HTMLElement).offsetWidth + 24; // card width + gap
+  };
+
   const checkScroll = () => {
     const el = scrollRef.current;
     if (!el) return;
     setCanScrollLeft(el.scrollLeft > 10);
     setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10);
-    // Calculate active index based on scroll position
-    const cardWidth = 360 + 24; // min-w + gap
+    const cardWidth = getCardWidth();
     const idx = Math.round(el.scrollLeft / cardWidth);
     setActiveIndex(Math.min(idx, testimonials.length - 1));
   };
@@ -118,7 +123,7 @@ const TestimonialsSection = () => {
   const scrollToIndex = (idx: number) => {
     const el = scrollRef.current;
     if (!el) return;
-    const cardWidth = 360 + 24;
+    const cardWidth = getCardWidth();
     el.scrollTo({ left: idx * cardWidth, behavior: "smooth" });
   };
 
@@ -175,7 +180,7 @@ const TestimonialsSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05 }}
                 viewport={{ once: true }}
-                className="min-w-[300px] md:min-w-[360px] snap-start flex-shrink-0"
+                className="min-w-[calc(100vw-4rem)] sm:min-w-[300px] md:min-w-[360px] snap-start flex-shrink-0"
               >
                 <div className="h-full relative rounded-2xl p-8 border border-border shadow-lg hover:shadow-2xl transition-all duration-500 bg-background">
                   <div className="absolute -top-4 left-8">
