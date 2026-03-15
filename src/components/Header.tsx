@@ -45,11 +45,11 @@ const Header = () => {
           scale: 0.98
         }}>
             <img alt="Double Hathi Logo" className="w-20 h-20 lg:w-24 lg:h-24 object-contain drop-shadow-md" src="/lovable-uploads/28b73be5-c0c9-4635-a301-cfa2d2c218e9.png" />
-            <div className="hidden sm:block">
-              <p className="font-display text-foreground leading-tight text-lg font-extrabold lg:text-2xl">
+            <div>
+              <p className="font-display text-foreground leading-tight text-sm font-extrabold sm:text-lg lg:text-2xl">
                 Double Hathi
               </p>
-              <p className="text-muted-foreground font-medium text-sm">
+              <p className="text-muted-foreground font-medium text-[10px] sm:text-sm">
                 Since 1989
               </p>
             </div>
