@@ -6,8 +6,8 @@ const AboutSection = () => {
     title: "Cold Pressed / Wood Pressed",
     desc: "Wood pressed. Traditional Kachi Ghani extraction"
   }, {
-    title: "No Chemicals",
-    desc: "No additives. No preservatives"
+    title: "Commitment to Purity",
+    desc: "Strict quality checks ensure every batch meets high standards."
   }, {
     title: "Trusted by Millions of Families",
     desc: "Used daily in kitchens across generations."
@@ -15,8 +15,8 @@ const AboutSection = () => {
     title: "FSSAI Certified",
     desc: "Quality assured. Safe for everyday cooking"
   }, {
-    title: "Commitment to Purity",
-    desc: "Strict quality checks ensure every batch meets high standards."
+    title: "No Chemicals",
+    desc: "No additives. No preservatives"
   }, {
     title: "Family Owned",
     desc: "Family owned. Crafting pure mustard oil since 1989"
