@@ -60,7 +60,7 @@ const ProductsSection = () => {
           className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           
           {products.map((product) =>
-              <StaggerItem key={product.id} className="h-full">
+          <StaggerItem key={product.id} className="h-full">
               <HoverScale scale={1.02} className="h-full">
                 <div className="group h-full bg-background rounded-2xl p-5 md:p-6 shadow-lg hover:shadow-2xl transition-all duration-500 border border-border hover:border-primary/50 flex flex-col">
                   {/* Badge */}
@@ -68,7 +68,7 @@ const ProductsSection = () => {
                 <motion.span
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="inline-block text-xs font-bold py-1.5 rounded-full mb-4 shadow-md text-secondary-foreground bg-primary px-[12px]">
+                  className="inline-block text-xs font-bold py-1.5 rounded-full mb-4 shadow-md text-secondary-foreground bg-primary px-[12px] mx-[153px] mr-[153px] pl-[12px]">
                   
                       {product.badge}
                     </motion.span>
