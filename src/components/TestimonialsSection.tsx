@@ -182,32 +182,32 @@ const TestimonialsSection = () => {
                 viewport={{ once: true }}
                 className="min-w-[calc(100vw-4rem)] sm:min-w-[300px] md:min-w-[360px] snap-start flex-shrink-0"
               >
-                <div className="relative rounded-2xl p-8 border border-border shadow-lg hover:shadow-2xl transition-all duration-500 bg-background">
-                  <div className="absolute -top-4 left-8">
-                    <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-lg">
-                      <Quote className="w-5 h-5 text-primary-foreground" />
+                <div className="relative rounded-2xl p-5 md:p-8 border border-border shadow-lg hover:shadow-2xl transition-all duration-500 bg-background">
+                  <div className="absolute -top-3 left-5 md:-top-4 md:left-8">
+                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-primary flex items-center justify-center shadow-lg">
+                      <Quote className="w-4 h-4 md:w-5 md:h-5 text-primary-foreground" />
                     </div>
                   </div>
 
-                  <div className="flex gap-1 mb-5 pt-2">
+                  <div className="flex gap-1 mb-3 md:mb-5 pt-1 md:pt-2">
                     {Array.from({ length: testimonial.rating }).map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                      <Star key={i} className="w-4 h-4 md:w-5 md:h-5 fill-primary text-primary" />
                     ))}
                   </div>
 
-                  <p className="text-foreground/80 leading-relaxed mb-8 text-base italic">
+                  <p className="text-foreground/80 leading-relaxed mb-5 md:mb-8 text-sm md:text-base italic">
                     "{testimonial.text}"
                   </p>
 
-                  <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-full bg-gold-gradient flex items-center justify-center shadow-md">
-                      <span className="text-primary-foreground font-bold text-lg">
+                  <div className="flex items-center gap-3 md:gap-4">
+                    <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-gold-gradient flex items-center justify-center shadow-md">
+                      <span className="text-primary-foreground font-bold text-sm md:text-lg">
                         {testimonial.name.charAt(0)}
                       </span>
                     </div>
                     <div>
-                      <p className="font-bold text-foreground text-lg">{testimonial.name}</p>
-                      <p className="text-sm text-muted-foreground">{testimonial.location}</p>
+                      <p className="font-bold text-foreground text-base md:text-lg">{testimonial.name}</p>
+                      <p className="text-xs md:text-sm text-muted-foreground">{testimonial.location}</p>
                     </div>
                   </div>
                 </div>
