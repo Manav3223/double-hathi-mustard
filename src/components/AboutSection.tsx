@@ -91,9 +91,9 @@ const AboutSection = () => {
 
             {/* Features Grid */}
             <StaggerContainer staggerDelay={0.08} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
-              {features.map((feature, index) => <StaggerItem key={index}>
-                  <HoverScale scale={1.02}>
-                    <div className="rounded-xl p-4 md:p-5 border border-border bg-secondary hover:border-primary/50 transition-colors duration-300">
+              {features.map((feature, index) => <StaggerItem key={index} className="h-full">
+                  <HoverScale scale={1.02} className="h-full">
+                    <div className="rounded-xl p-4 md:p-5 border border-border bg-secondary hover:border-primary/50 transition-colors duration-300 h-full flex flex-col items-center justify-center">
                       <h4 className="text-center font-bold text-lg md:text-xl text-mustard-light">
                         {feature.title}
                       </h4>
