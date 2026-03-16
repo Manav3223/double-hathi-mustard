@@ -116,4 +116,4 @@ export const products: Product[] = [
   },
 ];
 
-export const WHATSAPP_SALES_NUMBER = "917976708272";
+export const WHATSAPP_SALES_NUMBER = "917976708372";
