@@ -73,7 +73,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-10">
-            {navLinks.map((link, index) => <motion.a key={link.href} href={link.href} className="text-muted-foreground hover:text-primary transition-colors font-medium relative group" initial={{
+            {navLinks.map((link, index) => <motion.a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link.href)} className="text-muted-foreground hover:text-primary transition-colors font-medium relative group cursor-pointer" initial={{
             opacity: 0,
             y: -10
           }} animate={{
