@@ -95,9 +95,9 @@ const BenefitsSection = () => {
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
         >
           {benefits.map((benefit, index) => (
-            <StaggerItem key={index}>
-              <HoverScale>
-                <div className="h-full group bg-secondary-foreground/5 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-secondary-foreground/10 hover:border-mustard/50 transition-all duration-500 hover:bg-secondary-foreground/10">
+            <StaggerItem key={index} className="h-full">
+              <HoverScale className="h-full">
+                <div className="h-full flex flex-col group bg-secondary-foreground/5 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-secondary-foreground/10 hover:border-mustard/50 transition-all duration-500 hover:bg-secondary-foreground/10">
                   <motion.div
                     className="w-16 h-16 rounded-2xl bg-mustard/20 mb-5 group-hover:bg-mustard/30 transition-colors flex items-center justify-center"
                     whileHover={{ rotate: 10, scale: 1.05 }}
