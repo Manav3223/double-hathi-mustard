@@ -41,7 +41,7 @@ export const products: Product[] = [
   {
     id: 2,
     name: "Double Hathi Pure Mustard Oil",
-    size: "200ml",
+    size: "200ml Bottle",
     price: "₹50",
     image: mustardOil200ml,
     badge: null,
@@ -60,7 +60,7 @@ export const products: Product[] = [
   {
     id: 3,
     name: "Double Hathi Pure Mustard Oil",
-    size: "500ml",
+    size: "500ml Pouch",
     price: "₹120",
     image: mustardOil500ml,
     badge: null,
@@ -79,7 +79,7 @@ export const products: Product[] = [
   {
     id: 4,
     name: "Double Hathi Pure Mustard Oil",
-    size: "5 Litre (Tin)",
+    size: "5 Litre Jar",
     price: "₹980",
     image: mustardOil5lJar,
     badge: null,
@@ -98,7 +98,7 @@ export const products: Product[] = [
   {
     id: 5,
     name: "Double Hathi Pure Mustard Oil",
-    size: "15 Litre (Tin)",
+    size: "15 Litre Tin",
     price: "₹2,550",
     image: mustardOil15lTin,
     badge: "Family Pack",
