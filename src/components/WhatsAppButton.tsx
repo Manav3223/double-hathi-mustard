@@ -5,7 +5,7 @@ const WhatsAppButton = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const phoneNumbers = [
-    { number: "917976708272", label: "Sales & Orders", display: "+91 79767 08272" },
+    { number: "917976708372", label: "Sales & Orders", display: "+91 79767 08372" },
     { number: "919414376910", label: "Customer Support", display: "+91 94143 76910" },
   ];
 
