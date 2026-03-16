@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { products, WHATSAPP_SALES_NUMBER } from "@/data/products";
 import { Button } from "@/components/ui/button";
