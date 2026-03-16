@@ -153,7 +153,7 @@ const Header = () => {
           }} transition={{
             delay: 0.3
           }}>
-                <Button variant="default" className="w-full mt-4 py-6 font-semibold">
+                <Button variant="default" className="w-full mt-4 py-6 font-semibold" onClick={handleOrderClick}>
                   Order Now
                 </Button>
               </motion.div>
