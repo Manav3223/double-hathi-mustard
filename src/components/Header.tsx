@@ -102,7 +102,7 @@ const Header = () => {
           }} whileTap={{
             scale: 0.98
           }}>
-              <Button variant="default" size="lg" className="font-semibold shadow-md">
+              <Button variant="default" size="lg" className="font-semibold shadow-md" onClick={handleOrderClick}>
                 Order Now
               </Button>
             </motion.div>
