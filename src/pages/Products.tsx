@@ -10,6 +10,10 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Products = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [quantities, setQuantities] = useState<Record<number, number>>(() =>
     products.reduce((acc, p) => ({ ...acc, [p.id]: 1 }), {})
   );
