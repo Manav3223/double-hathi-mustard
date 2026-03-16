@@ -13,7 +13,7 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   const navLinks = [{
-    href: "/",
+    href: "#home",
     label: "Home"
   }, {
     href: "#about",
@@ -28,6 +28,22 @@ const Header = () => {
     href: "#contact",
     label: "Contact"
   }];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setIsMenuOpen(false);
+    if (href === "#home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleOrderClick = () => {
+    const el = document.querySelector("#contact");
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
   return <motion.header initial={{
     y: -100
   }} animate={{
