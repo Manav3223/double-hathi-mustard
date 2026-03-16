@@ -13,7 +13,7 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   const navLinks = [{
-    href: "/",
+    href: "#home",
     label: "Home"
   }, {
     href: "#about",
@@ -28,6 +28,22 @@ const Header = () => {
     href: "#contact",
     label: "Contact"
   }];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setIsMenuOpen(false);
+    if (href === "#home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleOrderClick = () => {
+    const el = document.querySelector("#contact");
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
   return <motion.header initial={{
     y: -100
   }} animate={{
@@ -57,7 +73,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-10">
-            {navLinks.map((link, index) => <motion.a key={link.href} href={link.href} className="text-muted-foreground hover:text-primary transition-colors font-medium relative group" initial={{
+            {navLinks.map((link, index) => <motion.a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link.href)} className="text-muted-foreground hover:text-primary transition-colors font-medium relative group cursor-pointer" initial={{
             opacity: 0,
             y: -10
           }} animate={{
@@ -86,7 +102,7 @@ const Header = () => {
           }} whileTap={{
             scale: 0.98
           }}>
-              <Button variant="default" size="lg" className="font-semibold shadow-md">
+              <Button variant="default" size="lg" className="font-semibold shadow-md" onClick={handleOrderClick}>
                 Order Now
               </Button>
             </motion.div>
@@ -117,7 +133,7 @@ const Header = () => {
         ease: "easeInOut"
       }} className="lg:hidden bg-background border-t border-border overflow-hidden">
             <nav className="container mx-auto px-4 py-6 flex flex-col gap-2">
-              {navLinks.map((link, index) => <motion.a key={link.href} href={link.href} className="text-foreground hover:text-primary hover:bg-muted transition-all font-medium py-3 px-4 rounded-xl" onClick={() => setIsMenuOpen(false)} initial={{
+              {navLinks.map((link, index) => <motion.a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link.href)} className="text-foreground hover:text-primary hover:bg-muted transition-all font-medium py-3 px-4 rounded-xl cursor-pointer" initial={{
             opacity: 0,
             x: -20
           }} animate={{
@@ -137,7 +153,7 @@ const Header = () => {
           }} transition={{
             delay: 0.3
           }}>
-                <Button variant="default" className="w-full mt-4 py-6 font-semibold">
+                <Button variant="default" className="w-full mt-4 py-6 font-semibold" onClick={handleOrderClick}>
                   Order Now
                 </Button>
               </motion.div>
