@@ -29,20 +29,27 @@ const Header = () => {
     label: "Contact"
   }];
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    setIsMenuOpen(false);
+  const scrollToSection = (href: string) => {
     if (href === "#home") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
       const el = document.querySelector(href);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
+      if (el) {
+        const offset = 80; // 5rem header offset
+        const top = el.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
     }
   };
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setIsMenuOpen(false);
+    scrollToSection(href);
+  };
+
   const handleOrderClick = () => {
-    const el = document.querySelector("#contact");
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    scrollToSection("#contact");
   };
   return <motion.header initial={{
     y: -100
