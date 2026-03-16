@@ -41,7 +41,7 @@ export const products: Product[] = [
   {
     id: 2,
     name: "Double Hathi Pure Mustard Oil",
-    size: "200ml",
+    size: "200ml Bottle",
     price: "₹50",
     image: mustardOil200ml,
     badge: null,
