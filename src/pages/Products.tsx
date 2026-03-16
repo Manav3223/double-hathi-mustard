@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { products, WHATSAPP_SALES_NUMBER } from "@/data/products";
 import { Button } from "@/components/ui/button";
@@ -10,6 +10,10 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Products = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [quantities, setQuantities] = useState<Record<number, number>>(() =>
     products.reduce((acc, p) => ({ ...acc, [p.id]: 1 }), {})
   );
