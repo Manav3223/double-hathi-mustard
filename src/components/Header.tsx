@@ -48,10 +48,14 @@ const Header = () => {
     }
   };
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, link: { href: string; label: string; isRoute?: boolean }) => {
     e.preventDefault();
     setIsMenuOpen(false);
-    scrollToSection(href);
+    if (link.isRoute) {
+      navigate(link.href);
+    } else {
+      scrollToSection(link.href);
+    }
   };
 
   const handleOrderClick = () => {
