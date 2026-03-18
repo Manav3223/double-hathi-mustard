@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 const Header = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
@@ -41,7 +42,7 @@ const Header = () => {
     } else {
       const el = document.querySelector(href);
       if (el) {
-        const offset = 80; // 5rem header offset
+        const offset = 80;
         const top = el.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top, behavior: "smooth" });
       }
@@ -53,13 +54,24 @@ const Header = () => {
     setIsMenuOpen(false);
     if (link.isRoute) {
       navigate(link.href);
+    } else if (location.pathname !== "/") {
+      // Navigate to home first, then scroll after a short delay
+      navigate("/");
+      setTimeout(() => scrollToSection(link.href), 300);
     } else {
-      scrollToSection(link.href);
+      // Small delay to let mobile menu close before scrolling
+      setTimeout(() => scrollToSection(link.href), 100);
     }
   };
 
   const handleOrderClick = () => {
-    scrollToSection("#contact");
+    setIsMenuOpen(false);
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => scrollToSection("#contact"), 300);
+    } else {
+      setTimeout(() => scrollToSection("#contact"), 100);
+    }
   };
   return <motion.header initial={{
     y: -100
