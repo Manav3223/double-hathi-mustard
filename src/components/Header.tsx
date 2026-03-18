@@ -141,19 +141,6 @@ const Header = () => {
           }}>
                   {link.label}
                 </motion.a>)}
-              <motion.div initial={{
-            opacity: 0,
-            y: 10
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            delay: 0.3
-          }}>
-                <Button variant="default" className="w-full mt-4 py-6 font-semibold" onClick={handleOrderClick}>
-                  Order Now
-                </Button>
-              </motion.div>
             </nav>
           </motion.div>}
       </AnimatePresence>
