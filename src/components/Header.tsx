@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 const Header = () => {
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
@@ -25,6 +27,10 @@ const Header = () => {
     href: "#benefits",
     label: "Benefits"
   }, {
+    href: "/dealer-inquiry",
+    label: "Distributor",
+    isRoute: true
+  }, {
     href: "#contact",
     label: "Contact"
   }];
@@ -42,10 +48,14 @@ const Header = () => {
     }
   };
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, link: { href: string; label: string; isRoute?: boolean }) => {
     e.preventDefault();
     setIsMenuOpen(false);
-    scrollToSection(href);
+    if (link.isRoute) {
+      navigate(link.href);
+    } else {
+      scrollToSection(link.href);
+    }
   };
 
   const handleOrderClick = () => {
@@ -80,7 +90,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-10">
-            {navLinks.map((link, index) => <motion.a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link.href)} className="text-muted-foreground hover:text-primary transition-colors font-medium relative group cursor-pointer" initial={{
+            {navLinks.map((link, index) => <motion.a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link)} className="text-muted-foreground hover:text-primary transition-colors font-medium relative group cursor-pointer" initial={{
             opacity: 0,
             y: -10
           }} animate={{
@@ -140,7 +150,7 @@ const Header = () => {
         ease: "easeInOut"
       }} className="lg:hidden bg-background border-t border-border overflow-hidden">
             <nav className="container mx-auto px-4 py-6 flex flex-col gap-2">
-              {navLinks.map((link, index) => <motion.a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link.href)} className="text-foreground hover:text-primary hover:bg-muted transition-all font-medium py-3 px-4 rounded-xl cursor-pointer" initial={{
+              {navLinks.map((link, index) => <motion.a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link)} className="text-foreground hover:text-primary hover:bg-muted transition-all font-medium py-3 px-4 rounded-xl cursor-pointer" initial={{
             opacity: 0,
             x: -20
           }} animate={{
