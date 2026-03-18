@@ -104,26 +104,6 @@ const Header = () => {
               </motion.a>)}
           </nav>
 
-          {/* CTA Button */}
-          <motion.div className="hidden lg:block" initial={{
-          opacity: 0,
-          x: 20
-        }} animate={{
-          opacity: 1,
-          x: 0
-        }} transition={{
-          delay: 0.5
-        }}>
-            <motion.div whileHover={{
-            scale: 1.02
-          }} whileTap={{
-            scale: 0.98
-          }}>
-              <Button variant="default" size="lg" className="font-semibold shadow-md" onClick={handleOrderClick}>
-                Order Now
-              </Button>
-            </motion.div>
-          </motion.div>
 
           {/* Mobile Menu Button */}
           <motion.button className="lg:hidden p-2.5 text-foreground rounded-xl hover:bg-muted transition-colors" onClick={() => setIsMenuOpen(!isMenuOpen)} whileTap={{
