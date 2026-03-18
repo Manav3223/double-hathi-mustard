@@ -150,7 +150,7 @@ const Header = () => {
         ease: "easeInOut"
       }} className="lg:hidden bg-background border-t border-border overflow-hidden">
             <nav className="container mx-auto px-4 py-6 flex flex-col gap-2">
-              {navLinks.map((link, index) => <motion.a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link.href)} className="text-foreground hover:text-primary hover:bg-muted transition-all font-medium py-3 px-4 rounded-xl cursor-pointer" initial={{
+              {navLinks.map((link, index) => <motion.a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link)} className="text-foreground hover:text-primary hover:bg-muted transition-all font-medium py-3 px-4 rounded-xl cursor-pointer" initial={{
             opacity: 0,
             x: -20
           }} animate={{
