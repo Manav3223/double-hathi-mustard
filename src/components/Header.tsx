@@ -25,6 +25,10 @@ const Header = () => {
     href: "#benefits",
     label: "Benefits"
   }, {
+    href: "/dealer-inquiry",
+    label: "Distributor",
+    isRoute: true
+  }, {
     href: "#contact",
     label: "Contact"
   }];
