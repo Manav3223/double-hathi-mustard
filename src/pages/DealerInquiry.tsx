@@ -123,9 +123,7 @@ const DealerInquiry = () => {
             </button>
             <div className="flex-1 flex justify-center">
               <a href="/" className="flex items-center gap-2">
-                <div className="w-10 h-10 rounded-full bg-gold-gradient flex items-center justify-center shadow-soft">
-                  <span className="text-primary-foreground font-display font-bold text-lg">DH</span>
-                </div>
+                <img src="/lovable-uploads/28b73be5-c0c9-4635-a301-cfa2d2c218e9.png" alt="Double Hathi Logo" className="w-12 h-12 object-contain" />
                 <span className="font-display font-bold text-foreground text-lg hidden sm:block">Double Hathi</span>
               </a>
             </div>
