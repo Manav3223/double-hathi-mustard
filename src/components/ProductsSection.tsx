@@ -40,15 +40,17 @@ const ProductsSection = () => {
     <section id="products" className="py-24 md:py-36 bg-card overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <FadeIn className="text-center max-w-xl mx-auto mb-14">
+        <FadeIn className="text-center max-w-2xl mx-auto mb-16 md:mb-20">
           <span className="text-primary font-semibold text-sm uppercase tracking-[0.2em]">
             Our Products
           </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-3 mb-4">
-            Available in <span className="text-primary">Every Size</span>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-5">
+            Pure Goodness in
+            <span className="text-primary"> Every Drop</span>
           </h2>
-          <p className="text-muted-foreground text-base leading-relaxed">
-            From 200ml pouches to 15L tins — pick the size that fits your kitchen.
+          <p className="text-muted-foreground text-lg leading-relaxed">
+            Choose from our range of premium Kachi Ghani mustard oil, available in
+            sizes perfect for every household need.
           </p>
         </FadeIn>
 
