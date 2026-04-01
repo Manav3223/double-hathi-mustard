@@ -158,7 +158,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.9 }}
-              className="block text-lg sm:text-xl md:text-2xl mt-4 font-bold text-mustard bg-mustard/10 backdrop-blur-sm rounded-full px-6 py-2 inline-block border border-mustard/20">
+              className="block text-sm sm:text-lg md:text-2xl mt-4 font-bold text-mustard bg-mustard/10 backdrop-blur-sm rounded-full px-4 sm:px-6 py-2 inline-block border border-mustard/20 max-w-[95vw]">
 
               "Sehat ka Mazboot Saathi - Shuddh Kachi Ghani"
             </motion.span>
