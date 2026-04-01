@@ -158,7 +158,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.9 }}
-              className="block text-lg sm:text-xl md:text-2xl mt-4 font-bold text-mustard bg-mustard/10 backdrop-blur-sm rounded-full px-6 py-2 inline-block border border-mustard/20">
+              className="block text-sm sm:text-lg md:text-2xl mt-4 font-bold text-mustard bg-mustard/10 backdrop-blur-sm rounded-full px-4 sm:px-6 py-2 inline-block border border-mustard/20 max-w-[95vw]">
 
               "Sehat ka Mazboot Saathi - Shuddh Kachi Ghani"
             </motion.span>
@@ -169,7 +169,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1 }}
-            className="text-lg md:text-xl lg:text-2xl text-cream/85 max-w-2xl mx-auto mb-12 font-light leading-relaxed text-shadow-soft">
+            className="text-base md:text-xl lg:text-2xl text-cream/85 max-w-2xl mx-auto mb-10 md:mb-12 font-light leading-relaxed text-shadow-soft px-2">
 
             Experience the authentic taste and purity of Kachi Ghani mustard oil,
             crafted with traditional methods passed down through generations.
@@ -200,7 +200,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.3 }}
-            className="grid grid-cols-3 gap-4 md:gap-8 mt-16 md:mt-20 max-w-3xl mx-auto">
+            className="grid grid-cols-3 gap-3 md:gap-8 mt-12 md:mt-20 max-w-3xl mx-auto">
 
             {[
             { value: "35+", label: "Years Legacy" },

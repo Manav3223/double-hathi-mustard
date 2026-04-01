@@ -68,7 +68,7 @@ const ProductsSection = () => {
                 <motion.span
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="inline-block text-xs font-bold py-1.5 rounded-full mb-4 shadow-md text-secondary-foreground bg-primary px-[12px] mr-[153px] pl-[12px] mx-0">
+                  className="inline-block text-xs font-bold py-1.5 rounded-full mb-4 shadow-md text-secondary-foreground bg-primary px-3 self-start">
                   
                       {product.badge}
                     </motion.span>

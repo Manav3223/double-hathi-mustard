@@ -52,7 +52,7 @@ const contactInfo = [
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="py-24 md:py-36 bg-card overflow-hidden">
+    <section id="contact" className="py-16 md:py-36 bg-card overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Info */}
