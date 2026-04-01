@@ -20,6 +20,7 @@ const Index = () => {
         <TrustBar />
         <AboutSection />
         <WhyChooseSection />
+        <ProductHighlight />
         <ProductsSection />
         <BenefitsSection />
         <TestimonialsSection />
