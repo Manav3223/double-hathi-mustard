@@ -169,7 +169,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1 }}
-            className="text-lg md:text-xl lg:text-2xl text-cream/85 max-w-2xl mx-auto mb-12 font-light leading-relaxed text-shadow-soft">
+            className="text-base md:text-xl lg:text-2xl text-cream/85 max-w-2xl mx-auto mb-10 md:mb-12 font-light leading-relaxed text-shadow-soft px-2">
 
             Experience the authentic taste and purity of Kachi Ghani mustard oil,
             crafted with traditional methods passed down through generations.
