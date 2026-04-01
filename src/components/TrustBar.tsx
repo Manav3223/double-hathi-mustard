@@ -1,11 +1,11 @@
-import { Check } from "lucide-react";
+import { Droplets, ShieldCheck, FlaskConical, Users } from "lucide-react";
 import { motion } from "framer-motion";
 
 const trustItems = [
-  "100% Kachi Ghani",
-  "No Adulteration",
-  "Lab Tested",
-  "Trusted by Thousands",
+  { label: "100% Kachi Ghani", icon: Droplets },
+  { label: "No Adulteration", icon: ShieldCheck },
+  { label: "Lab Tested", icon: FlaskConical },
+  { label: "Trusted by Thousands", icon: Users },
 ];
 
 const TrustBar = () => {
