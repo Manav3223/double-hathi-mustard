@@ -1,11 +1,11 @@
-import { Check } from "lucide-react";
+import { Droplets, ShieldCheck, FlaskConical, Users } from "lucide-react";
 import { motion } from "framer-motion";
 
 const trustItems = [
-  "100% Kachi Ghani",
-  "No Adulteration",
-  "Lab Tested",
-  "Trusted by Thousands",
+  { label: "100% Kachi Ghani", icon: Droplets },
+  { label: "No Adulteration", icon: ShieldCheck },
+  { label: "Lab Tested", icon: FlaskConical },
+  { label: "Trusted by Thousands", icon: Users },
 ];
 
 const TrustBar = () => {
@@ -15,18 +15,16 @@ const TrustBar = () => {
         <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 md:gap-x-12 lg:gap-x-16">
           {trustItems.map((item, index) => (
             <motion.div
-              key={item}
+              key={item.label}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.4 }}
               className="flex items-center gap-2"
             >
-              <span className="flex items-center justify-center w-5 h-5 rounded-full bg-primary/20">
-                <Check className="w-3.5 h-3.5 text-primary" strokeWidth={3} />
-              </span>
+              <item.icon className="w-5 h-5 text-primary" strokeWidth={2} />
               <span className="text-cream text-sm md:text-base font-medium tracking-wide">
-                {item}
+                {item.label}
               </span>
             </motion.div>
           ))}
