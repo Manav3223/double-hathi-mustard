@@ -140,7 +140,7 @@ const Footer = () => {
         {/* FSSAI License */}
         <FadeIn delay={0.3}>
           <div className="border-t border-background/10 pt-10 mb-8 text-center">
-            <p className="text-background/70 text-2xl md:text-3xl">
+            <p className="text-background/70 text-lg md:text-2xl lg:text-3xl">
               <span className="font-bold text-mustard-light">FSSAI License No:</span>{" "}
               10012013000260
             </p>

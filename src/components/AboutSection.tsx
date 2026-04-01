@@ -49,7 +49,7 @@ const AboutSection = () => {
           }} transition={{
             duration: 0.5,
             delay: 0.4
-          }} className="absolute -bottom-6 -right-4 md:-right-8 bg-primary rounded-2xl p-6 md:p-8 shadow-2xl">
+          }} className="absolute -bottom-6 right-2 md:-right-8 bg-primary rounded-2xl p-4 md:p-8 shadow-2xl">
               <p className="text-primary-foreground font-display text-4xl md:text-5xl font-bold">
                 35+
               </p>

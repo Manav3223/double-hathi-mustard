@@ -200,7 +200,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.3 }}
-            className="grid grid-cols-3 gap-4 md:gap-8 mt-16 md:mt-20 max-w-3xl mx-auto">
+            className="grid grid-cols-3 gap-3 md:gap-8 mt-12 md:mt-20 max-w-3xl mx-auto">
 
             {[
             { value: "35+", label: "Years Legacy" },
