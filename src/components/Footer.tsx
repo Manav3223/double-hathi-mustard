@@ -23,11 +23,11 @@ const Footer = () => {
   }];
   return <footer className="bg-foreground text-background py-20">
       <div className="container mx-auto px-4">
-        <StaggerContainer staggerDelay={0.1} className="grid md:grid-cols-5 gap-10 mb-16">
+        <StaggerContainer staggerDelay={0.1} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-10 mb-16">
           {/* Brand */}
-          <StaggerItem className="md:col-span-1">
+          <StaggerItem className="col-span-2 md:col-span-3 lg:col-span-1">
             <div className="flex items-center gap-4 mb-5">
-              <div className="w-40 h-40 items-center justify-center flex flex-row mx-0 my-0">
+              <div className="w-20 h-20 md:w-28 md:h-28 lg:w-36 lg:h-36 items-center justify-center flex flex-row shrink-0">
                 <img alt="Double Hathi Logo" className="w-full h-full object-contain drop-shadow-md border-double" src="/lovable-uploads/f3e306a9-f1d2-4051-898c-a8315880477c.png" />
               </div>
               <div>
