@@ -16,17 +16,17 @@ const ProductHighlight = () => {
   };
 
   return (
-    <section className="py-20 md:py-28 bg-background overflow-hidden texture-overlay">
-      <div className="container mx-auto px-4 relative z-10">
+    <section className="py-20 md:py-28 bg-primary/5 overflow-hidden">
+      <div className="container mx-auto px-4">
         <FadeIn className="text-center mb-12 md:mb-16">
-          <span className="text-primary font-bold tracking-[0.25em] uppercase text-xs">
-            Our Flagship Product
+          <span className="text-primary font-semibold tracking-[0.2em] uppercase text-sm">
+            Our Bestseller
           </span>
           <h2 className="font-display text-3xl md:text-5xl font-bold mt-4 mb-4 text-foreground">
-            The Family Favourite
+            Most Loved by Families
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto text-lg">
-            India's most-loved Kachi Ghani format — pure, pungent, and crafted for everyday excellence.
+            The go-to choice for everyday Indian cooking — pure, pungent, and packed with nutrition.
           </p>
         </FadeIn>
 
@@ -39,7 +39,7 @@ const ProductHighlight = () => {
             transition={{ duration: 0.6 }}
             className="relative flex items-center justify-center"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/8 to-primary/3 rounded-2xl" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl" />
             <img
               src={bestseller.image}
               alt={`${bestseller.name} - ${bestseller.size}`}
@@ -78,6 +78,7 @@ const ProductHighlight = () => {
               {bestseller.description}
             </p>
 
+            {/* Benefits Checklist */}
             <ul className="space-y-3">
               {bestseller.benefits.map((benefit, i) => (
                 <motion.li
@@ -96,7 +97,10 @@ const ProductHighlight = () => {
               ))}
             </ul>
 
-            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
               <Button
                 variant="default"
                 size="lg"
