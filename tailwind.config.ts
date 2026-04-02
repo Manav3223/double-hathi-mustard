@@ -58,6 +58,7 @@ export default {
         },
         cream: "hsl(var(--cream))",
         terracotta: "hsl(var(--terracotta))",
+        parchment: "hsl(var(--parchment))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -72,6 +73,7 @@ export default {
       fontFamily: {
         display: ["Playfair Display", "serif"],
         sans: ["Source Sans 3", "sans-serif"],
+        accent: ["Cormorant Garamond", "serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
