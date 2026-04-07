@@ -92,7 +92,7 @@ const Header = () => {
               <p className="font-display text-foreground text-base sm:text-lg lg:text-xl font-bold tracking-tight">
                 Double Hathi
               </p>
-              <p className="text-muted-foreground text-[10px] sm:text-xs tracking-[0.15em] uppercase font-medium">
+              <p className="text-muted-foreground font-medium text-[10px] sm:text-sm">
                 Since 1989
               </p>
             </div>
