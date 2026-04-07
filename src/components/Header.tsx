@@ -85,14 +85,14 @@ const Header = () => {
           >
             <img
               alt="Double Hathi Logo"
-              className="w-14 h-14 lg:w-16 lg:h-16 object-contain"
+              className="w-16 h-16 lg:w-20 lg:h-20 object-contain drop-shadow-sm"
               src="/lovable-uploads/28b73be5-c0c9-4635-a301-cfa2d2c218e9.png"
             />
-            <div className="leading-tight">
-              <p className="font-display text-foreground text-base sm:text-lg lg:text-xl font-bold tracking-tight">
+            <div className="leading-tight ml-1">
+              <p className="font-display text-foreground text-lg sm:text-xl lg:text-2xl font-bold tracking-tight">
                 Double Hathi
               </p>
-              <p className="text-muted-foreground font-medium text-[10px] sm:text-sm">
+              <p className="text-muted-foreground font-medium text-[11px] sm:text-sm">
                 Since 1989
               </p>
             </div>
