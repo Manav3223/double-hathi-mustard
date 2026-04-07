@@ -1,40 +1,31 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ShoppingBag } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  const navLinks = [{
-    href: "#home",
-    label: "Home"
-  }, {
-    href: "#about",
-    label: "About"
-  }, {
-    href: "#products",
-    label: "Products"
-  }, {
-    href: "#benefits",
-    label: "Benefits"
-  }, {
-    href: "/dealer-inquiry",
-    label: "Distributor",
-    isRoute: true
-  }, {
-    href: "#contact",
-    label: "Contact"
-  }];
+
+  const navLinks = [
+    { href: "#home", label: "Home" },
+    { href: "#about", label: "Our Story" },
+    { href: "#process", label: "Process" },
+    { href: "#products", label: "Products" },
+    { href: "/dealer-inquiry", label: "Distributors", isRoute: true },
+    { href: "#contact", label: "Bulk Order" },
+  ];
 
   const scrollToSection = (href: string) => {
     if (href === "#home") {
@@ -49,146 +40,155 @@ const Header = () => {
     }
   };
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, link: { href: string; label: string; isRoute?: boolean }) => {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    link: { href: string; label: string; isRoute?: boolean }
+  ) => {
     e.preventDefault();
     setIsMenuOpen(false);
     if (link.isRoute) {
       navigate(link.href);
     } else if (location.pathname !== "/") {
-      // Navigate to home first, then scroll after a short delay
       navigate("/");
       setTimeout(() => scrollToSection(link.href), 300);
     } else {
-      // Small delay to let mobile menu close before scrolling
       setTimeout(() => scrollToSection(link.href), 100);
     }
   };
 
-  const handleOrderClick = () => {
+  const handleBuyNow = () => {
     setIsMenuOpen(false);
-    if (location.pathname !== "/") {
-      navigate("/");
-      setTimeout(() => scrollToSection("#contact"), 300);
-    } else {
-      setTimeout(() => scrollToSection("#contact"), 100);
-    }
+    const msg = encodeURIComponent("Hi, I'd like to place an order for Double Hathi Mustard Oil.");
+    window.open(`https://wa.me/919999999999?text=${msg}`, "_blank");
   };
-  return <motion.header initial={{
-    y: -100
-  }} animate={{
-    y: 0
-  }} transition={{
-    duration: 0.5,
-    ease: "easeOut"
-  }} className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-background/95 backdrop-blur-lg shadow-lg border-b border-border" : "bg-background/80 backdrop-blur-md border-b border-border/50"}`}>
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20 lg:h-24">
+
+  return (
+    <motion.header
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-card shadow-[0_2px_20px_-4px_hsl(var(--foreground)/0.08)] border-b border-border/60"
+          : "bg-card/95 backdrop-blur-sm"
+      }`}
+    >
+      <div className="container mx-auto px-4 lg:px-8">
+        <div className="flex items-center justify-between h-18 lg:h-20">
           {/* Logo */}
-          <motion.a href="#home" className="flex items-center gap-3" whileHover={{
-          scale: 1.02
-        }} whileTap={{
-          scale: 0.98
-        }}>
-            <img alt="Double Hathi Logo" className="w-20 h-20 lg:w-24 lg:h-24 object-contain drop-shadow-md" src="/lovable-uploads/28b73be5-c0c9-4635-a301-cfa2d2c218e9.png" />
-            <div>
-              <p className="font-display text-foreground leading-tight text-sm font-extrabold sm:text-lg lg:text-2xl">
+          <motion.a
+            href="#home"
+            onClick={(e) => handleNavClick(e, { href: "#home", label: "Home" })}
+            className="flex items-center gap-2.5 flex-shrink-0"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <img
+              alt="Double Hathi Logo"
+              className="w-14 h-14 lg:w-16 lg:h-16 object-contain"
+              src="/lovable-uploads/28b73be5-c0c9-4635-a301-cfa2d2c218e9.png"
+            />
+            <div className="leading-tight">
+              <p className="font-display text-foreground text-base sm:text-lg lg:text-xl font-bold tracking-tight">
                 Double Hathi
               </p>
-              <p className="text-muted-foreground font-medium text-[10px] sm:text-sm">
+              <p className="text-muted-foreground text-[10px] sm:text-xs tracking-[0.15em] uppercase font-medium">
                 Since 1989
               </p>
             </div>
           </motion.a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-10">
-            {navLinks.map((link, index) => <motion.a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link)} className="text-muted-foreground hover:text-primary transition-colors font-medium relative group cursor-pointer" initial={{
-            opacity: 0,
-            y: -10
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            delay: index * 0.1
-          }}>
+          {/* Desktop Navigation — centered */}
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+            {navLinks.map((link, index) => (
+              <motion.a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link)}
+                className="relative px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 cursor-pointer group"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.08 }}
+              >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-              </motion.a>)}
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-primary rounded-full transition-all duration-300 group-hover:w-3/4" />
+              </motion.a>
+            ))}
           </nav>
 
-          {/* CTA Button */}
-          <motion.div className="hidden lg:block" initial={{
-          opacity: 0,
-          x: 20
-        }} animate={{
-          opacity: 1,
-          x: 0
-        }} transition={{
-          delay: 0.5
-        }}>
-            <motion.div whileHover={{
-            scale: 1.02
-          }} whileTap={{
-            scale: 0.98
-          }}>
-              <Button variant="default" size="lg" className="font-semibold shadow-md" onClick={handleOrderClick}>
-                Order Now
+          {/* CTA — "Buy Now" */}
+          <motion.div
+            className="hidden lg:block flex-shrink-0"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.5 }}
+          >
+            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+              <Button
+                onClick={handleBuyNow}
+                size="default"
+                className="font-semibold shadow-md gap-2 px-6 bg-primary text-primary-foreground hover:bg-primary/90"
+              >
+                <ShoppingBag className="w-4 h-4" />
+                Buy Now
               </Button>
             </motion.div>
           </motion.div>
 
           {/* Mobile Menu Button */}
-          <motion.button className="lg:hidden p-2.5 text-foreground rounded-xl hover:bg-muted transition-colors" onClick={() => setIsMenuOpen(!isMenuOpen)} whileTap={{
-          scale: 0.95
-        }}>
-            {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
+          <motion.button
+            className="lg:hidden p-2 text-foreground rounded-lg hover:bg-muted transition-colors"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            whileTap={{ scale: 0.95 }}
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </motion.button>
         </div>
       </div>
 
       {/* Mobile Menu */}
       <AnimatePresence>
-        {isMenuOpen && <motion.div initial={{
-        opacity: 0,
-        height: 0
-      }} animate={{
-        opacity: 1,
-        height: "auto"
-      }} exit={{
-        opacity: 0,
-        height: 0
-      }} transition={{
-        duration: 0.3,
-        ease: "easeInOut"
-      }} className="lg:hidden bg-background border-t border-border overflow-hidden">
-            <nav className="container mx-auto px-4 py-6 flex flex-col gap-2">
-              {navLinks.map((link, index) => <motion.a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link)} className="text-foreground hover:text-primary hover:bg-muted transition-all font-medium py-3 px-4 rounded-xl cursor-pointer" initial={{
-            opacity: 0,
-            x: -20
-          }} animate={{
-            opacity: 1,
-            x: 0
-          }} transition={{
-            delay: index * 0.05
-          }}>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="lg:hidden bg-card border-t border-border/60 overflow-hidden"
+          >
+            <nav className="container mx-auto px-4 py-5 flex flex-col gap-1">
+              {navLinks.map((link, index) => (
+                <motion.a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link)}
+                  className="text-foreground hover:text-primary hover:bg-muted/60 transition-all font-medium py-3 px-4 rounded-xl cursor-pointer text-sm"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                >
                   {link.label}
-                </motion.a>)}
-              <motion.div initial={{
-            opacity: 0,
-            y: 10
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            delay: 0.3
-          }}>
-                <Button variant="default" className="w-full mt-4 py-6 font-semibold" onClick={handleOrderClick}>
-                  Order Now
+                </motion.a>
+              ))}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+              >
+                <Button
+                  onClick={handleBuyNow}
+                  className="w-full mt-3 py-5 font-semibold gap-2 bg-primary text-primary-foreground hover:bg-primary/90"
+                >
+                  <ShoppingBag className="w-4 h-4" />
+                  Buy Now
                 </Button>
               </motion.div>
             </nav>
-          </motion.div>}
+          </motion.div>
+        )}
       </AnimatePresence>
-    </motion.header>;
+    </motion.header>
+  );
 };
+
 export default Header;
