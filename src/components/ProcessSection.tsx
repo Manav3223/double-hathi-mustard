@@ -38,7 +38,7 @@ const steps = [
 
 const ProcessSection = () => {
   return (
-    <section className="py-24 md:py-36 relative overflow-hidden bg-card">
+    <section id="process" className="py-24 md:py-36 relative overflow-hidden bg-card">
       {/* Mustard field-inspired background texture */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.04] via-transparent to-accent/[0.06]" />
