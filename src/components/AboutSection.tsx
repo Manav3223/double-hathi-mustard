@@ -1,112 +1,138 @@
-import kachiGhaniProcess from "@/assets/kachi-ghani-process-3.png";
 import { motion } from "framer-motion";
-import { FadeIn, StaggerContainer, StaggerItem, HoverScale } from "@/components/ui/motion-wrapper";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/motion-wrapper";
+
+const timelineData = [
+  {
+    year: "1989",
+    label: "Founded",
+    name: "Late Mr. Hazari Lal Goyal",
+    suffix: "(Mahangaya Wale)",
+    description:
+      "Founded Double Hathi with a clear belief that purity should never be compromised. With deep knowledge of traditional oil extraction, he laid the foundation for producing authentic Kachi Ghani mustard oil that preserves natural strength, aroma, and nutrition.",
+  },
+  {
+    year: "2006",
+    label: "Expansion",
+    name: "Late Mr. Baijnath Goel",
+    suffix: "",
+    description:
+      "Expanded the business while upholding the same uncompromising standards of quality and trust. Under his leadership, Double Hathi strengthened its presence and built lasting relationships with farmers, distributors, and households.",
+  },
+  {
+    year: "Present",
+    label: "Current Leadership",
+    name: "Mr. Ashish Goel",
+    suffix: "",
+    description:
+      "Continues to build on this strong foundation with a focus on growth, consistency, and modern practices. While the scale is expanding, the core values remain unchanged — purity, strength, and trust in every drop.",
+  },
+];
+
 const AboutSection = () => {
-  const features = [{
-    title: "Cold Pressed / Wood Pressed",
-    desc: "Wood pressed. Traditional Kachi Ghani extraction"
-  }, {
-    title: "Commitment to Purity",
-    desc: "Strict quality checks ensure every batch meets high standards."
-  }, {
-    title: "Trusted by Millions of Families",
-    desc: "Used daily in kitchens across generations."
-  }, {
-    title: "FSSAI Certified",
-    desc: "Quality assured. Safe for everyday cooking"
-  }, {
-    title: "No Chemicals",
-    desc: "No additives. No preservatives"
-  }, {
-    title: "Family Owned",
-    desc: "Family owned. Crafting pure mustard oil since 1989"
-  }];
-  return <section id="about" className="py-24 md:py-36 bg-background overflow-hidden">
+  return (
+    <section id="about" className="py-24 md:py-36 bg-background overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-          {/* Image */}
-          <FadeIn direction="left" className="relative">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-              <motion.img src={kachiGhaniProcess} alt="Traditional Kachi Ghani oil extraction process" className="w-full h-[400px] lg:h-[550px] object-cover" whileHover={{
-              scale: 1.05
-            }} transition={{
-              duration: 0.6
-            }} />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent" />
-            </div>
+        {/* Header */}
+        <FadeIn className="max-w-3xl mx-auto text-center mb-16 md:mb-20">
+          <span className="text-primary font-semibold text-sm uppercase tracking-[0.2em]">
+            Our Story
+          </span>
+          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mt-4 mb-6 leading-tight">
+            A Legacy of{" "}
+            <span className="text-primary">Purity & Trust</span>
+          </h2>
+          <p className="text-muted-foreground text-lg leading-relaxed">
+            Double Hathi stands as a multi-generational brand — shaped by
+            dedication, carried forward with responsibility, and trusted by
+            families every day.
+          </p>
+        </FadeIn>
 
-            {/* Floating Badge */}
-            <motion.div initial={{
-            opacity: 0,
-            scale: 0.8,
-            x: 20
-          }} whileInView={{
-            opacity: 1,
-            scale: 1,
-            x: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            duration: 0.5,
-            delay: 0.4
-          }} className="absolute -bottom-6 right-2 md:-right-8 bg-primary rounded-2xl p-4 md:p-8 shadow-2xl">
-              <p className="text-primary-foreground font-display text-4xl md:text-5xl font-bold">
-                35+
-              </p>
-              <p className="text-primary-foreground/80 text-sm md:text-base mt-1">
-                Years of Trust
-              </p>
-            </motion.div>
+        {/* Horizontal Timeline — Desktop */}
+        <div className="hidden lg:block mb-16">
+          <div className="relative flex items-center justify-center gap-0 max-w-3xl mx-auto">
+            {/* Connecting line */}
+            <div className="absolute top-1/2 left-[15%] right-[15%] h-[2px] bg-gradient-to-r from-primary/30 via-primary/50 to-primary/30 -translate-y-1/2" />
 
-            {/* Decorative Element */}
-            <div className="absolute -top-4 -left-4 w-24 h-24 border-2 border-primary/30 rounded-3xl -z-10" />
-          </FadeIn>
-
-          {/* Content */}
-          <FadeIn direction="right" delay={0.2}>
-            <span className="text-primary font-semibold text-sm uppercase tracking-[0.2em]">
-              Our Heritage
-            </span>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-8 leading-tight text-left">
-              A Legacy of
-              <span className="text-primary block mt-1 text-justify">Purity & Trust</span>
-            </h2>
-
-            <div className="space-y-5 text-muted-foreground leading-relaxed text-lg">
-              <p>
-                Since 1989, Double Hathi has been synonymous with pure, authentic
-                Kachi Ghani mustard oil. Our journey began with a simple vision – to
-                bring the traditional goodness of cold-pressed oil to every Indian
-                household.
-              </p>
-              <p>
-                The name "Double Hathi" (Double Elephant) symbolizes{" "}
-                <strong className="text-foreground font-semibold">
-                  strength, purity, and endurance
-                </strong>{" "}
-                – values that have guided us for over three decades.
-              </p>
-              <p>Our Kachi Ghani method uses traditional wooden presses that extract oil at low temperatures, preserving all natural nutrients, aroma, and the distinctive pungent flavor.</p>
-            </div>
-
-            {/* Features Grid */}
-            <StaggerContainer staggerDelay={0.08} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
-              {features.map((feature, index) => <StaggerItem key={index} className="h-full">
-                  <HoverScale scale={1.02} className="h-full">
-                    <div className="rounded-xl p-4 md:p-5 border border-border bg-secondary hover:border-primary/50 transition-colors duration-300 h-full flex flex-col items-center justify-center">
-                      <h4 className="text-center font-bold text-lg md:text-xl text-mustard-light">
-                        {feature.title}
-                      </h4>
-                      <p className="mt-1 text-sm text-secondary-foreground/80 text-center">
-                        {feature.desc}
-                      </p>
-                    </div>
-                  </HoverScale>
-                </StaggerItem>)}
-            </StaggerContainer>
-          </FadeIn>
+            {timelineData.map((item, index) => (
+              <motion.div
+                key={index}
+                className="relative flex-1 flex flex-col items-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.15, duration: 0.5 }}
+              >
+                {/* Dot */}
+                <div className="w-5 h-5 rounded-full bg-primary border-4 border-card shadow-md z-10" />
+                {/* Year */}
+                <p className="font-display text-2xl font-bold text-primary mt-3">
+                  {item.year}
+                </p>
+                <p className="text-muted-foreground text-xs tracking-widest uppercase mt-1">
+                  {item.label}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
+
+        {/* Generation Cards */}
+        <StaggerContainer staggerDelay={0.12} className="space-y-6 max-w-4xl mx-auto">
+          {timelineData.map((item, index) => (
+            <StaggerItem key={index}>
+              <motion.div
+                whileHover={{ x: 4 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="group relative grid md:grid-cols-[140px_1fr] gap-6 md:gap-8 p-6 md:p-8 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg"
+              >
+                {/* Year block — visible on mobile too */}
+                <div className="flex md:flex-col items-center md:items-start gap-3 md:gap-1">
+                  <p className="font-display text-3xl md:text-4xl font-bold text-primary leading-none">
+                    {item.year}
+                  </p>
+                  <span className="text-muted-foreground text-xs tracking-widest uppercase lg:hidden">
+                    {item.label}
+                  </span>
+                  <span className="hidden lg:block text-muted-foreground text-xs tracking-widest uppercase mt-1">
+                    {item.label}
+                  </span>
+                </div>
+
+                {/* Content */}
+                <div>
+                  <h3 className="font-display text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                    {item.name}
+                    {item.suffix && (
+                      <span className="text-muted-foreground font-normal text-base ml-2">
+                        {item.suffix}
+                      </span>
+                    )}
+                  </h3>
+                  <p className="text-muted-foreground text-base leading-relaxed mt-3">
+                    {item.description}
+                  </p>
+                </div>
+
+                {/* Accent line */}
+                <div className="absolute left-0 top-6 bottom-6 w-[3px] bg-primary/20 rounded-full group-hover:bg-primary/50 transition-colors duration-300 hidden md:block" />
+              </motion.div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+
+        {/* Trust line */}
+        <FadeIn delay={0.3} className="mt-14 md:mt-18 text-center">
+          <div className="inline-flex items-center gap-3 bg-card border border-border rounded-full px-8 py-4">
+            <div className="w-2 h-2 rounded-full bg-primary" />
+            <p className="text-muted-foreground text-sm md:text-base font-medium">
+              Purity, strength, and trust — in every drop, since 1989
+            </p>
+          </div>
+        </FadeIn>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default AboutSection;
