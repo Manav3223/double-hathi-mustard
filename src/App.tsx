@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import DealerInquiry from "./pages/DealerInquiry";
 import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
+import Checkout from "./pages/Checkout";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
