@@ -130,7 +130,20 @@ const DealerInquiry = () => {
   });
 
   const onSubmit = (data: FormValues) => {
-    console.log("Dealer inquiry submitted");
+    const message =
+      `*New Dealer Inquiry - Double Hathi*\n\n` +
+      `*Business Name:* ${data.businessName}\n` +
+      `*Business Type:* ${data.businessType}\n` +
+      `*Contact Person:* ${data.contactPerson}\n` +
+      `*Phone:* ${data.phone}\n` +
+      `*Email:* ${data.email}\n` +
+      `*Location:* ${data.city}, ${data.state}\n` +
+      (data.existingBusiness ? `*Existing Business:* ${data.existingBusiness}\n` : "") +
+      (data.message ? `*Message:* ${data.message}\n` : "");
+
+    const whatsappUrl = `https://wa.me/917976708372?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+
     setIsSubmitted(true);
     toast({
       title: "Inquiry Submitted Successfully!",

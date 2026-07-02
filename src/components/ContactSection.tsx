@@ -1,7 +1,20 @@
+import { useState } from "react";
+import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 import { FadeIn, HoverScale } from "@/components/ui/motion-wrapper";
+import { useToast } from "@/hooks/use-toast";
+
+const contactSchema = z.object({
+  name: z.string().trim().min(2, "Name must be at least 2 characters").max(100, "Name is too long"),
+  phone: z
+    .string()
+    .trim()
+    .regex(/^[6-9]\d{9}$/, "Please enter a valid 10-digit mobile number"),
+  email: z.string().trim().email("Please enter a valid email").max(255),
+  message: z.string().trim().min(10, "Message must be at least 10 characters").max(1000, "Message is too long"),
+});
 
 const contactInfo = [
   {
@@ -51,6 +64,53 @@ const contactInfo = [
 ];
 
 const ContactSection = () => {
+  const { toast } = useToast();
+  const [values, setValues] = useState({ name: "", phone: "", email: "", message: "" });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleChange = (field: keyof typeof values) => (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setValues((v) => ({ ...v, [field]: e.target.value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const result = contactSchema.safeParse(values);
+    if (!result.success) {
+      const fieldErrors: Record<string, string> = {};
+      result.error.issues.forEach((issue) => {
+        const key = issue.path[0];
+        if (typeof key === "string" && !fieldErrors[key]) fieldErrors[key] = issue.message;
+      });
+      setErrors(fieldErrors);
+      toast({
+        title: "Please fix the errors",
+        description: "Check the form fields and try again.",
+        variant: "destructive",
+      });
+      return;
+    }
+    setErrors({});
+    setSubmitting(true);
+    const { name, phone, email, message } = result.data;
+    const text =
+      `*New Contact Inquiry - Double Hathi*\n\n` +
+      `*Name:* ${name}\n` +
+      `*Phone:* ${phone}\n` +
+      `*Email:* ${email}\n` +
+      `*Message:* ${message}`;
+    const whatsappUrl = `https://wa.me/917976708372?text=${encodeURIComponent(text)}`;
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    toast({
+      title: "Message Ready to Send",
+      description: "Your message has been prepared on WhatsApp.",
+    });
+    setValues({ name: "", phone: "", email: "", message: "" });
+    setSubmitting(false);
+  };
+
   return (
     <section id="contact" className="py-16 md:py-36 bg-card overflow-hidden">
       <div className="container mx-auto px-4">
@@ -110,7 +170,7 @@ const ContactSection = () => {
               <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-8">
                 Send us a Message
               </h3>
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit} noValidate>
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
                     <label className="text-sm font-semibold text-foreground mb-2 block">
@@ -119,8 +179,14 @@ const ContactSection = () => {
                     <input
                       type="text"
                       placeholder="Enter your name"
+                      value={values.name}
+                      onChange={handleChange("name")}
+                      maxLength={100}
                       className="w-full px-4 py-3.5 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                     />
+                    {errors.name && (
+                      <p className="text-destructive text-sm mt-1">{errors.name}</p>
+                    )}
                   </div>
                   <div>
                     <label className="text-sm font-semibold text-foreground mb-2 block">
@@ -128,9 +194,15 @@ const ContactSection = () => {
                     </label>
                     <input
                       type="tel"
-                      placeholder="+91 XXXXX XXXXX"
+                      placeholder="10-digit mobile number"
+                      value={values.phone}
+                      onChange={handleChange("phone")}
+                      maxLength={10}
                       className="w-full px-4 py-3.5 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                     />
+                    {errors.phone && (
+                      <p className="text-destructive text-sm mt-1">{errors.phone}</p>
+                    )}
                   </div>
                 </div>
 
@@ -141,8 +213,14 @@ const ContactSection = () => {
                   <input
                     type="email"
                     placeholder="your@email.com"
+                    value={values.email}
+                    onChange={handleChange("email")}
+                    maxLength={255}
                     className="w-full px-4 py-3.5 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                   />
+                  {errors.email && (
+                    <p className="text-destructive text-sm mt-1">{errors.email}</p>
+                  )}
                 </div>
 
                 <div>
@@ -152,8 +230,14 @@ const ContactSection = () => {
                   <textarea
                     rows={5}
                     placeholder="How can we help you?"
+                    value={values.message}
+                    onChange={handleChange("message")}
+                    maxLength={1000}
                     className="w-full px-4 py-3.5 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all resize-none"
                   />
+                  {errors.message && (
+                    <p className="text-destructive text-sm mt-1">{errors.message}</p>
+                  )}
                 </div>
 
                 <HoverScale scale={1.01}>
@@ -161,9 +245,10 @@ const ContactSection = () => {
                     type="submit"
                     variant="default"
                     size="lg"
+                    disabled={submitting}
                     className="w-full text-lg py-6 shadow-lg"
                   >
-                    Send Message
+                    {submitting ? "Sending..." : "Send Message"}
                   </Button>
                 </HoverScale>
               </form>
