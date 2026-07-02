@@ -190,7 +190,7 @@ const HeroSection = () => {
             </motion.a>
             <motion.a href="#benefits" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Button variant="hero-outline" size="xl" className="min-w-[180px]">
-                Learn More
+                Explore Benefits
               </Button>
             </motion.a>
           </motion.div>

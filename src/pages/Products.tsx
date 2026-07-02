@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { products, WHATSAPP_SALES_NUMBER } from "@/data/products";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Minus, Plus, ArrowLeft } from "lucide-react";
@@ -35,6 +36,14 @@ const Products = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Shop Pure Kachi Ghani Mustard Oil | Double Hathi Products</title>
+        <meta name="description" content="Browse Double Hathi's range of pure Kachi Ghani mustard oil — 200ml, 500ml, 1L, 5L and 15L packs. Cold-pressed, 100% natural, trusted since 1989." />
+        <link rel="canonical" href="https://doublehathioil.lovable.app/products" />
+        <meta property="og:title" content="Shop Pure Kachi Ghani Mustard Oil | Double Hathi Products" />
+        <meta property="og:description" content="Browse Double Hathi's range of pure Kachi Ghani mustard oil — 200ml, 500ml, 1L, 5L and 15L packs." />
+        <meta property="og:url" content="https://doublehathioil.lovable.app/products" />
+      </Helmet>
       <Header />
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">

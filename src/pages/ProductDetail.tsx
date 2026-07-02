@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { products, WHATSAPP_SALES_NUMBER, Product } from "@/data/products";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Minus, Plus, ArrowLeft, Check, Package, Clock, ShieldCheck } from "lucide-react";
@@ -41,6 +42,32 @@ const ProductDetail = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>{`${product.name} — ${product.size} | Double Hathi`}</title>
+        <meta name="description" content={product.description.slice(0, 155)} />
+        <link rel="canonical" href={`https://doublehathioil.lovable.app/products/${product.id}`} />
+        <meta property="og:title" content={`${product.name} — ${product.size}`} />
+        <meta property="og:description" content={product.description.slice(0, 155)} />
+        <meta property="og:type" content="product" />
+        <meta property="og:url" content={`https://doublehathioil.lovable.app/products/${product.id}`} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: `${product.name} — ${product.size}`,
+            image: `https://doublehathioil.lovable.app${product.image}`,
+            description: product.description,
+            brand: { "@type": "Brand", name: "Double Hathi" },
+            offers: {
+              "@type": "Offer",
+              price: product.price.replace(/[^\d.]/g, ""),
+              priceCurrency: "INR",
+              availability: "https://schema.org/InStock",
+              url: `https://doublehathioil.lovable.app/products/${product.id}`,
+            },
+          })}
+        </script>
+      </Helmet>
       <Header />
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
