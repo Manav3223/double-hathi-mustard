@@ -13,7 +13,7 @@ const steps = [
     step: "01",
     title: "Seed Selection",
     description: "Premium mustard seeds sourced from India's finest growing regions.",
-    image: step1Img,
+    image: step1Asset.url,
   },
   {
     icon: Sparkles,
