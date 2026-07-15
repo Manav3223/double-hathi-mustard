@@ -1,7 +1,7 @@
 import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { FadeIn } from "@/components/ui/motion-wrapper";
-import { useRef, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const testimonials = [
   {
@@ -67,168 +67,185 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
-  const [isPaused, setIsPaused] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const getCardWidth = () => {
-    const el = scrollRef.current;
-    if (!el || !el.children[0]) return 384;
-    return (el.children[0] as HTMLElement).offsetWidth + 24; // card width + gap
-  };
-
-  const checkScroll = () => {
-    const el = scrollRef.current;
-    if (!el) return;
-    setCanScrollLeft(el.scrollLeft > 10);
-    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10);
-    const cardWidth = getCardWidth();
-    const idx = Math.round(el.scrollLeft / cardWidth);
-    setActiveIndex(Math.min(idx, testimonials.length - 1));
-  };
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const total = testimonials.length;
+  const current = testimonials[active];
 
   useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    checkScroll();
-    el.addEventListener("scroll", checkScroll);
-    return () => el.removeEventListener("scroll", checkScroll);
-  }, []);
+    if (paused) return;
+    const id = setInterval(() => setActive((i) => (i + 1) % total), 6000);
+    return () => clearInterval(id);
+  }, [paused, total]);
 
-  // Auto-scroll every 4 seconds
-  useEffect(() => {
-    if (isPaused) return;
-    const interval = setInterval(() => {
-      const el = scrollRef.current;
-      if (!el) return;
-      const atEnd = el.scrollLeft >= el.scrollWidth - el.clientWidth - 10;
-      if (atEnd) {
-        el.scrollTo({ left: 0, behavior: "smooth" });
-      } else {
-        el.scrollBy({ left: 370, behavior: "smooth" });
-      }
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [isPaused]);
-
-  const scroll = (dir: "left" | "right") => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const amount = el.clientWidth * 0.7;
-    el.scrollBy({ left: dir === "left" ? -amount : amount, behavior: "smooth" });
-  };
-
-  const scrollToIndex = (idx: number) => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const cardWidth = getCardWidth();
-    el.scrollTo({ left: idx * cardWidth, behavior: "smooth" });
-  };
+  const go = (dir: 1 | -1) => setActive((i) => (i + dir + total) % total);
 
   return (
-    <section className="py-24 md:py-36 bg-background overflow-hidden">
-      <div className="container mx-auto px-4">
-        <FadeIn className="text-center max-w-2xl mx-auto mb-16 md:mb-20">
-          <span className="text-primary font-semibold text-sm uppercase tracking-[0.2em]">
-            Testimonials
+    <section
+      className="relative py-24 md:py-36 overflow-hidden bg-[hsl(var(--background))]"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      {/* Warm stage backdrop */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary/40 via-background to-background" />
+        <div className="absolute -top-32 -left-24 w-[520px] h-[520px] rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute -bottom-40 -right-20 w-[520px] h-[520px] rounded-full bg-primary/5 blur-3xl" />
+      </div>
+
+      <div className="container relative mx-auto px-4">
+        <FadeIn className="max-w-3xl mb-14 md:mb-20">
+          <span className="text-primary font-semibold text-xs md:text-sm uppercase tracking-[0.28em]">
+            — Testimonials
           </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-5">
-            Loved by
-            <span className="text-primary"> Families</span>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mt-4 leading-[1.05]">
+            Trusted at the tables of
+            <span className="text-primary italic"> Indian families.</span>
           </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">
-            Generations of Indian households trust Double Hathi for their daily cooking needs.
+          <p className="text-muted-foreground text-base md:text-lg leading-relaxed mt-5 max-w-xl">
+            Three generations of loyal households — real voices from real kitchens.
           </p>
         </FadeIn>
 
-        {/* Scrollable container */}
-        <div className="relative">
-          {/* Left arrow */}
-          {canScrollLeft && (
-            <button
-              onClick={() => scroll("left")}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          {/* Featured quote */}
+          <div className="lg:col-span-8 relative">
+            {/* Oversized decorative quote mark */}
+            <div
+              aria-hidden
+              className="absolute -top-10 -left-2 md:-top-16 md:-left-6 font-display text-primary/15 select-none pointer-events-none"
+              style={{ fontSize: "clamp(9rem, 18vw, 16rem)", lineHeight: 1 }}
             >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-          )}
-          {/* Right arrow */}
-          {canScrollRight && (
-            <button
-              onClick={() => scroll("right")}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          )}
+              “
+            </div>
 
-          <div
-            ref={scrollRef}
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-            onTouchStart={() => setIsPaused(true)}
-            onTouchEnd={() => setIsPaused(false)}
-            className="flex items-start gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory px-6"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-          >
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.05 }}
-                viewport={{ once: true }}
-                className="min-w-[calc(100vw-4rem)] sm:min-w-[300px] md:min-w-[360px] snap-start flex-shrink-0"
-              >
-                <div className="relative rounded-2xl p-5 md:p-8 border border-border shadow-lg hover:shadow-2xl transition-all duration-500 bg-background">
-                  <div className="absolute -top-3 left-5 md:-top-4 md:left-8">
-                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-primary flex items-center justify-center shadow-lg">
-                      <Quote className="w-4 h-4 md:w-5 md:h-5 text-primary-foreground" />
-                    </div>
-                  </div>
-
-                  <div className="flex gap-1 mb-3 md:mb-5 pt-1 md:pt-2">
-                    {Array.from({ length: testimonial.rating }).map((_, i) => (
-                      <Star key={i} className="w-4 h-4 md:w-5 md:h-5 fill-primary text-primary" />
+            <div className="relative">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={active}
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                >
+                  <div className="flex items-center gap-1.5 mb-6">
+                    {Array.from({ length: current.rating }).map((_, i) => (
+                      <Star key={i} className="w-5 h-5 fill-primary text-primary" />
                     ))}
                   </div>
 
-                  <p className="text-foreground/80 leading-relaxed mb-5 md:mb-8 text-sm md:text-base italic">
-                    "{testimonial.text}"
-                  </p>
+                  <blockquote className="font-display text-2xl md:text-[2.1rem] lg:text-[2.4rem] leading-[1.35] text-foreground font-medium">
+                    {current.text}
+                  </blockquote>
 
-                  <div className="flex items-center gap-3 md:gap-4">
-                    <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-gold-gradient flex items-center justify-center shadow-md">
-                      <span className="text-primary-foreground font-bold text-sm md:text-lg">
-                        {testimonial.name.charAt(0)}
+                  <div className="mt-10 flex items-center gap-5">
+                    <div className="w-14 h-14 rounded-full bg-gold-gradient flex items-center justify-center shadow-lg ring-4 ring-background">
+                      <span className="text-primary-foreground font-bold text-lg">
+                        {current.name.charAt(0)}
                       </span>
                     </div>
                     <div>
-                      <p className="font-bold text-foreground text-base md:text-lg">{testimonial.name}</p>
-                      <p className="text-xs md:text-sm text-muted-foreground">{testimonial.location}</p>
+                      <p className="font-bold text-foreground text-lg leading-tight">
+                        {current.name}
+                      </p>
+                      <p className="text-sm text-muted-foreground mt-0.5 tracking-wide">
+                        {current.location}
+                      </p>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* Controls */}
+            <div className="mt-12 flex items-center gap-5">
+              <button
+                onClick={() => go(-1)}
+                aria-label="Previous testimonial"
+                className="w-11 h-11 rounded-full border border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-colors flex items-center justify-center"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={() => go(1)}
+                aria-label="Next testimonial"
+                className="w-11 h-11 rounded-full border border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-colors flex items-center justify-center"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+              <div className="ml-2 text-sm text-muted-foreground tabular-nums tracking-widest">
+                <span className="text-foreground font-semibold">
+                  {String(active + 1).padStart(2, "0")}
+                </span>
+                <span className="mx-2 text-muted-foreground/50">/</span>
+                {String(total).padStart(2, "0")}
+              </div>
+              {/* Progress rail */}
+              <div className="flex-1 h-px bg-border relative overflow-hidden ml-3">
+                <motion.div
+                  key={active + (paused ? "-p" : "")}
+                  initial={{ width: "0%" }}
+                  animate={{ width: paused ? "0%" : "100%" }}
+                  transition={{ duration: paused ? 0 : 6, ease: "linear" }}
+                  className="absolute top-0 left-0 h-full bg-primary"
+                />
+              </div>
+            </div>
           </div>
-        </div>
-        {/* Dot indicators */}
-        <div className="flex justify-center gap-2 mt-8">
-          {testimonials.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => scrollToIndex(idx)}
-              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                idx === activeIndex
-                  ? "bg-primary scale-125 shadow-glow"
-                  : "bg-border hover:bg-primary/50"
-              }`}
-              aria-label={`Go to testimonial ${idx + 1}`}
-            />
-          ))}
+
+          {/* Voice rail */}
+          <div className="lg:col-span-4">
+            <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground mb-5">
+              Voices from our kitchens
+            </p>
+            <div className="space-y-2 max-h-[420px] overflow-y-auto pr-1 scrollbar-hide">
+              {testimonials.map((t, i) => {
+                const isActive = i === active;
+                return (
+                  <button
+                    key={i}
+                    onClick={() => setActive(i)}
+                    className={`w-full text-left flex items-center gap-4 p-3 rounded-xl transition-all duration-300 border ${
+                      isActive
+                        ? "border-primary/40 bg-primary/5 shadow-sm"
+                        : "border-transparent hover:border-border hover:bg-secondary/40"
+                    }`}
+                  >
+                    <div
+                      className={`w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0 transition-all ${
+                        isActive
+                          ? "bg-gold-gradient shadow-md"
+                          : "bg-secondary text-foreground"
+                      }`}
+                    >
+                      <span
+                        className={`font-bold ${
+                          isActive ? "text-primary-foreground" : "text-foreground/70"
+                        }`}
+                      >
+                        {t.name.charAt(0)}
+                      </span>
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p
+                        className={`text-sm font-semibold truncate ${
+                          isActive ? "text-foreground" : "text-foreground/80"
+                        }`}
+                      >
+                        {t.name}
+                      </p>
+                      <p className="text-xs text-muted-foreground truncate">
+                        {t.location}
+                      </p>
+                    </div>
+                    {isActive && (
+                      <span className="text-primary text-lg leading-none">→</span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>
