@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/motion-wrapper";
 import step1Asset from "@/assets/process-step-1.webp.asset.json";
 import step2Img from "@/assets/process-step-2.jpg";
-import step3Img from "@/assets/process-step-3.jpg";
+import step3Asset from "@/assets/process-step-3.jpg.asset.json";
 import step4Img from "@/assets/process-step-4.jpg";
 import step5Img from "@/assets/process-step-5.jpg";
 
