@@ -27,7 +27,7 @@ const steps = [
     step: "03",
     title: "Kachi Ghani Extraction",
     description: "Slow cold-press retaining every nutrient, aroma, and flavor.",
-    image: step3Img,
+    image: step3Asset.url,
   },
   {
     icon: Filter,
