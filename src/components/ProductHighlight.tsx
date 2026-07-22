@@ -1,19 +1,13 @@
-import { Check, Star, ShoppingBag } from "lucide-react";
+import { Check, Star, Handshake } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { products, WHATSAPP_SALES_NUMBER } from "@/data/products";
+import { products } from "@/data/products";
 import { FadeIn } from "@/components/ui/motion-wrapper";
+import { useNavigate } from "react-router-dom";
 
 const ProductHighlight = () => {
   const bestseller = products.find((p) => p.badge === "Best Seller")!;
-
-  const handleBuyNow = () => {
-    const message = `Hi, I'm interested in ordering Double Hathi Pure Mustard Oil - ${bestseller.size}. Please share the details.`;
-    window.open(
-      `https://wa.me/${WHATSAPP_SALES_NUMBER}?text=${encodeURIComponent(message)}`,
-      "_blank"
-    );
-  };
+  const navigate = useNavigate();
 
   return (
     <section className="py-20 md:py-28 bg-primary/5 overflow-hidden">
@@ -105,10 +99,10 @@ const ProductHighlight = () => {
                 variant="default"
                 size="lg"
                 className="mt-2 font-semibold shadow-md gap-2"
-                onClick={handleBuyNow}
+                onClick={() => navigate("/dealer-inquiry")}
               >
-                <ShoppingBag className="w-5 h-5" />
-                Order on WhatsApp
+                <Handshake className="w-5 h-5" />
+                Distribute This Product
               </Button>
             </motion.div>
           </motion.div>

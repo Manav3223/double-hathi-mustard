@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ShoppingBag } from "lucide-react";
+import { Menu, X, Handshake } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Header = () => {
@@ -56,10 +56,9 @@ const Header = () => {
     }
   };
 
-  const handleBuyNow = () => {
+  const handleBecomeDistributor = () => {
     setIsMenuOpen(false);
-    const msg = encodeURIComponent("Hi, I'd like to place an order for Double Hathi Mustard Oil.");
-    window.open(`https://wa.me/919999999999?text=${msg}`, "_blank");
+    navigate("/dealer-inquiry");
   };
 
   return (
@@ -125,12 +124,12 @@ const Header = () => {
           >
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
               <Button
-                onClick={handleBuyNow}
+                onClick={handleBecomeDistributor}
                 size="default"
                 className="font-semibold shadow-md gap-2 px-6 bg-primary text-primary-foreground hover:bg-primary/90"
               >
-                <ShoppingBag className="w-4 h-4" />
-                Buy Now
+                <Handshake className="w-4 h-4" />
+                Become a Distributor
               </Button>
             </motion.div>
           </motion.div>
@@ -178,11 +177,11 @@ const Header = () => {
                 transition={{ delay: 0.3 }}
               >
                 <Button
-                  onClick={handleBuyNow}
+                  onClick={handleBecomeDistributor}
                   className="w-full mt-3 py-5 font-semibold gap-2 bg-primary text-primary-foreground hover:bg-primary/90"
                 >
-                  <ShoppingBag className="w-4 h-4" />
-                  Buy Now
+                  <Handshake className="w-4 h-4" />
+                  Become a Distributor
                 </Button>
               </motion.div>
             </nav>

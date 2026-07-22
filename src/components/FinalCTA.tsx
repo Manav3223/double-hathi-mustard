@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Handshake } from "lucide-react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { FadeIn } from "@/components/ui/motion-wrapper";
@@ -8,8 +8,8 @@ import { WHATSAPP_SALES_NUMBER } from "@/data/products";
 const FinalCTA = () => {
   const navigate = useNavigate();
 
-  const handleOrder = () => {
-    const message = "Hi, I'd like to order Double Hathi Pure Kachi Ghani Mustard Oil. Please share the details.";
+  const handleWhatsApp = () => {
+    const message = "Hi, I'd like to explore a distribution partnership with Double Hathi Kachi Ghani Mustard Oil.";
     window.open(`https://wa.me/${WHATSAPP_SALES_NUMBER}?text=${encodeURIComponent(message)}`, "_blank");
   };
 
@@ -21,14 +21,14 @@ const FinalCTA = () => {
       <div className="container mx-auto px-4 relative z-10">
         <FadeIn className="max-w-3xl mx-auto text-center space-y-6">
           <span className="inline-block text-primary font-semibold tracking-[0.2em] uppercase text-sm">
-            Make the Switch
+            Partner With Us
           </span>
           <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-cream leading-tight">
-            Switch to Pure Mustard Oil{" "}
-            <span className="text-primary">Today</span>
+            Grow With a Brand{" "}
+            <span className="text-primary">Trusted Since 1989</span>
           </h2>
           <p className="text-cream/70 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-            Join thousands of families who trust Double Hathi for authentic Kachi Ghani mustard oil — no chemicals, no adulteration, just pure goodness.
+            Join our growing network of distributors, wholesalers and stockists across India. Premium Kachi Ghani mustard oil with a legacy of purity and strong margins.
           </p>
 
           <motion.div
@@ -43,9 +43,10 @@ const FinalCTA = () => {
                 variant="default"
                 size="lg"
                 className="font-semibold shadow-lg gap-2 min-w-[180px]"
-                onClick={handleOrder}
+                onClick={() => navigate("/dealer-inquiry")}
               >
-                Order Now
+                <Handshake className="w-4 h-4" />
+                Become a Distributor
                 <ArrowRight className="w-4 h-4" />
               </Button>
             </motion.div>
@@ -54,9 +55,9 @@ const FinalCTA = () => {
                 variant="outline"
                 size="lg"
                 className="font-semibold min-w-[180px] border-cream/20 text-cream hover:bg-cream/10 hover:text-cream"
-                onClick={() => navigate("/dealer-inquiry")}
+                onClick={handleWhatsApp}
               >
-                Become a Dealer
+                Chat on WhatsApp
               </Button>
             </motion.div>
           </motion.div>
