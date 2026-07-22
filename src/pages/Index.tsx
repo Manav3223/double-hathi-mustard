@@ -8,7 +8,6 @@ import ProductHighlight from "@/components/ProductHighlight";
 import ProductsSection from "@/components/ProductsSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import CookingUses from "@/components/CookingUses";
-import TestimonialsSection from "@/components/TestimonialsSection";
 import FinalCTA from "@/components/FinalCTA";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -28,7 +27,6 @@ const Index = () => {
         <ProductsSection />
         <BenefitsSection />
         <CookingUses />
-        <TestimonialsSection />
         <FinalCTA />
         <ContactSection />
       </main>

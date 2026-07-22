@@ -1,8 +1,7 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { products, WHATSAPP_SALES_NUMBER } from "@/data/products";
+import { Link, useNavigate } from "react-router-dom";
+import { products } from "@/data/products";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Minus, Plus, Heart, Droplets, Wind, ChevronRight } from "lucide-react";
+import { Handshake, Heart, Droplets, Wind, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/motion-wrapper";
 
@@ -13,32 +12,7 @@ const benefitTags = [
 ];
 
 const ProductsSection = () => {
-  const [quantities, setQuantities] = useState<Record<number, number>>(() =>
-    products.reduce((acc, p) => ({ ...acc, [p.id]: 1 }), {})
-  );
-
-  const updateQuantity = (productId: number, delta: number) => {
-    setQuantities((prev) => ({
-      ...prev,
-      [productId]: Math.max(1, (prev[productId] || 1) + delta),
-    }));
-  };
-
-  const handleBuyNow = (
-    productId: number,
-    productName: string,
-    size: string,
-    price: string
-  ) => {
-    const qty = quantities[productId] || 1;
-    const message = encodeURIComponent(
-      `Hello! I would like to order:\n\n🛒 *${productName}*\n📦 Size: ${size}\n🔢 Quantity: ${qty}\n💰 Price: ${price} x ${qty}\n\nPlease confirm availability and delivery details.`
-    );
-    window.open(
-      `https://wa.me/${WHATSAPP_SALES_NUMBER}?text=${message}`,
-      "_blank"
-    );
-  };
+  const navigate = useNavigate();
 
   return (
     <section id="products" className="py-24 md:py-36 bg-background overflow-hidden relative">
@@ -153,47 +127,16 @@ const ProductsSection = () => {
 
                   {/* Spacer to push actions to bottom */}
                   <div className="mt-auto pt-4">
-                    {/* Quantity selector */}
-                    <div className="flex items-center justify-center">
-                      <div className="flex items-center border border-border rounded-lg bg-background/80">
-                        <button
-                          onClick={() => updateQuantity(product.id, -1)}
-                          className="p-2 hover:bg-muted transition-colors rounded-l-lg active:scale-95"
-                          aria-label="Decrease quantity"
-                        >
-                          <Minus size={14} />
-                        </button>
-                        <span className="px-3 text-sm font-semibold min-w-[2.5rem] text-center">
-                          {quantities[product.id]}
-                        </span>
-                        <button
-                          onClick={() => updateQuantity(product.id, 1)}
-                          className="p-2 hover:bg-muted transition-colors rounded-r-lg active:scale-95"
-                          aria-label="Increase quantity"
-                        >
-                          <Plus size={14} />
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Buy button */}
-                    <motion.div whileTap={{ scale: 0.97 }} className="mt-3">
+                    <Link to={`/products/${product.id}`}>
                       <Button
                         size="sm"
-                        className="w-full gap-2 bg-[#25D366] hover:bg-[#22c55e] text-white font-semibold shadow-md hover:shadow-lg transition-all rounded-xl"
-                        onClick={() =>
-                          handleBuyNow(
-                            product.id,
-                            product.name,
-                            product.size,
-                            product.price
-                          )
-                        }
+                        variant="outline"
+                        className="w-full gap-2 font-semibold rounded-xl border-primary/30 text-primary hover:bg-primary/5"
                       >
-                        <MessageCircle size={16} />
-                        Order on WhatsApp
+                        View Details
+                        <ChevronRight size={14} />
                       </Button>
-                    </motion.div>
+                    </Link>
                   </div>
                 </div>
               </motion.div>
@@ -203,14 +146,16 @@ const ProductsSection = () => {
 
         {/* CTA */}
         <FadeIn delay={0.5} className="text-center mt-16">
-          <Link to="/products">
-            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-              <Button variant="outline" size="lg" className="shadow-md gap-2 text-base">
-                Explore All Products
-                <ChevronRight size={18} />
-              </Button>
-            </motion.div>
-          </Link>
+          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="inline-block">
+            <Button
+              size="lg"
+              className="shadow-md gap-2 text-base bg-primary text-primary-foreground hover:bg-primary/90"
+              onClick={() => navigate("/dealer-inquiry")}
+            >
+              <Handshake className="w-5 h-5" />
+              Become a Distributor
+            </Button>
+          </motion.div>
         </FadeIn>
       </div>
     </section>

@@ -182,15 +182,15 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 1.1 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4">
 
-            <motion.a href="#products" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="relative">
+            <motion.a href="/dealer-inquiry" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="relative">
               <span className="absolute inset-0 rounded-xl bg-mustard/40 blur-xl animate-pulse-glow" />
               <Button variant="hero" size="xl" className="relative min-w-[180px] shadow-2xl">
-                Shop Now
+                Become a Distributor
               </Button>
             </motion.a>
-            <motion.a href="#benefits" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            <motion.a href="#products" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Button variant="hero-outline" size="xl" className="min-w-[180px]">
-                Explore Benefits
+                Explore Our Range
               </Button>
             </motion.a>
           </motion.div>

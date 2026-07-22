@@ -1,9 +1,8 @@
-import { useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { products, WHATSAPP_SALES_NUMBER, Product } from "@/data/products";
+import { products } from "@/data/products";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Minus, Plus, ArrowLeft, Check, Package, Clock, ShieldCheck } from "lucide-react";
+import { Handshake, Check, Package, Clock, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
 import { FadeIn } from "@/components/ui/motion-wrapper";
 import Header from "@/components/Header";
@@ -13,7 +12,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 const ProductDetail = () => {
   const { id } = useParams();
   const product = products.find((p) => p.id === Number(id));
-  const [quantity, setQuantity] = useState(1);
+  const navigate = useNavigate();
 
   if (!product) {
     return (
@@ -29,13 +28,6 @@ const ProductDetail = () => {
       </div>
     );
   }
-
-  const handleBuyNow = () => {
-    const message = encodeURIComponent(
-      `Hello! I would like to order:\n\n🛒 *${product.name}*\n📦 Size: ${product.size}\n🔢 Quantity: ${quantity}\n💰 Price: ${product.price} x ${quantity}\n\nPlease confirm availability and delivery details.`
-    );
-    window.open(`https://wa.me/${WHATSAPP_SALES_NUMBER}?text=${message}`, "_blank");
-  };
 
   // Other products for suggestion
   const otherProducts = products.filter((p) => p.id !== product.id);
@@ -58,13 +50,6 @@ const ProductDetail = () => {
             image: `https://doublehathioil.lovable.app${product.image}`,
             description: product.description,
             brand: { "@type": "Brand", name: "Double Hathi" },
-            offers: {
-              "@type": "Offer",
-              price: product.price.replace(/[^\d.]/g, ""),
-              priceCurrency: "INR",
-              availability: "https://schema.org/InStock",
-              url: `https://doublehathioil.lovable.app/products/${product.id}`,
-            },
           })}
         </script>
       </Helmet>
@@ -143,36 +128,21 @@ const ProductDetail = () => {
                   </div>
                 </div>
 
-                {/* Quantity + Buy */}
-                <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                  <div className="flex items-center border border-border rounded-lg bg-muted/30">
-                    <button
-                      onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                      className="p-3 hover:bg-muted transition-colors rounded-l-lg active:scale-95"
-                      aria-label="Decrease quantity"
-                    >
-                      <Minus size={16} />
-                    </button>
-                    <span className="px-5 text-base font-semibold min-w-[3rem] text-center">{quantity}</span>
-                    <button
-                      onClick={() => setQuantity((q) => q + 1)}
-                      className="p-3 hover:bg-muted transition-colors rounded-r-lg active:scale-95"
-                      aria-label="Increase quantity"
-                    >
-                      <Plus size={16} />
-                    </button>
-                  </div>
-
-                  <motion.div whileTap={{ scale: 0.98 }} className="flex-1">
+                {/* Distributor CTA */}
+                <div className="mt-8">
+                  <motion.div whileTap={{ scale: 0.98 }} whileHover={{ scale: 1.01 }}>
                     <Button
                       size="lg"
-                      className="w-full gap-2 bg-[#25D366] hover:bg-[#22c55e] text-white font-semibold shadow-md hover:shadow-lg transition-all text-base"
-                      onClick={handleBuyNow}
+                      className="w-full gap-2 font-semibold shadow-md hover:shadow-lg transition-all text-base bg-primary text-primary-foreground hover:bg-primary/90"
+                      onClick={() => navigate("/dealer-inquiry")}
                     >
-                      <MessageCircle size={18} />
-                      Buy Now on WhatsApp
+                      <Handshake size={18} />
+                      Enquire for Distribution
                     </Button>
                   </motion.div>
+                  <p className="text-xs text-muted-foreground mt-3 text-center">
+                    Interested in stocking or reselling? Reach out for trade pricing and territories.
+                  </p>
                 </div>
               </div>
             </FadeIn>
