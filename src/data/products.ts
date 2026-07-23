@@ -35,7 +35,7 @@ export const products: Product[] = [
       "Ideal for cooking, frying & pickling",
     ],
     ingredients: "100% Pure Mustard Seeds (Brassica juncea)",
-    shelfLife: "12 months from packaging",
+    shelfLife: "6 months from packaging",
     storage: "Store in a cool, dry place away from direct sunlight",
   },
   {
@@ -54,7 +54,7 @@ export const products: Product[] = [
       "Same premium cold-pressed quality",
     ],
     ingredients: "100% Pure Mustard Seeds (Brassica juncea)",
-    shelfLife: "12 months from packaging",
+    shelfLife: "6 months from packaging",
     storage: "Store in a cool, dry place away from direct sunlight",
   },
   {
@@ -73,7 +73,7 @@ export const products: Product[] = [
       "Enhances flavour of every dish",
     ],
     ingredients: "100% Pure Mustard Seeds (Brassica juncea)",
-    shelfLife: "12 months from packaging",
+    shelfLife: "6 months from packaging",
     storage: "Store in a cool, dry place away from direct sunlight",
   },
   {
@@ -92,7 +92,7 @@ export const products: Product[] = [
       "Consistent quality in every drop",
     ],
     ingredients: "100% Pure Mustard Seeds (Brassica juncea)",
-    shelfLife: "18 months from packaging",
+    shelfLife: "6 months from packaging",
     storage: "Store in a cool, dry place. Keep lid tightly closed after use.",
   },
   {
@@ -111,7 +111,7 @@ export const products: Product[] = [
       "Trusted by caterers across India",
     ],
     ingredients: "100% Pure Mustard Seeds (Brassica juncea)",
-    shelfLife: "18 months from packaging",
+    shelfLife: "6 months from packaging",
     storage: "Store in a cool, dry place. Keep lid tightly closed after use.",
   },
 ];
