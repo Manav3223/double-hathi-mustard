@@ -23,6 +23,7 @@ const Index = () => {
         <AboutSection />
         <WhyChooseSection />
         <ProcessSection />
+        <QualitySection />
         <ProductsSection />
         <BenefitsSection />
         <CookingUses />
