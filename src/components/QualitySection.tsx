@@ -7,22 +7,16 @@ const certifications = [
     icon: ShieldCheck,
     title: "FSSAI Certified",
     badge: "License No. 10012013000260",
-    description:
-      "Licensed by the Food Safety and Standards Authority of India. Our facility meets strict standards for manufacturing, hygiene, storage and distribution.",
   },
   {
     icon: Award,
     title: "Agmark Grade A",
     badge: "Government of India",
-    description:
-      "Certified by the Directorate of Marketing & Inspection under the AGMARK scheme. A mark of purity, grade and quality trusted across Indian mandis.",
   },
   {
     icon: FileCheck,
     title: "Lab Tested Every Batch",
     badge: "In-House Quality Control",
-    description:
-      "Every batch is tested for moisture, acidity, purity and sensory parameters before it reaches the market. Consistency is a promise, not a chance.",
   },
 ];
 
@@ -36,16 +30,19 @@ const QualitySection = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <FadeIn className="text-center max-w-2xl mx-auto mb-16 md:mb-20">
+          <motion.img
+            src="/lovable-uploads/28b73be5-c0c9-4635-a301-cfa2d2c218e9.png"
+            alt="Double Hathi Logo"
+            className="w-24 h-24 md:w-28 md:h-28 object-contain mx-auto mb-6 drop-shadow-sm"
+            whileHover={{ scale: 1.05, rotate: 2 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          />
           <span className="text-primary font-semibold tracking-[0.2em] uppercase text-sm">
             Trusted Quality
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-5 text-foreground">
             Certifications That <span className="text-primary">Speak for Us</span>
           </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">
-            For over three decades, Double Hathi has met the highest standards of
-            purity, safety and quality. Our certifications are proof of our commitment.
-          </p>
         </FadeIn>
 
         {/* Certification cards */}
@@ -75,13 +72,9 @@ const QualitySection = () => {
                     </span>
                   </div>
 
-                  <h3 className="font-display text-xl md:text-2xl font-bold text-foreground mb-3">
+                  <h3 className="font-display text-xl md:text-2xl font-bold text-foreground">
                     {cert.title}
                   </h3>
-
-                  <p className="text-muted-foreground leading-relaxed text-base mt-auto">
-                    {cert.description}
-                  </p>
 
                   {/* Bottom accent line */}
                   <div className="mt-6 h-[3px] w-12 rounded-full bg-primary/30 group-hover:w-20 group-hover:bg-primary transition-all duration-500" />
