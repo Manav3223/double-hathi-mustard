@@ -7,22 +7,16 @@ const certifications = [
     icon: ShieldCheck,
     title: "FSSAI Certified",
     badge: "License No. 10012013000260",
-    description:
-      "Licensed by the Food Safety and Standards Authority of India. Our facility meets strict standards for manufacturing, hygiene, storage and distribution.",
   },
   {
     icon: Award,
     title: "Agmark Grade A",
     badge: "Government of India",
-    description:
-      "Certified by the Directorate of Marketing & Inspection under the AGMARK scheme. A mark of purity, grade and quality trusted across Indian mandis.",
   },
   {
     icon: FileCheck,
     title: "Lab Tested Every Batch",
     badge: "In-House Quality Control",
-    description:
-      "Every batch is tested for moisture, acidity, purity and sensory parameters before it reaches the market. Consistency is a promise, not a chance.",
   },
 ];
 
