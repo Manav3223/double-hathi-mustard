@@ -72,13 +72,9 @@ const QualitySection = () => {
                     </span>
                   </div>
 
-                  <h3 className="font-display text-xl md:text-2xl font-bold text-foreground mb-3">
+                  <h3 className="font-display text-xl md:text-2xl font-bold text-foreground">
                     {cert.title}
                   </h3>
-
-                  <p className="text-muted-foreground leading-relaxed text-base mt-auto">
-                    {cert.description}
-                  </p>
 
                   {/* Bottom accent line */}
                   <div className="mt-6 h-[3px] w-12 rounded-full bg-primary/30 group-hover:w-20 group-hover:bg-primary transition-all duration-500" />
