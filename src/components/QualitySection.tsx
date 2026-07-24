@@ -1,7 +1,8 @@
-import { Award, FileCheck } from "lucide-react";
+import { FileCheck } from "lucide-react";
 import { motion } from "framer-motion";
 import { FadeIn, StaggerContainer, StaggerItem, HoverScale } from "@/components/ui/motion-wrapper";
 import fssaiLogo from "@/assets/FSSAI-Logo.webp.asset.json";
+import agmarkLogo from "@/assets/agmark-vector-logo.webp.asset.json";
 
 const certifications = [
   {
@@ -11,7 +12,8 @@ const certifications = [
     badge: "License No. 10012013000260",
   },
   {
-    icon: Award,
+    image: agmarkLogo.url,
+    imageAlt: "Agmark Logo",
     title: "Agmark Grade A",
     badge: "Government of India",
   },
