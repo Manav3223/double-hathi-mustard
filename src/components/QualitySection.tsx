@@ -1,8 +1,8 @@
-import { FileCheck } from "lucide-react";
 import { motion } from "framer-motion";
 import { FadeIn, StaggerContainer, StaggerItem, HoverScale } from "@/components/ui/motion-wrapper";
 import fssaiLogo from "@/assets/FSSAI-Logo.webp.asset.json";
 import agmarkLogo from "@/assets/agmark-vector-logo.webp.asset.json";
+import labTestedLogo from "@/assets/lab-tested-logo.webp.asset.json";
 
 const certifications = [
   {
@@ -18,7 +18,8 @@ const certifications = [
     badge: "Government of India",
   },
   {
-    icon: FileCheck,
+    image: labTestedLogo.url,
+    imageAlt: "Lab Tested Logo",
     title: "Lab Tested Every Batch",
     badge: "In-House Quality Control",
   },
