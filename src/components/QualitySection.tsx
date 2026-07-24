@@ -14,7 +14,7 @@ const certifications = [
   {
     image: agmarkLogo.url,
     imageAlt: "Agmark Logo",
-    title: "Agmark Grade A",
+    title: "Agmark Grade 1",
     badge: "Government of India",
   },
   {
