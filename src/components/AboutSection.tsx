@@ -13,7 +13,7 @@ const timelineData = [
   {
     year: "2006",
     label: "Expansion",
-    name: "Late Mr. Baijnath Goel",
+    name: "Late Mr. Baijnath Goyal",
     suffix: "",
     description:
       "Expanded the business while upholding the same uncompromising standards of quality and trust. Under his leadership, Double Hathi strengthened its presence and built lasting relationships with farmers, distributors, and households.",
@@ -21,7 +21,7 @@ const timelineData = [
   {
     year: "Present",
     label: "Current Leadership",
-    name: "Mr. Ashish Goel",
+    name: "Mr. Ashish Goyal",
     suffix: "",
     description:
       "Continues to build on this strong foundation with a focus on growth, consistency, and modern practices. While the scale is expanding, the core values remain unchanged — purity, strength, and trust in every drop.",
