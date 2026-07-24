@@ -71,7 +71,7 @@ const QualitySection = () => {
                       <img
                         src={cert.image}
                         alt={cert.imageAlt}
-                        className="w-10 h-10 object-contain"
+                        className="w-full h-full object-contain p-1"
                       />
                     ) : (
                       <cert.icon className="w-8 h-8 text-primary-foreground" strokeWidth={2} />
