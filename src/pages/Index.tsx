@@ -25,7 +25,6 @@ const Index = () => {
         <QualitySection />
         <ProductsSection />
         <BenefitsSection />
-        <CookingUses />
         <FinalCTA />
         <ContactSection />
       </main>
