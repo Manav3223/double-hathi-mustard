@@ -1,8 +1,8 @@
-import { FileCheck } from "lucide-react";
 import { motion } from "framer-motion";
 import { FadeIn, StaggerContainer, StaggerItem, HoverScale } from "@/components/ui/motion-wrapper";
 import fssaiLogo from "@/assets/FSSAI-Logo.webp.asset.json";
 import agmarkLogo from "@/assets/agmark-vector-logo.webp.asset.json";
+import labTestedLogo from "@/assets/lab-tested-logo.webp.asset.json";
 
 const certifications = [
   {
@@ -18,7 +18,8 @@ const certifications = [
     badge: "Government of India",
   },
   {
-    icon: FileCheck,
+    image: labTestedLogo.url,
+    imageAlt: "Lab Tested Logo",
     title: "Lab Tested Every Batch",
     badge: "In-House Quality Control",
   },
@@ -67,15 +68,11 @@ const QualitySection = () => {
                     whileHover={{ rotate: 5, scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
-                    {cert.image ? (
-                      <img
-                        src={cert.image}
-                        alt={cert.imageAlt}
-                        className="w-full h-full object-contain p-1"
-                      />
-                    ) : (
-                      <cert.icon className="w-8 h-8 text-primary-foreground" strokeWidth={2} />
-                    )}
+                    <img
+                      src={cert.image}
+                      alt={cert.imageAlt}
+                      className="w-full h-full object-contain p-1"
+                    />
                   </motion.div>
 
                   <div className="mb-2">
