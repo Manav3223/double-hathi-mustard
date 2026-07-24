@@ -1,10 +1,12 @@
-import { ShieldCheck, Award, FileCheck } from "lucide-react";
+import { Award, FileCheck } from "lucide-react";
 import { motion } from "framer-motion";
 import { FadeIn, StaggerContainer, StaggerItem, HoverScale } from "@/components/ui/motion-wrapper";
+import fssaiLogo from "@/assets/FSSAI-Logo.webp.asset.json";
 
 const certifications = [
   {
-    icon: ShieldCheck,
+    image: fssaiLogo.url,
+    imageAlt: "FSSAI Logo",
     title: "FSSAI Certified",
     badge: "License No. 10012013000260",
   },
@@ -57,13 +59,21 @@ const QualitySection = () => {
                   {/* Shimmer sweep on hover */}
                   <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-primary/5 to-transparent pointer-events-none" />
 
-                  {/* Badge-style icon */}
+                  {/* Badge-style icon or image */}
                   <motion.div
                     className="w-16 h-16 rounded-2xl bg-gold-gradient flex items-center justify-center mb-6 shadow-soft shrink-0"
                     whileHover={{ rotate: 5, scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
-                    <cert.icon className="w-8 h-8 text-primary-foreground" strokeWidth={2} />
+                    {cert.image ? (
+                      <img
+                        src={cert.image}
+                        alt={cert.imageAlt}
+                        className="w-10 h-10 object-contain"
+                      />
+                    ) : (
+                      <cert.icon className="w-8 h-8 text-primary-foreground" strokeWidth={2} />
+                    )}
                   </motion.div>
 
                   <div className="mb-2">
