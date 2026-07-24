@@ -68,15 +68,11 @@ const QualitySection = () => {
                     whileHover={{ rotate: 5, scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
-                    {cert.image ? (
-                      <img
-                        src={cert.image}
-                        alt={cert.imageAlt}
-                        className="w-full h-full object-contain p-1"
-                      />
-                    ) : (
-                      <cert.icon className="w-8 h-8 text-primary-foreground" strokeWidth={2} />
-                    )}
+                    <img
+                      src={cert.image}
+                      alt={cert.imageAlt}
+                      className="w-full h-full object-contain p-1"
+                    />
                   </motion.div>
 
                   <div className="mb-2">
