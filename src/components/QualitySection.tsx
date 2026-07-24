@@ -38,7 +38,7 @@ const QualitySection = () => {
           <motion.img
             src="/lovable-uploads/28b73be5-c0c9-4635-a301-cfa2d2c218e9.png"
             alt="Double Hathi Logo"
-            className="w-24 h-24 md:w-28 md:h-28 object-contain mx-auto mb-6 drop-shadow-sm"
+            className="w-32 h-32 md:w-40 md:h-40 object-contain mx-auto mb-8 drop-shadow-sm"
             whileHover={{ scale: 1.05, rotate: 2 }}
             transition={{ type: "spring", stiffness: 300 }}
           />
@@ -53,40 +53,33 @@ const QualitySection = () => {
         {/* Certification cards */}
         <StaggerContainer
           staggerDelay={0.12}
-          className="grid md:grid-cols-3 gap-6 lg:gap-8"
+          className="grid md:grid-cols-3 gap-8 lg:gap-10"
         >
           {certifications.map((cert, index) => (
             <StaggerItem key={index} className="h-full">
               <HoverScale className="h-full">
-                <div className="h-full flex flex-col group bg-background rounded-2xl p-7 md:p-9 border border-border/60 shadow-card hover:shadow-xl transition-all duration-500 relative overflow-hidden">
+                <div className="h-full flex flex-col items-center text-center group bg-background rounded-2xl p-8 md:p-10 border border-border/60 shadow-card hover:shadow-xl transition-all duration-500 relative overflow-hidden">
                   {/* Shimmer sweep on hover */}
                   <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-primary/5 to-transparent pointer-events-none" />
 
-                  {/* Badge-style icon or image */}
-                  <motion.div
-                    className="w-16 h-16 rounded-2xl bg-gold-gradient flex items-center justify-center mb-6 shadow-soft shrink-0"
-                    whileHover={{ rotate: 5, scale: 1.05 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
+                  {/* Logo */}
+                  <div className="w-28 h-28 md:w-36 md:h-36 flex items-center justify-center shrink-0 mb-8">
                     <img
                       src={cert.image}
                       alt={cert.imageAlt}
-                      className="w-full h-full object-contain p-1"
+                      className="w-full h-full object-contain p-2"
                     />
-                  </motion.div>
+                  </div>
 
-                  <div className="mb-2">
+                  <h3 className="font-display text-xl md:text-2xl font-bold text-foreground leading-tight">
+                    {cert.title}
+                  </h3>
+
+                  <div className="mt-3">
                     <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-wide uppercase">
                       {cert.badge}
                     </span>
                   </div>
-
-                  <h3 className="font-display text-xl md:text-2xl font-bold text-foreground">
-                    {cert.title}
-                  </h3>
-
-                  {/* Bottom accent line */}
-                  <div className="mt-6 h-[3px] w-12 rounded-full bg-primary/30 group-hover:w-20 group-hover:bg-primary transition-all duration-500" />
                 </div>
               </HoverScale>
             </StaggerItem>
