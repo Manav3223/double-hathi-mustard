@@ -20,7 +20,7 @@ const steps = [
     step: "02",
     title: "Cleaning & Grading",
     description: "Every seed meticulously cleaned and graded for absolute purity.",
-    image: step2Img,
+    image: step2Asset.url,
   },
   {
     icon: Droplets,
