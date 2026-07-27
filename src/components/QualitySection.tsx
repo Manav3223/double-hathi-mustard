@@ -21,7 +21,7 @@ const certifications = [
     image: labTestedLogo.url,
     imageAlt: "Lab Tested Logo",
     title: "Lab Tested",
-    badge: "In-House Quality Control",
+    badge: "THIRD-PARTY LAB TESTED",
   },
 ];
 
