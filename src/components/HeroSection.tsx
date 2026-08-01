@@ -1,9 +1,8 @@
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
 import heroVideo from "@/assets/hero-video.mp4";
-import pouch1L from "@/assets/mustard-oil-1l-pouch.png";
-import jar5L from "@/assets/mustard-oil-5l-jar.jpg";
-import bottle500 from "@/assets/mustard-oil-500ml-pouch.png";
+import pouch1L from "@/assets/hero-pouch-1l.png";
+import pouch500 from "@/assets/hero-pouch-500ml.png";
 import { ArrowDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
@@ -192,25 +191,20 @@ const HeroSection = () => {
 };
 
 const ProductStack = () => (
-  <div className="relative w-full max-w-[300px] sm:max-w-[360px] lg:max-w-[460px] mx-auto">
+  <div className="relative w-full max-w-[260px] sm:max-w-[300px] lg:max-w-[400px] mx-auto">
     {/* Depth: secondary pack behind */}
     <img
-      src={bottle500}
+      src={pouch500}
       alt="Double Hathi 500ml Kachi Ghani mustard oil pouch"
       loading="lazy"
-      className="absolute left-0 bottom-0 w-[42%] object-contain opacity-70 -rotate-6 drop-shadow-[0_18px_24px_rgba(0,0,0,0.45)]" />
-    <img
-      src={jar5L}
-      alt="Double Hathi 5 litre mustard oil jar"
-      loading="lazy"
-      className="absolute right-0 bottom-0 w-[40%] object-contain opacity-60 rotate-3 rounded-lg drop-shadow-[0_18px_24px_rgba(0,0,0,0.45)]" />
+      className="absolute -left-[18%] bottom-[6%] w-[62%] object-contain -rotate-[10deg] opacity-80 drop-shadow-[0_16px_22px_rgba(0,0,0,0.5)]" />
     {/* Primary: 1L pouch */}
     <img
       src={pouch1L}
       alt="Double Hathi 1 litre Pure Kachi Ghani mustard oil pouch"
-      className="relative z-10 w-full object-contain drop-shadow-[0_28px_36px_rgba(0,0,0,0.5)]" />
+      className="relative z-10 w-full object-contain drop-shadow-[0_26px_34px_rgba(0,0,0,0.55)]" />
     {/* Natural ground shadow */}
-    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-[70%] h-5 rounded-[50%] bg-foreground/50 blur-md" />
+    <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-[65%] h-4 rounded-[50%] bg-foreground/45 blur-md" />
   </div>
 );
 
