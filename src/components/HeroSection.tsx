@@ -2,13 +2,12 @@ import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
 import heroVideo from "@/assets/hero-video.mp4";
 import pouch1L from "@/assets/hero-pouch-1l.png";
-import pouch500 from "@/assets/hero-pouch-500ml.png";
 import { ArrowDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-const trustItems = ["35+ Years Legacy", "Kachi Ghani", "Lab Tested", "FSSAI & AGMARK"];
+const trustItems = ["35+ Years Legacy", "Traditional Kachi Ghani", "Lab Tested", "FSSAI & AGMARK"];
 
 const HeroSection = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
