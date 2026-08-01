@@ -1,10 +1,14 @@
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
 import heroVideo from "@/assets/hero-video.mp4";
+import pouch1L from "@/assets/hero-pouch-1l.png";
+import pouch500 from "@/assets/hero-pouch-500ml.png";
 import { ArrowDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
+
+const trustItems = ["35+ Years Legacy", "Kachi Ghani", "Lab Tested", "FSSAI & AGMARK"];
 
 const HeroSection = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
@@ -22,10 +26,8 @@ const HeroSection = () => {
     }
   }, [isMobile]);
 
-  const particleSizes = [2, 3, 1.5, 4, 2.5, 3.5, 1, 2, 3, 5];
-
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Video Background with Fallback Image */}
       <div className="absolute inset-0">
         <motion.div
@@ -71,182 +73,139 @@ const HeroSection = () => {
           </motion.video>
         }
 
-        {/* Overlays - reduced amber, stronger gradient for contrast */}
-        <div className="absolute inset-0 bg-amber-400/40 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-yellow-400/15 mix-blend-overlay" />
-        <div className="absolute inset-0 bg-gradient-to-b from-foreground/80 via-foreground/50 to-foreground/85" />
-      </div>
-
-      {/* Enhanced Floating Particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {particleSizes.map((size, i) =>
-        <motion.div
-          key={i}
-          className="absolute rounded-full"
-          style={{
-            width: size * 4,
-            height: size * 4,
-            background: `radial-gradient(circle, hsl(42 85% 55% / 0.6) 0%, hsl(42 85% 45% / 0) 70%)`,
-            boxShadow: `0 0 ${size * 6}px hsl(42 85% 50% / 0.3)`
-          }}
-          initial={{ x: Math.random() * 100 + "%", y: "110%", opacity: 0.4 }}
-          animate={{ y: "-10%", opacity: [0.2, 0.7, 0.2] }}
-          transition={{
-            duration: 7 + Math.random() * 5,
-            repeat: Infinity,
-            delay: i * 0.8,
-            ease: "linear"
-          }} />
-
-        )}
+        {/* Overlays — heritage green/gold, stronger left-side contrast for copy */}
+        <div className="absolute inset-0 bg-amber-400/25 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-r from-forest/95 via-foreground/70 to-foreground/55" />
+        <div className="absolute inset-0 bg-gradient-to-b from-foreground/70 via-transparent to-foreground/85" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 pt-20 text-center">
-        <div className="max-w-4xl mx-auto">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center gap-2 bg-cream/10 backdrop-blur-md border border-cream/20 rounded-full px-5 py-2.5 mb-8 my-[15px]">
-
-            <span className="w-2.5 h-2.5 rounded-full bg-mustard animate-pulse shadow-[0_0_10px_hsl(var(--mustard))]" />
-            <span className="text-cream/90 text-sm font-medium tracking-wide">Trusted Since 1989</span>
-          </motion.div>
-
-          {/* Main Heading with text shadows and shimmer */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-
-            <span className="text-shadow-hero text-shimmer inline-block text-[#f0d175]">
-              Double Hathi
-            </span>
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="block mt-2 text-mustard-light text-shadow-hero">
-
-              Pure Kachi Ghani
-            </motion.span>
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-              className="block text-2xl sm:text-3xl md:text-5xl lg:text-6xl mt-4 font-normal text-cream text-shadow-soft">
-
-              Mustard Oil
-            </motion.span>
-
-            {/* Decorative accent lines */}
+      <div className="relative z-10 container mx-auto px-4 pt-28 pb-16 md:pt-32 md:pb-20">
+        <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-12 items-center">
+          {/* Copy column */}
+          <div className="order-1 text-center lg:text-left max-w-2xl mx-auto lg:mx-0">
             <motion.div
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.8, delay: 0.85 }}
-              className="flex items-center justify-center gap-3 mt-6 mb-2">
-
-              <span className="h-px w-16 bg-gradient-to-r from-transparent to-mustard" />
-              <span className="w-2 h-2 rounded-full bg-mustard shadow-[0_0_8px_hsl(var(--mustard))]" />
-              <span className="h-px w-16 bg-gradient-to-l from-transparent to-mustard" />
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="flex items-center justify-center lg:justify-start gap-3 mb-5">
+              <span className="h-px w-8 bg-mustard/70" />
+              <span className="text-mustard text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase">
+                Trusted Since 1989
+              </span>
             </motion.div>
 
-            <motion.span
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.9 }}
-              className="block text-sm sm:text-lg md:text-2xl mt-4 font-bold text-mustard bg-mustard/10 backdrop-blur-sm rounded-full px-4 sm:px-6 py-2 inline-block border border-mustard/20 max-w-[95vw]">
+            <motion.h1
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="font-display font-bold leading-[1.05] mb-5">
+              <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-mustard-light text-shadow-hero">
+                Pure Kachi Ghani
+              </span>
+              <span className="block mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-cream text-shadow-soft">
+                Mustard Oil
+              </span>
+            </motion.h1>
 
-              "Sehat ka Mazboot Saathi - Shuddh Kachi Ghani"
-            </motion.span>
-          </motion.h1>
-
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1 }}
-            className="text-base md:text-xl lg:text-2xl text-cream/85 max-w-2xl mx-auto mb-10 md:mb-12 font-light leading-relaxed text-shadow-soft px-2">
-
-            Experience the authentic taste and purity of Kachi Ghani mustard oil,
-            crafted with traditional methods passed down through generations.
-          </motion.p>
-
-          {/* CTA Buttons with pulsing glow */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.1 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4">
-
-            <motion.a href="/dealer-inquiry" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="relative">
-              <span className="absolute inset-0 rounded-xl bg-mustard/40 blur-xl animate-pulse-glow" />
-              <Button variant="hero" size="xl" className="relative min-w-[180px] shadow-2xl">
-                Become a Distributor
-              </Button>
-            </motion.a>
-            <motion.a href="#products" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-              <Button variant="hero-outline" size="xl" className="min-w-[180px]">
-                Explore Our Range
-              </Button>
-            </motion.a>
-          </motion.div>
-
-          {/* Stats with glassmorphism */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 1.3 }}
-            className="grid grid-cols-3 gap-3 md:gap-8 mt-12 md:mt-20 max-w-3xl mx-auto">
-
-            {[
-            { value: "35+", label: "Years Legacy" },
-            { value: "100%", label: "Pure & Natural" },
-            { value: "2.5M+", label: "Happy Families" }].
-            map((stat, index) =>
+            {/* Product image — mobile order between headline and copy */}
             <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 1.4 + index * 0.1 }}
-              whileHover={{ scale: 1.05, boxShadow: "0 0 30px hsl(42 85% 45% / 0.25)" }}
-              className={`text-center p-4 md:p-6 rounded-2xl bg-cream/8 backdrop-blur-md border border-cream/15 transition-all duration-300 ${
-              index === 1 ? "border-x border-cream/25" : ""}`
-              }>
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="lg:hidden my-8">
+              <ProductStack />
+            </motion.div>
 
-                <p className="text-3xl md:text-5xl font-display font-bold text-mustard-light drop-shadow-lg text-shadow-hero">
-                  {stat.value}
-                </p>
-                <p className="text-cream/75 text-sm md:text-base mt-2 font-medium">
-                  {stat.label}
-                </p>
-              </motion.div>
-            )}
+            <motion.p
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.25 }}
+              className="text-base md:text-lg text-cream/90 leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0">
+              Authentic Kachi Ghani mustard oil crafted with traditional methods and generations of expertise.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.35 }}
+              className="text-sm md:text-base font-display italic text-mustard/90 mb-9">
+              “Sehat Ka Mazboot Saathi – Shuddh Kachi Ghani”
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4">
+              <a href="/dealer-inquiry">
+                <Button variant="hero" size="xl" className="w-full sm:w-auto min-w-[200px]">
+                  Become a Distributor
+                </Button>
+              </a>
+              <a href="#products">
+                <Button variant="hero-outline" size="xl" className="w-full sm:w-auto min-w-[180px]">
+                  Explore Our Range
+                </Button>
+              </a>
+            </motion.div>
+          </div>
+
+          {/* Product column (desktop) */}
+          <motion.div
+            initial={{ opacity: 0, y: 26 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.25, ease: "easeOut" }}
+            className="hidden lg:block order-2">
+            <ProductStack />
           </motion.div>
         </div>
 
-        {/* Scroll Indicator */}
+        {/* Trust row */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1.8 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2">
-
-          <motion.a
-            href="#about"
-            className="text-cream/60 hover:text-cream transition-colors block"
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}>
-
-            <ArrowDown size={32} strokeWidth={1.5} />
-          </motion.a>
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.55 }}
+          className="mt-12 md:mt-16 pt-6 border-t border-cream/15">
+          <ul className="grid grid-cols-2 md:grid-cols-4 gap-y-4 gap-x-6 text-center">
+            {trustItems.map((item) =>
+            <li key={item} className="text-cream/85 text-sm md:text-base font-medium tracking-wide">
+                {item}
+              </li>
+            )}
+          </ul>
         </motion.div>
       </div>
+
+      {/* Scroll Indicator */}
+      <motion.a
+        href="#about"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 1 }}
+        className="hidden md:block absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-cream/50 hover:text-cream transition-colors">
+        <ArrowDown size={26} strokeWidth={1.5} />
+      </motion.a>
     </section>);
 
 };
+
+const ProductStack = () => (
+  <div className="relative w-full max-w-[260px] sm:max-w-[300px] lg:max-w-[400px] mx-auto">
+    {/* Depth: secondary pack behind */}
+    <img
+      src={pouch500}
+      alt="Double Hathi 500ml Kachi Ghani mustard oil pouch"
+      loading="lazy"
+      className="absolute -left-[18%] bottom-[6%] w-[62%] object-contain -rotate-[10deg] opacity-80 drop-shadow-[0_16px_22px_rgba(0,0,0,0.5)]" />
+    {/* Primary: 1L pouch */}
+    <img
+      src={pouch1L}
+      alt="Double Hathi 1 litre Pure Kachi Ghani mustard oil pouch"
+      className="relative z-10 w-full object-contain drop-shadow-[0_26px_34px_rgba(0,0,0,0.55)]" />
+    {/* Natural ground shadow */}
+    <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-[65%] h-4 rounded-[50%] bg-foreground/45 blur-md" />
+  </div>
+);
 
 export default HeroSection;
