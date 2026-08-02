@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
 import heroVideo from "@/assets/hero-video.mp4";
-import pouch1L from "@/assets/mustard-oil-1l-pouch.png";
+import pouch1L from "@/assets/mustard-oil-1l-pouch-cutout.png";
 import { ArrowDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
