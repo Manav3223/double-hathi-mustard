@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
 import heroVideo from "@/assets/hero-video.mp4";
+import pouch1L from "@/assets/mustard-oil-1l-pouch.png";
 import { ArrowDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
@@ -101,9 +102,29 @@ const HeroSection = () => {
         )}
       </div>
 
+      {/* Real product — integrated lower-right of the scene (desktop) */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 1.2, ease: "easeOut" }}
+        className="hidden lg:block absolute z-[5] right-[4%] bottom-[6%] w-[22%] max-w-[300px] pointer-events-none">
+
+        {/* environmental warm light */}
+        <div className="absolute inset-x-[-10%] top-[-6%] bottom-[8%] bg-[radial-gradient(ellipse_at_50%_40%,hsl(42_85%_55%_/_0.18),transparent_70%)]" />
+        <img
+          src={pouch1L}
+          alt="Double Hathi Pure Kachi Ghani Mustard Oil 1 litre pouch"
+          width={600}
+          height={800}
+          className="relative w-full h-auto object-contain drop-shadow-[0_18px_28px_rgba(0,0,0,0.45)]" />
+
+        {/* contact shadow */}
+        <div className="absolute left-[10%] right-[10%] -bottom-1 h-4 rounded-[50%] bg-black/45 blur-[10px]" />
+      </motion.div>
+
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 pt-20 text-center">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto lg:pr-[18%]">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
