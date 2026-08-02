@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
 import heroVideo from "@/assets/hero-video.mp4";
-import pouch1L from "@/assets/mustard-oil-1l-pouch-cutout.png";
 import { ArrowDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
@@ -102,29 +101,9 @@ const HeroSection = () => {
         )}
       </div>
 
-      {/* Real product — integrated lower-right of the scene (desktop) */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 1.2, ease: "easeOut" }}
-        className="hidden lg:block absolute z-[5] right-[4%] bottom-[6%] w-[22%] max-w-[300px] pointer-events-none">
-
-        {/* environmental warm light */}
-        <div className="absolute inset-x-[-10%] top-[-6%] bottom-[8%] bg-[radial-gradient(ellipse_at_50%_40%,hsl(42_85%_55%_/_0.18),transparent_70%)]" />
-        <img
-          src={pouch1L}
-          alt="Double Hathi Pure Kachi Ghani Mustard Oil 1 litre pouch"
-          width={600}
-          height={800}
-          className="relative w-full h-auto object-contain drop-shadow-[0_18px_28px_rgba(0,0,0,0.45)]" />
-
-        {/* contact shadow */}
-        <div className="absolute left-[10%] right-[10%] -bottom-1 h-4 rounded-[50%] bg-black/45 blur-[10px]" />
-      </motion.div>
-
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 pt-20 text-center">
-        <div className="max-w-4xl mx-auto lg:pr-[18%]">
+        <div className="max-w-4xl mx-auto">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -192,37 +171,9 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 1 }}
             className="text-base md:text-xl lg:text-2xl text-cream/85 max-w-2xl mx-auto mb-10 md:mb-12 font-light leading-relaxed text-shadow-soft px-2">
 
-            Three generations of mustard oil expertise, delivering authentic Kachi Ghani
-            quality to distributors, wholesalers and trade partners.
+            Experience the authentic taste and purity of Kachi Ghani mustard oil,
+            crafted with traditional methods passed down through generations.
           </motion.p>
-
-          {/* B2B positioning line */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1.05 }}
-            className="text-mustard-light/90 text-[11px] sm:text-xs md:text-sm font-semibold tracking-[0.28em] uppercase -mt-6 mb-8 md:-mt-8 md:mb-10">
-
-            Distribution • Wholesale • Bulk Supply
-          </motion.p>
-
-          {/* Real product — mobile / tablet, naturally integrated */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.1 }}
-            className="lg:hidden relative w-[38%] max-w-[170px] mx-auto mb-8">
-
-            <div className="absolute inset-x-[-14%] top-[-8%] bottom-[6%] bg-[radial-gradient(ellipse_at_50%_40%,hsl(42_85%_55%_/_0.18),transparent_70%)]" />
-            <img
-              src={pouch1L}
-              alt="Double Hathi Pure Kachi Ghani Mustard Oil 1 litre pouch"
-              width={340}
-              height={450}
-              className="relative w-full h-auto object-contain drop-shadow-[0_12px_20px_rgba(0,0,0,0.45)]" />
-
-            <div className="absolute left-[12%] right-[12%] -bottom-1 h-3 rounded-[50%] bg-black/45 blur-[8px]" />
-          </motion.div>
 
           {/* CTA Buttons with pulsing glow */}
           <motion.div
@@ -239,7 +190,7 @@ const HeroSection = () => {
             </motion.a>
             <motion.a href="#products" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Button variant="hero-outline" size="xl" className="min-w-[180px]">
-                Wholesale &amp; Bulk Enquiry
+                Explore Our Range
               </Button>
             </motion.a>
           </motion.div>
@@ -249,24 +200,31 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.3 }}
-            className="mt-10 md:mt-14 max-w-3xl mx-auto">
+            className="grid grid-cols-3 gap-3 md:gap-8 mt-12 md:mt-20 max-w-3xl mx-auto">
 
-            <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-3 md:gap-x-8 rounded-2xl bg-cream/8 backdrop-blur-md border border-cream/15 px-5 py-4">
-              {[
-              "35+ Years Legacy",
-              "Traditional Kachi Ghani",
-              "Quality Tested",
-              "Multiple Pack Sizes"].
-              map((item, index) =>
-              <div key={item} className="flex items-center gap-2.5">
-                  {index > 0 && <span className="hidden md:block h-1 w-1 rounded-full bg-mustard/60 -ml-4" />}
-                  <span className="h-1.5 w-1.5 rounded-full bg-mustard shadow-[0_0_8px_hsl(var(--mustard))]" />
-                  <span className="text-cream/85 text-xs md:text-sm font-medium tracking-wide whitespace-nowrap">
-                    {item}
-                  </span>
-                </div>
-              )}
-            </div>
+            {[
+            { value: "35+", label: "Years Legacy" },
+            { value: "100%", label: "Pure & Natural" },
+            { value: "2.5M+", label: "Happy Families" }].
+            map((stat, index) =>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 1.4 + index * 0.1 }}
+              whileHover={{ scale: 1.05, boxShadow: "0 0 30px hsl(42 85% 45% / 0.25)" }}
+              className={`text-center p-4 md:p-6 rounded-2xl bg-cream/8 backdrop-blur-md border border-cream/15 transition-all duration-300 ${
+              index === 1 ? "border-x border-cream/25" : ""}`
+              }>
+
+                <p className="text-3xl md:text-5xl font-display font-bold text-mustard-light drop-shadow-lg text-shadow-hero">
+                  {stat.value}
+                </p>
+                <p className="text-cream/75 text-sm md:text-base mt-2 font-medium">
+                  {stat.label}
+                </p>
+              </motion.div>
+            )}
           </motion.div>
         </div>
 
